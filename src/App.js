@@ -26,7 +26,11 @@ function App() {
   return (
     <div className={` ${darkMode ? "dark bg-gray-800" : "bg-white"}`}>
       <div className="flex flex-col items-center justify-center h-screen">
-        <div className="containergrid grid-cols-2 gap-4 mx-auto p-4 bg-slate-100 rounded-md">
+        <div
+          className={`containergrid grid-cols-2 gap-4 mx-auto p-4 ${
+            darkMode ? "bg-gray-700 dark" : "bg-slate-100"
+          } rounded-md`}
+        >
           <ImageUpload className="" setImage={setImage} />
           <div className="flex items-center justify-center p-2">
             <ColorPicker setColor={setColor} />
