@@ -84,10 +84,10 @@ function App() {
       </div>
       <button
         onClick={toggleDarkMode}
-        className={`fixed bottom-0 left-0 p-2 m-2 ${
+        className={`fixed top-0 left-0 p-2 m-2 ${
           darkMode
             ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
-            : "bg-gradient-to-r from-white to-gray-500 hover:bg-gray-700"
+            : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"
         } text-white rounded-md`}
       >
         {darkMode ? <LightModeOutlinedIcon /> : <ModeNightOutlinedIcon />}
