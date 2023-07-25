@@ -73,14 +73,14 @@ function App() {
             className="block"
           >
             <p>
-              <strong>Powered By</strong>{" "}
+              <strong className="text-gray-500">Powered By</strong>{" "}
               <span className="text-sky-500">
                 Creative Minds Graphics (Pty) Ltd
               </span>
             </p>
           </a>
         </div>
-        <div className="fixed bottom-0 right-0 p-2 text-gray-900">v1.0.0</div>
+        <div className="fixed bottom-0 right-0 p-2 text-gray-500">v1.0.0</div>
       </div>
       <button
         onClick={toggleDarkMode}
