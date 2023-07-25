@@ -52,7 +52,7 @@ function App() {
           </button>
         </div>
       </div>
-      <div>
+      <div className="p-1">
         <p>
           <strong>Powerde By</strong> Creative Minds Graphics (Pty) Ltd
         </p>
