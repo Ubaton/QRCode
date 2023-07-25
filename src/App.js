@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef } from "react";
+import ImageUpload from "../src/ImageUpload/ImageUpload";
+import ColorPicker from "../src/ColorPicker/ColorPicker";
+import QRCodeGenerator from "../src/QRCodeGenerator/QRCodeGenerator";
+import html2canvas from "html2canvas";
+import { saveAs } from "file-saver";
 
 function App() {
+  const qrCodeRef = useRef(null);
+  const [image, setImage] = useState(null);
+  const [color, setColor] = useState("black");
+  const [url, setUrl] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <div className="containergrid grid-cols-2 gap-4 mx-auto p-4 bg-slate-100 rounded-md">
+        <ImageUpload className="" setImage={setImage} />
+        <div className="flex items-center justify-center p-2">
+          <ColorPicker setColor={setColor} />
+        </div>
+        <div className="flex items-center justify-center p-2">
+          <div
+            className="w-250 h-250 p-2 rounded-md overflow-hidden"
+            ref={qrCodeRef}
+          >
+            <QRCodeGenerator image={image} color={color} url={url} />
+          </div>
+        </div>
+
+        {/* Add input field for URL and button to trigger QR code generation */}
+        <div className="grid grid-cols-2 ">
+          <input
+            type="text"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder="Enter URL or text"
+            className="w-50% rounded-md p-2 m-2  border border-spacing-2 border-blue-500"
+          />
+          {/* Add button to generate the QR code */}
+          <button
+            onClick={async () => {
+              const canvas = await html2canvas(qrCodeRef.current);
+
+              // Convert the canvas to an image file and save it
+              canvas.toBlob((blob) => {
+                saveAs(blob, "qr_code.png");
+              });
+            }}
+            className="bg-blue-500 hover:bg-blue-600 text-white rounded-md p-2 m-2 "
+          >
+            Generate QR Code
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
