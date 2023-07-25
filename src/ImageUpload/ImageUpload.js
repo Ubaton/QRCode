@@ -62,7 +62,7 @@ function ImageUpload({ setImage, image }) {
   return (
     <div>
       <label className="grid grid-cols-2 gap-4 mb-4 text-slate-50 rounded-md p-2 pl-0">
-        <span className="flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600 p-2  rounded-md">
+        <span className="flex items-center justify-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600 p-2  rounded-md">
           Choose File{" "}
           <input
             type="file"

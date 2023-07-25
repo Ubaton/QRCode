@@ -46,16 +46,26 @@ function App() {
                 saveAs(blob, "qr_code.png");
               });
             }}
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600 text-white rounded-md p-2 m-2 "
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600 text-white rounded-md p-2 m-2"
           >
             Generate QR Code
           </button>
         </div>
       </div>
       <div className="p-1">
-        <p>
-          <strong>Powered By</strong> Creative Minds Graphics (Pty) Ltd
-        </p>
+        <a
+          href="https://www.facebook.com/CreativeMindsGraphic/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block"
+        >
+          <p>
+            <strong>Powered By</strong>{" "}
+            <span className="text-sky-500">
+              Creative Minds Graphics (Pty) Ltd
+            </span>
+          </p>
+        </a>
       </div>
     </div>
   );
