@@ -46,7 +46,7 @@ function App() {
                 saveAs(blob, "qr_code.png");
               });
             }}
-            className="bg-blue-500 hover:bg-blue-600 text-white rounded-md p-2 m-2 "
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600 text-white rounded-md p-2 m-2 "
           >
             Generate QR Code
           </button>

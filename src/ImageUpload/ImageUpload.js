@@ -61,18 +61,25 @@ function ImageUpload({ setImage, image }) {
 
   return (
     <div>
-      <label className="block mb-4 text-slate-50 rounded-md p-2 pl-0">
-        <span className="bg-blue-500 hover:bg-blue-600 p-2  rounded-md">
-          Choose File <span></span>
+      <label className="grid grid-cols-2 gap-4 mb-4 text-slate-50 rounded-md p-2 pl-0">
+        <span className="flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600 p-2  rounded-md">
+          Choose File{" "}
           <input
             type="file"
             accept="image/*"
             onChange={handleImageUpload}
             className="hidden"
           />
+        </span>{" "}
+        <span className="bg-none">
+          {fileName && (
+            <p className="flex items-center justify-center text-gray-600">
+              <span className="p-2">{fileName}</span>
+            </p>
+          )}
         </span>
       </label>
-      {fileName && <p className="text-gray-600">Selected file: {fileName}</p>}
+
       {loading ? (
         <div className="w-full rounded-lg bg-neutral-200 dark:bg-neutral-600">
           <div
