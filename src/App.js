@@ -54,7 +54,7 @@ function App() {
       </div>
       <div className="p-1">
         <p>
-          <strong>Powerde By</strong> Creative Minds Graphics (Pty) Ltd
+          <strong>Powered By</strong> Creative Minds Graphics (Pty) Ltd
         </p>
       </div>
     </div>
