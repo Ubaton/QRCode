@@ -52,6 +52,11 @@ function App() {
           </button>
         </div>
       </div>
+      <div>
+        <p>
+          <strong>Powerde By</strong> Creative Minds Graphics (Pty) Ltd
+        </p>
+      </div>
     </div>
   );
 }
