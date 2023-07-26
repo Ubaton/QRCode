@@ -14,7 +14,7 @@ function ColorPicker({ setColor }) {
   return (
     <div>
       <p className="mb-2 ">
-        <strong className="p-2">Select QR code color:</strong>
+        <strong className="p-2 text-gray-500">Select QR code color:</strong>
       </p>
       <div className="grid grid-cols-7 gap-1 ">
         {colors.map((color) => (
