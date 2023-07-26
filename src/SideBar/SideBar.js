@@ -47,7 +47,7 @@ function SideBar({ darkMode }) {
             >
               Home
             </NavLink>
-            <div className="border border-spacing-2 border-gray-200" />
+            <div className="border border-spacing-1 border-gray-200" />
             <NavLink
               to="/about"
               activeClassName="bg-blue-500 text-white"
@@ -55,7 +55,7 @@ function SideBar({ darkMode }) {
             >
               About
             </NavLink>
-            <div className="border border-spacing-2 border-gray-200" />
+            <div className="border border-spacing-1 border-gray-200" />
             <NavLink
               to="/contact"
               activeClassName="bg-blue-500 text-white"
@@ -63,7 +63,7 @@ function SideBar({ darkMode }) {
             >
               Contact
             </NavLink>
-            <div className="border border-spacing-2 border-gray-200" />
+            <div className="border border-spacing-1 border-gray-200" />
             {/* Add more navigation links as needed */}
           </nav>
         </div>
@@ -82,7 +82,7 @@ function SideBar({ darkMode }) {
         </button>
 
         {/* Footer */}
-        <div className="flex flex-col w-52 h-16 items-center justify-center fixed bottom-0 ml-4 mb-2 text-xs">
+        <div className="flex flex-col  w-50 h-16 items-center justify-center fixed bottom-0 ml-4 mb-2 text-xs">
           <a
             href="https://www.facebook.com/CreativeMindsGraphic/"
             target="_blank"
