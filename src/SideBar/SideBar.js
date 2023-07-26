@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../src/assets/images/cmg.svg";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 function SideBar({ darkMode }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -17,7 +18,7 @@ function SideBar({ darkMode }) {
         className={`h-[calc(105vh-2rem)] w-full max-w-[15rem] shadow-xl shadow-gray-900/6 ${
           showMobileMenu ? "block" : "hidden md:block"
         } md:block h-screen rounded-r-lg ${
-          darkMode ? " bg-DarkMode-cards" : "bg-slate-100"
+          darkMode ? "bg-DarkMode-cards" : "bg-slate-100"
         }`}
       >
         {/* Logo */}
@@ -70,25 +71,13 @@ function SideBar({ darkMode }) {
         {/* Hamburger Menu */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden fixed top-0 right-0 p-2 m-2 bg-gray-300 rounded-md"
+          className="md:hidden fixed top-0 right-0 p-2 m-2 bg-gray-500 rounded-md"
         >
           <span className="sr-only">Toggle Menu</span>
           {showMobileMenu ? (
-            <MenuIcon />
+            <CloseIcon className="text-white" />
           ) : (
-            <svg
-              className="h-6 w-6 text-gray-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
+            <MenuIcon className="text-white" />
           )}
         </button>
 

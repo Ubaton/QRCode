@@ -27,62 +27,66 @@ function App() {
   return (
     <div>
       <div
-        className={`flex  ${
+        className={`flex items-center justify-center  ${
           darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
         }`}
       >
-        <div className="grid grid-cols-2  items-center justify-center h-screen">
-          <SideBar darkMode={darkMode} />
-          <div
-            className={`containergrid grid-cols-2 gap-4 mx-auto p-4 ${
-              darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
-            } rounded-md`}
-          >
-            <ImageUpload className="" setImage={setImage} />
+        <div className=" items-center justify-center h-screen">
+          <div className="fixed left-0">
+            <SideBar darkMode={darkMode} />
+          </div>
+          <div className="p-5">
+            <div
+              className={`containergrid grid-cols-2 gap-4 mx-auto p-4 ${
+                darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
+              } rounded-md`}
+            >
+              <ImageUpload className="" setImage={setImage} />
 
-            <div className="flex items-center justify-center p-2">
-              <ColorPicker setColor={setColor} />
-            </div>
-            <div className="flex items-center justify-center p-2">
-              <div
-                className="w-250 h-250 p-2 rounded-md overflow-hidden"
-                ref={qrCodeRef}
-              >
-                <QRCodeGenerator image={image} color={color} url={url} />
+              <div className="flex items-center justify-center p-2">
+                <ColorPicker setColor={setColor} />
               </div>
-            </div>
+              <div className="flex items-center justify-center p-2">
+                <div
+                  className="w-250 h-250 p-2 rounded-md overflow-hidden"
+                  ref={qrCodeRef}
+                >
+                  <QRCodeGenerator image={image} color={color} url={url} />
+                </div>
+              </div>
 
-            {/* Add input field for URL and button to trigger QR code generation */}
-            <div className="grid grid-cols-2 ">
-              <input
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="Enter URL or text"
-                className="w-50% rounded-md p-2 m-2  border border-spacing-2 border-blue-500"
-              />
-              {/* Add button to generate the QR code */}
-              <button
-                onClick={async () => {
-                  const canvas = await html2canvas(qrCodeRef.current);
+              {/* Add input field for URL and button to trigger QR code generation */}
+              <div className="grid grid-cols-2 ">
+                <input
+                  type="text"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  placeholder="Enter URL or text"
+                  className="w-50% rounded-md p-2 m-2  border border-spacing-2 border-blue-500"
+                />
+                {/* Add button to generate the QR code */}
+                <button
+                  onClick={async () => {
+                    const canvas = await html2canvas(qrCodeRef.current);
 
-                  // Convert the canvas to an image file and save it
-                  canvas.toBlob((blob) => {
-                    saveAs(blob, "qr_code.png");
-                  });
-                }}
-                className="font-light bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600 text-white rounded-md p-2 m-2"
-              >
-                Generate QR Code
-              </button>
-            </div>
-            <div className="text-center">
-              <p>
-                <strong className="text-gray-500">Try Use</strong>{" "}
-                <span className="text-sky-500">
-                  Black Logo.png for Better Result
-                </span>
-              </p>
+                    // Convert the canvas to an image file and save it
+                    canvas.toBlob((blob) => {
+                      saveAs(blob, "qr_code.png");
+                    });
+                  }}
+                  className="font-light bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600 text-white rounded-md p-2 m-2"
+                >
+                  Generate QR Code
+                </button>
+              </div>
+              <div className="text-center">
+                <p>
+                  <strong className="text-gray-500">Try Use</strong>{" "}
+                  <span className="text-sky-500">
+                    Black Logo.png for Better Result
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
