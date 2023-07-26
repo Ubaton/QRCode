@@ -43,7 +43,7 @@ function SideBar({ darkMode }) {
               exact
               to="/"
               activeClassName="bg-blue-500 text-white"
-              className="block px-20 py-2 text-gray-500 hover:text-blue-500 hover:bg-gradient-to-r from-gray-100 to-gray-200 hover:bg-gray-200"
+              className="block px-20 py-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200 "
             >
               Home
             </NavLink>
@@ -51,7 +51,7 @@ function SideBar({ darkMode }) {
             <NavLink
               to="/about"
               activeClassName="bg-blue-500 text-white"
-              className="block px-20 py-2 text-gray-500 hover:text-blue-500 hover:bg-gradient-to-r from-gray-100 to-gray-200 hover:bg-gray-200"
+              className="block px-20 py-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200 "
             >
               About
             </NavLink>
@@ -59,7 +59,7 @@ function SideBar({ darkMode }) {
             <NavLink
               to="/contact"
               activeClassName="bg-blue-500 text-white"
-              className="block px-20 py-2 text-gray-500 hover:text-blue-500 hover:bg-gradient-to-r from-gray-100 to-gray-200 hover:bg-gray-200"
+              className="block px-20 py-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200 "
             >
               Contact
             </NavLink>
