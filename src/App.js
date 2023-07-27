@@ -25,7 +25,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className=" drop-shadow-2xl ">
       <div
         className={`flex items-center justify-center  ${
           darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
