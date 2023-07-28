@@ -15,7 +15,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
   const [url, setUrl] = useState("");
 
   return (
-    <div className="drop-shadow-2xl">
+    <div className="">
       <div
         className={`flex items-center justify-center ${
           darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
@@ -25,7 +25,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
           <div className="fixed left-0">
             <SideBar darkMode={darkMode} />
           </div>
-          <div className="p-5">
+          <div className="p-2">
             <div
               className={`containergrid grid-cols-2 gap-4 mx-auto p-4 ${
                 darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
@@ -82,7 +82,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
         </div>
         <button
           onClick={toggleDarkMode}
-          className={`fixed top-0 right-0 p-2 m-2 ${
+          className={`fixed top-0 right-0 p-2 m-2 sm:p-1 sm:m-1 ${
             darkMode
               ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
               : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"

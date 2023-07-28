@@ -1,5 +1,5 @@
-import { Button } from "@mui/material";
 import React, { useState } from "react";
+import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -47,11 +47,15 @@ const Card = ({ title, content }) => {
   );
 };
 
-const AboutPage = () => {
+const AboutPage = ({ darkMode }) => {
   const handleNavLinkClick = (page) => {};
 
   return (
-    <div>
+    <div
+      className={`flex items-center justify-center ${
+        darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
+      }`}
+    >
       <div className="p-8 ">
         <Button>
           <NavLink
