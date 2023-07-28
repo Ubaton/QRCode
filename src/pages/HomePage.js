@@ -27,7 +27,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
           </div>
           <div className="p-2">
             <div
-              className={`containergrid grid-cols-2 gap-4 mx-auto p-4 ${
+              className={`containergrid shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
                 darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
               } rounded-md`}
             >

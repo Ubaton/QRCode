@@ -63,24 +63,24 @@ const AboutPage = ({ darkMode }) => {
             exact
             to="/"
             activeClassName="bg-blue-500 text-white"
-            className="block  rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
+            className="  rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
           >
             <ArrowBackIcon />
           </NavLink>
         </Button>
-        <div className="justify-center items-center p-6 mt-5">
+        <div className="justify-center items-center  mt-5">
           <h1 className=" flex justify-center items-center">
             <strong className="text-xl">About Us</strong>
           </h1>
-          <p className=" text-center ">
+          <p className=" text-center p-4 ">
             Welcome to Creative Minds Graphics (Pty) Ltd, your gateway to
             innovative and visually captivating design solutions. We are a
             dynamic team of passionate artists, web developers, and brand
             strategists, dedicated to helping businesses and individuals bring
             their creative visions to life.
           </p>
-          <div className="flex justify-center items-center p-12 pb-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex justify-center items-center p-2 pb-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {cardData.map((card, index) => (
                 <Card key={index} title={card.title} content={card.content} />
               ))}
@@ -89,7 +89,7 @@ const AboutPage = ({ darkMode }) => {
           <h1 className=" flex justify-center items-center pt-2">
             <strong className="text-xl">Why Choose Us</strong>
           </h1>
-          <p className=" text-center ">
+          <p className=" text-center p-4 ">
             Creativity at its Best: Our team of talented designers and artists
             have an innate ability to transform ideas into visually stunning
             masterpieces that make an impact. Strategic Approach: We blend
