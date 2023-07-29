@@ -8,6 +8,7 @@ import { saveAs } from "file-saver";
 import ModeNightOutlinedIcon from "@mui/icons-material/ModeNightOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import SideBar from "../components/SideBar/SideBar";
+
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
   const [image, setImage] = useState(null);
@@ -25,20 +26,20 @@ function HomePage({ darkMode, toggleDarkMode }) {
           <div className="fixed left-0">
             <SideBar darkMode={darkMode} />
           </div>
-          <div className="p-2">
+          <div className="p-2 pt-12">
             <div
-              className={`containergrid shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
+              className={`containergrid mr-1 shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
                 darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
               } rounded-md`}
             >
               <ImageUpload className="" setImage={setImage} />
 
-              <div className="flex items-center justify-center p-2">
+              <div className="flex items-center justify-center p-1">
                 <ColorPicker setColor={setColor} />
               </div>
-              <div className="flex items-center justify-center p-2">
+              <div className="flex items-center justify-center ">
                 <div
-                  className="w-250 h-250 p-2 rounded-md overflow-hidden"
+                  className="w-250 h-250 p-1 rounded-md overflow-hidden"
                   ref={qrCodeRef}
                 >
                   <QRCodeGenerator image={image} color={color} url={url} />
@@ -82,7 +83,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
         </div>
         <button
           onClick={toggleDarkMode}
-          className={`fixed top-0 right-0 p-2 m-2 sm:p-1 sm:m-1 ${
+          className={`fixed top-0 right-0 p-2  sm:p-1 sm:m-1 ${
             darkMode
               ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
               : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"

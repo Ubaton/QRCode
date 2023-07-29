@@ -37,6 +37,14 @@ function SideBar({ darkMode }) {
 
   return (
     <div className="">
+      {/* Hamburger Menu */}
+      <button
+        onClick={toggleMobileMenu}
+        className="md:hidden fixed top-0 m-0 left-0 p-2 z-10  rounded-md"
+      >
+        <span className="sr-only">Toggle Menu</span>
+        {showMobileMenu ? <CloseIcon /> : <MenuIcon />}
+      </button>
       <div
         className={`h-[calc(105vh-2rem)] w-full max-w-[15rem] shadow-xl shadow-gray-900/6 ${
           showMobileMenu ? "block" : "hidden md:block"
@@ -124,15 +132,6 @@ function SideBar({ darkMode }) {
             )}
           </nav>
         </div>
-
-        {/* Hamburger Menu */}
-        <button
-          onClick={toggleMobileMenu}
-          className="md:hidden fixed top-0 right-0 p-2 m-2 bg-gray-300 rounded-md"
-        >
-          <span className="sr-only">Toggle Menu</span>
-          {showMobileMenu ? <MenuIcon /> : <CloseIcon />}
-        </button>
 
         {/* Footer */}
         <div className="flex flex-col w-52 h-16 items-center justify-center fixed bottom-0 ml-4 mb-2 text-xs">
