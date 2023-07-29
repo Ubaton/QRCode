@@ -22,7 +22,7 @@ function ContactPage({ darkMode }) {
           <ArrowBackIcon />
         </NavLink>
       </Button>
-      <div className="p-5 shadow-xl border-spacing-1 rounded-md m-8">
+      <div className="p-5 shadow-xl border rounded-md m-8">
         <div className="text-center p-8">
           <h1 className="text-3xl font-semibold mb-4">Contact Us</h1>
           <p className="mb-4">
