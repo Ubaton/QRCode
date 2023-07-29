@@ -3,10 +3,14 @@ import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { NavLink } from "react-router-dom";
 
-function ContactPage() {
+function ContactPage({ darkMode }) {
   const handleNavLinkClick = (page) => {};
   return (
-    <div>
+    <div
+      className={`h-screen items-center justify-center ${
+        darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
+      }`}
+    >
       <Button>
         <NavLink
           onClick={() => handleNavLinkClick("home")}

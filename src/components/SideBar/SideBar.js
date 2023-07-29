@@ -4,9 +4,9 @@ import Logo from "../../assets/images/cmg.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 //Page imports
-import AboutPage from "../../pages/AboutPage"; // Fixed import
-import ContactPage from "../../pages/ContactPage"; // Fixed import
-
+import AboutPage from "../../pages/AboutPage";
+import ContactPage from "../../pages/ContactPage";
+import FileConverter from "../../pages/utils/FileConvert";
 const settingsOptions = [
   { name: "File Convert", link: "/fileconvert", isNew: true },
   { name: "Compress Image", link: "/compressimage", isNew: true },
