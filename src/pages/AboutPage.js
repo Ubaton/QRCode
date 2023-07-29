@@ -56,7 +56,7 @@ const AboutPage = ({ darkMode }) => {
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
       }`}
     >
-      <div className="p-8 ">
+      <div className="p-8 text-gray-500 ">
         <Button>
           <NavLink
             onClick={() => handleNavLinkClick("home")}

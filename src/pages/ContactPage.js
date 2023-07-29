@@ -7,7 +7,7 @@ function ContactPage({ darkMode }) {
   const handleNavLinkClick = (page) => {};
   return (
     <div
-      className={`h-screen items-center justify-center ${
+      className={`h-screen text-gray-500 items-center justify-center ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
       }`}
     >

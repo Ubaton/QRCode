@@ -42,8 +42,9 @@ function SideBar({ darkMode }) {
         onClick={toggleMobileMenu}
         className="md:hidden fixed top-0 m-0 left-0 p-2 z-10  rounded-md"
       >
-        <span className="sr-only">Toggle Menu</span>
-        {showMobileMenu ? <CloseIcon /> : <MenuIcon />}
+        <span className="text-gray-500">
+          {showMobileMenu ? <CloseIcon /> : <MenuIcon />}
+        </span>
       </button>
       <div
         className={`h-[calc(105vh-2rem)] w-full max-w-[15rem] shadow-xl shadow-gray-900/6 ${
