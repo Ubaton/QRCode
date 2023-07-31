@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "../../assets/images/cmg.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import SettingsIcon from "@mui/icons-material/Settings"; // Import the Settings icon
+import SettingsIcon from "@mui/icons-material/Settings";
 //Page imports
 import AboutPage from "../../pages/AboutPage";
 import ContactPage from "../../pages/ContactPage";
@@ -20,7 +20,7 @@ function SideBar({ darkMode }) {
   const [currentPage, setCurrentPage] = useState("home");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
-  const [showSwitchSettingsMenu, setShowSwitchSettingsMenu] = useState(false); // Separate state for switch settings
+  const [showSwitchSettingsMenu, setShowSwitchSettingsMenu] = useState(false);
 
   // Function to handle navigation clicks and update the currentPage state
   const handleNavLinkClick = (page) => {

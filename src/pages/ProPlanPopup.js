@@ -23,8 +23,6 @@ function ProPlanPopup({ darkMode }) {
           } md:block flex items-center justify-center mt-2`}
         >
           <nav className="flex flex-col space-y-2 p-1 text-center">
-            {/* ... your existing navigation links */}
-            {/* Pro Plan button */}
             {settingsOptions.map((option) => (
               <Button
                 variant="contained"
