@@ -49,7 +49,11 @@ function ContactPage({ darkMode }) {
           <ArrowBackIcon />
         </NavLink>
       </Button>
-      <div className="p-5 shadow-xl rounded-md m-8">
+      <div
+        className={`p-5 shadow-xl rounded-md m-8 text-gray-500 ${
+          darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
+        }`}
+      >
         <div className="text-center p-8">
           <h1 className="text-3xl font-semibold mb-4">Contact Us</h1>
           <p className="mb-4">
@@ -58,7 +62,7 @@ function ContactPage({ darkMode }) {
             information below.
           </p>
           <form onSubmit={handleSubmit}>
-            <div className="flex flex-col space-y-2">
+            <div className="flex p-5 flex-col space-y-2">
               <input
                 type="text"
                 name="name"
@@ -86,10 +90,11 @@ function ContactPage({ darkMode }) {
                 required
               ></textarea>
             </div>
+
             <Button
               type="submit"
               variant="contained"
-              className="mt-4 pt-5 bg-blue-500 text-white"
+              className="mt-4 bg-blue-500 text-white"
             >
               Submit
             </Button>
