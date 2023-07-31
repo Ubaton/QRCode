@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { NavLink } from "react-router-dom";
+import emailjs from "emailjs-com";
 
 function ContactPage({ darkMode }) {
   const handleNavLinkClick = (page) => {};
@@ -22,14 +23,34 @@ function ContactPage({ darkMode }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your logic here to handle the form submission
-    console.log(formData);
-    // Clear the form fields after submission
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+
+    // Email JS parameters
+    const serviceId = "service_yc004e7";
+    const templateId = "template_2wgukvc";
+    const userId = "S08JiKSAzUq8Rb3KH";
+
+    // Prepare the data for sending the email
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    // Send the email using Email JS
+    emailjs
+      .send(serviceId, templateId, templateParams, userId)
+      .then((response) => {
+        console.log("Email sent successfully!", response);
+        // Clear the form fields after submission
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Failed to send email:", error);
+      });
   };
 
   return (
