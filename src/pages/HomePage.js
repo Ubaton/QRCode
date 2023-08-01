@@ -23,6 +23,17 @@ function HomePage({ darkMode, toggleDarkMode }) {
         }`}
       >
         <div className="items-center justify-center h-screen grid-cols-2">
+          <button
+            onClick={toggleDarkMode}
+            className={`fixed top-0 right-0 p-2  sm:p-1 sm:m-1 ${
+              darkMode
+                ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
+                : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"
+            } text-white rounded-md`}
+          >
+            {darkMode ? <LightModeOutlinedIcon /> : <ModeNightOutlinedIcon />}
+          </button>
+
           <div className="fixed left-0">
             <SideBar darkMode={darkMode} />
           </div>
@@ -83,16 +94,6 @@ function HomePage({ darkMode, toggleDarkMode }) {
             </div>
           </div>
         </div>
-        <button
-          onClick={toggleDarkMode}
-          className={`fixed top-0 right-0 p-2  sm:p-1 sm:m-1 ${
-            darkMode
-              ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
-              : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"
-          } text-white rounded-md`}
-        >
-          {darkMode ? <LightModeOutlinedIcon /> : <ModeNightOutlinedIcon />}
-        </button>
       </div>
     </div>
   );
