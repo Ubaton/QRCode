@@ -26,7 +26,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
           <div className="fixed left-0">
             <SideBar darkMode={darkMode} />
           </div>
-          <div className="p-6">
+          <div className="p-2 pt-2">
             <div
               className={`containergrid mr-1 shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
                 darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
