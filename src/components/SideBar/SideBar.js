@@ -4,11 +4,11 @@ import Logo from "../../assets/images/cmg.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { Button } from "@mui/material";
 //Page imports
 import AboutPage from "../../pages/AboutPage";
 import ContactPage from "../../pages/ContactPage";
 import ProPlanPopup from "../../pages/ProPlanPopup";
-import { Button } from "@mui/material";
 
 const settingsOptions = [
   { name: "File Convert", link: "/fileconvert", isNew: true },
@@ -196,7 +196,7 @@ function SideBar({ darkMode }) {
               Powered By<br></br>Creative Minds Graphics (Pty) Ltd
             </span>
           </a>
-          <div className="text-gray-500">v1.0.2</div>
+          <div className="text-gray-500">v1.0.3</div>
         </div>
       </div>
     </div>

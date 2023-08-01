@@ -4,6 +4,9 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "../src/pages/HomePage";
 import AboutPage from "../src/pages/AboutPage";
 import ContactPage from "../src/pages/ContactPage";
+import FileConvertPage from "../src/pages/utils/FileConvert";
+import CompressImagePage from "../src/pages/utils/CompressImage";
+import CompressVideoPage from "../src/pages/utils/CompressVideo";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -35,6 +38,33 @@ function App() {
         path="/"
         element={
           <HomePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/fileconvert"
+        element={
+          <FileConvertPage
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
+        }
+      />
+      <Route
+        path="/compressimage"
+        element={
+          <CompressImagePage
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
+        }
+      />
+      <Route
+        path="/compressvideo"
+        element={
+          <CompressVideoPage
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
         }
       />
     </Routes>
