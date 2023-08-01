@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { Button } from "@mui/material";
 
@@ -6,12 +6,34 @@ const settingsOptions = [{ isNew: true }];
 
 function ProPlanPopup({ darkMode }) {
   const [showProPlanPopup, setShowProPlanPopup] = useState(false);
-  const [showMobileMenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   // Function to toggle the "Pro Plan" popup
   const toggleProPlanPopup = () => {
     setShowProPlanPopup((prev) => !prev);
   };
+
+  // Function to check window size and set showMobileMenu state accordingly
+  const checkWindowSize = () => {
+    if (window.innerWidth < 768) {
+      setShowMobileMenu(true);
+    } else {
+      setShowMobileMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add event listener for window resize
+    window.addEventListener("resize", checkWindowSize);
+
+    // Call checkWindowSize initially to set the initial state
+    checkWindowSize();
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", checkWindowSize);
+    };
+  }, []);
 
   return (
     <div>
@@ -25,12 +47,12 @@ function ProPlanPopup({ darkMode }) {
           <nav className="flex flex-col space-y-2 p-1 text-center">
             {settingsOptions.map((option) => (
               <Button
+                key="pro-plan-button"
                 variant="contained"
                 onClick={toggleProPlanPopup}
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
               >
                 Pro Plan
-                {option.name}
                 {option.isNew && (
                   <span className="absolute top-0 right-0 inline-block whitespace-nowrap rounded-[0.27rem] bg-white px-[0.35em] pb-[0.15em] pt-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-gray-500">
                     <span>new</span>
