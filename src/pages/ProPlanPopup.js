@@ -36,13 +36,13 @@ function ProPlanPopup({ darkMode }) {
   }, []);
 
   return (
-    <div>
+    <div className="">
       {/* Pro Plan */}
-      <div className="">
+      <div>
         <div
           className={`${
             showMobileMenu ? "block" : "hidden md:block"
-          } md:block flex items-center justify-center mt-2`}
+          } md:block flex items-center justify-center mt-2 `}
         >
           <nav className="flex flex-col space-y-2 p-1 text-center">
             {settingsOptions.map((option) => (

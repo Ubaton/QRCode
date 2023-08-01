@@ -27,56 +27,58 @@ function HomePage({ darkMode, toggleDarkMode }) {
             <SideBar darkMode={darkMode} />
           </div>
           <div className="p-2 pt-12">
-            <div
-              className={`containergrid mr-1 shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
-                darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
-              } rounded-md`}
-            >
-              <ImageUpload className="" setImage={setImage} />
+            <div className="container mx-auto">
+              <div
+                className={`containergrid mr-1 shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
+                  darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
+                } rounded-md`}
+              >
+                <ImageUpload className="" setImage={setImage} />
 
-              <div className="flex items-center justify-center p-1">
-                <ColorPicker setColor={setColor} />
-              </div>
-              <div className="flex items-center justify-center ">
-                <div
-                  className="w-250 h-250 p-1 rounded-md overflow-hidden"
-                  ref={qrCodeRef}
-                >
-                  <QRCodeGenerator image={image} color={color} url={url} />
+                <div className="flex items-center justify-center p-1">
+                  <ColorPicker setColor={setColor} />
                 </div>
-              </div>
+                <div className="flex items-center justify-center ">
+                  <div
+                    className="w-250 h-250 p-1 rounded-md overflow-hidden"
+                    ref={qrCodeRef}
+                  >
+                    <QRCodeGenerator image={image} color={color} url={url} />
+                  </div>
+                </div>
 
-              {/* Add input field for URL and button to trigger QR code generation */}
-              <div className="grid grid-cols-2">
-                <input
-                  type="text"
-                  value={url}
-                  onChange={(e) => setUrl(e.target.value)}
-                  placeholder="Enter URL or text"
-                  className="w-50% rounded-md p-2 m-2 border border-spacing-2 border-blue-500"
-                />
-                {/* Add button to generate the QR code */}
-                <button
-                  onClick={async () => {
-                    const canvas = await html2canvas(qrCodeRef.current);
+                {/* Add input field for URL and button to trigger QR code generation */}
+                <div className="grid grid-cols-2">
+                  <input
+                    type="text"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                    placeholder="Enter URL or text"
+                    className="w-50% rounded-md p-2 m-2 border border-spacing-2 border-blue-500"
+                  />
+                  {/* Add button to generate the QR code */}
+                  <button
+                    onClick={async () => {
+                      const canvas = await html2canvas(qrCodeRef.current);
 
-                    // Convert the canvas to an image file and save it
-                    canvas.toBlob((blob) => {
-                      saveAs(blob, "qr_code.png");
-                    });
-                  }}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
-                >
-                  Generate QR Code
-                </button>
-              </div>
-              <div className="text-center">
-                <p>
-                  <strong className="text-gray-500">Try Use</strong>{" "}
-                  <span className="text-sky-500">
-                    Black Logo.png for Better Results
-                  </span>
-                </p>
+                      // Convert the canvas to an image file and save it
+                      canvas.toBlob((blob) => {
+                        saveAs(blob, "qr_code.png");
+                      });
+                    }}
+                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                  >
+                    Generate QR Code
+                  </button>
+                </div>
+                <div className="text-center">
+                  <p>
+                    <strong className="text-gray-500">Try Use</strong>{" "}
+                    <span className="text-sky-500">
+                      Black Logo.png for Better Results
+                    </span>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
