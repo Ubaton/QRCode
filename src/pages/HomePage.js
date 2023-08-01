@@ -26,7 +26,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
           <div className="fixed left-0">
             <SideBar darkMode={darkMode} />
           </div>
-          <div className="">
+          <div className="p-6">
             <div
               className={`containergrid mr-1 shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
                 darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
@@ -65,7 +65,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                       saveAs(blob, "qr_code.png");
                     });
                   }}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                 >
                   Generate QR Code
                 </button>
