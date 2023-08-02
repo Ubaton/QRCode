@@ -56,7 +56,7 @@ const AboutPage = ({ darkMode }) => {
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
       }`}
     >
-      <div className="p-8 text-gray-500 ">
+      <div className="fixed top-0 left-0">
         <Button>
           <NavLink
             onClick={() => handleNavLinkClick("home")}
@@ -68,6 +68,8 @@ const AboutPage = ({ darkMode }) => {
             <ArrowBackIcon />
           </NavLink>
         </Button>
+      </div>
+      <div className="p-8 text-gray-500 ">
         <div className="justify-center items-center  mt-5">
           <h1 className=" flex justify-center items-center">
             <strong className="text-xl">About Us</strong>
