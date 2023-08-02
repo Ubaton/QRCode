@@ -4,6 +4,8 @@ import MasterCard from "../../src/assets/icons/mastercard-32.png";
 import VISA from "../../src/assets/icons/visa-32.png";
 import PayPal from "../../src/assets/icons/paypal-32.png";
 import TextField from "@mui/material/TextField";
+import { NavLink } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 function PaymentMethod() {
   // State to store payment information
@@ -60,8 +62,24 @@ function PaymentMethod() {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+
+  const handleNavLinkClick = (page) => {};
+
   return (
     <div className="flex items-center justify-center h-screen">
+      <div className="fixed top-0 left-0">
+        <Button>
+          <NavLink
+            onClick={() => handleNavLinkClick("home")}
+            exact
+            to="/"
+            activeClassName="bg-blue-500 text-white"
+            className="  rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
+          >
+            <ArrowBackIcon />
+          </NavLink>
+        </Button>
+      </div>
       <div className="w-full md:w-auto m-4 md:m-32 p-4 bg-slate-100 rounded-md shadow-lg text-gray-500">
         <h2 className="text-2xl font-bold mb-4">Payment Method</h2>
 
