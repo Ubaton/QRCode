@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 const settingsOptions = [{ isNew: true }];
 
 function ProPlanPopup({ darkMode }) {
   const [showProPlanPopup, setShowProPlanPopup] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+
+  // Function to handle the button click with a loading delay
+  const handleButtonClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 10000);
+  };
 
   // Function to toggle the "Pro Plan" popup
   const toggleProPlanPopup = () => {
@@ -85,16 +95,31 @@ function ProPlanPopup({ darkMode }) {
                 <li>Feature 2: Priority customer support</li>
                 <li>Feature 3: Advanced analytics</li>
               </ul>
-              <p className="text-gray-500 mb-4">Price: R 75 per month</p>
+              <p className="text-gray-500 mb-4">
+                Price: <span className="text-green-500 font-bold">R 75</span>{" "}
+                per month
+              </p>
               <p className="text-gray-500">
                 Subscribe now to enjoy all the benefits of our Pro Plan!
               </p>
-              <Button
-                variant="contained"
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
-              >
-                Contniue
-              </Button>
+              <Link to="/paymentmethod">
+                <Button
+                  variant="contained"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                  onClick={handleButtonClick}
+                  disabled={isLoading} // Disable the button while loading
+                >
+                  {isLoading ? (
+                    <CircularProgress
+                      size={20}
+                      color="inherit"
+                      style={{ marginRight: "8px", color: "#4caf50" }} // Customize the color to green
+                    />
+                  ) : (
+                    "Continue"
+                  )}
+                </Button>
+              </Link>
             </div>
           </div>
         )}

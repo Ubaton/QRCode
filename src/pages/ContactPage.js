@@ -36,7 +36,7 @@ function ContactPage({ darkMode }) {
       message: formData.message,
     };
 
-    // Send the email using Email JS
+    // Sending the email using Email JS
     emailjs
       .send(serviceId, templateId, templateParams, userId)
       .then((response) => {

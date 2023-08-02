@@ -7,6 +7,7 @@ import ContactPage from "../src/pages/ContactPage";
 import FileConvertPage from "../src/pages/utils/FileConvert";
 import CompressImagePage from "../src/pages/utils/CompressImage";
 import CompressVideoPage from "../src/pages/utils/CompressVideo";
+import PaymentMethod from "../src/pages/PaymentMethod";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -65,6 +66,12 @@ function App() {
             darkMode={darkMode}
             toggleDarkMode={toggleDarkMode}
           />
+        }
+      />
+      <Route
+        path="/paymentmethod"
+        element={
+          <PaymentMethod darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         }
       />
     </Routes>

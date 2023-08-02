@@ -92,8 +92,6 @@ function SideBar({ darkMode }) {
           } md:block flex items-center justify-center mt-10`}
         >
           <nav className="flex flex-col space-y-2 p-1 text-center">
-            {/* ... your existing navigation links */}
-            {/* Pro Plan button */}
             <NavLink
               onClick={() => handleNavLinkClick("home")}
               exact
@@ -196,7 +194,7 @@ function SideBar({ darkMode }) {
               Powered By<br></br>Creative Minds Graphics (Pty) Ltd
             </span>
           </a>
-          <div className="text-gray-500">v1.0.3</div>
+          <div className="text-gray-500">v1.0.4</div>
         </div>
       </div>
     </div>

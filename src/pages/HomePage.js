@@ -39,6 +39,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
           </div>
           <div className="p-2 pt-12">
             <div className="container mx-auto">
+              {/* The Card Component */}
               <div
                 className={`containergrid mr-1 shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
                   darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
@@ -58,7 +59,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   </div>
                 </div>
 
-                {/* Add input field for URL and button to trigger QR code generation */}
+                {/* This is input field for URL and button to trigger QR code generation */}
                 <div className="grid grid-cols-2">
                   <input
                     type="text"
@@ -67,7 +68,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                     placeholder="Enter URL or text"
                     className="w-50% rounded-md p-2 m-2 border border-spacing-2 border-blue-500"
                   />
-                  {/* Add button to generate the QR code */}
+                  {/* This is button to generate the QR code */}
                   <button
                     onClick={async () => {
                       const canvas = await html2canvas(qrCodeRef.current);
@@ -91,6 +92,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   </p>
                 </div>
               </div>
+              {/* The Card Component */}
             </div>
           </div>
         </div>
