@@ -210,6 +210,11 @@ function PaymentMethod() {
                       onChange={handleEmailChange}
                       className="w-full border border-gray-300 rounded-md"
                     />
+                    <span className="font-sm font-xs font-thin  ">
+                      <p className="p-1 text-gray-500">
+                        Use you PayPal Email Only
+                      </p>
+                    </span>
                   </div>
                 )}
               </div>
