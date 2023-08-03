@@ -47,17 +47,17 @@ function FileConvertPage({ darkMode }) {
 
   return (
     <div
-      className={`flex items-center justify-center ${
+      className={`flex  items-center justify-center  ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
       }`}
     >
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
-      <div className="items-center text-gray-500 justify-center h-screen grid-cols-2 p-8">
-        <div className="flex items-center justify-center ">
+      <div className="items-center  text-gray-500 justify-center h-screen grid-cols-2 p-8">
+        <div className="flex pt-16 items-center justify-center ">
           <div
-            className={`w-96 h-96 p-4 rounded-md shadow-lg ${
+            className={`w-96 h-96 p-4  rounded-md shadow-lg ${
               darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
             }`}
           >
