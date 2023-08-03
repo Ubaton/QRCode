@@ -5,6 +5,9 @@ import { ToastContainer } from "react-toastify";
 import { Button } from "@mui/material";
 import { convertPdfToWord, convertWordToPdf } from "./Convert";
 import SideBar from "../../../components/SideBar/SideBar";
+import PDF from "../../../assets/icons/pdf-96.png";
+import WORD from "../../../assets/icons/word-96.png";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 function FileConvertPage({ darkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -83,23 +86,37 @@ function FileConvertPage({ darkMode }) {
               className="mb-4"
             />
 
-            <div className="flex gap-2">
-              <Button
-                disabled={!convertedFile}
-                variant="contained"
-                onClick={handlePdfToWord}
-                className="flex-1 text-gray-500 rounded-md"
-              >
-                PDF to Word
-              </Button>
-              <Button
-                disabled={!convertedFile}
-                variant="contained"
-                onClick={handleWordToPdf}
-                className="flex-1  text-gray-500 rounded-md"
-              >
-                Word to PDF
-              </Button>
+            <div className="flex items-center justify-center gap-2">
+              <div className="">
+                <Button
+                  disabled={!convertedFile}
+                  variant="contained"
+                  onClick={handlePdfToWord}
+                  className="flex-1 text-gray-500 rounded-md"
+                >
+                  PDF to Word
+                </Button>
+                <div className="grid grid-cols-3 pl-2">
+                  <img src={PDF} alt="PDF" width="32" height="32" />
+                  <ArrowRightAltIcon />
+                  <img src={WORD} alt="WORD" width="32" height="32" />
+                </div>
+              </div>
+              <div>
+                <Button
+                  disabled={!convertedFile}
+                  variant="contained"
+                  onClick={handleWordToPdf}
+                  className="flex-1  text-gray-500 rounded-md"
+                >
+                  Word to PDF
+                </Button>
+                <div className="grid grid-cols-3 pl-2">
+                  <img src={WORD} alt="WORD" width="32" height="32" />
+                  <ArrowRightAltIcon />
+                  <img src={PDF} alt="PDF" width="32" height="32" />
+                </div>
+              </div>
             </div>
 
             {convertedFile && (
@@ -133,7 +150,7 @@ function FileConvertPage({ darkMode }) {
                 Download Converted File
               </Button>
             </div>
-            <div className="flex items-center justify-center text-green-500 pt-16">
+            <div className="flex items-center justify-center text-green-500 pt-12">
               <h3 className="text-2xl font-bold mb-4">Coming Soon</h3>
             </div>
           </div>

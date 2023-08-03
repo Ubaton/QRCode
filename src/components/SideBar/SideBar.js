@@ -194,7 +194,7 @@ function SideBar({ darkMode }) {
               Powered By<br></br>Creative Minds Graphics (Pty) Ltd
             </span>
           </a>
-          <div className="text-gray-500">v1.0.4</div>
+          <div className="text-gray-500">v1.0.5</div>
         </div>
       </div>
     </div>
