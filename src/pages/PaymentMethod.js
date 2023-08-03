@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 import { NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-function PaymentMethod() {
+function PaymentMethod({ darkMode }) {
   // State to store payment information
   const [cardNumber, setCardNumber] = useState("");
   const [cardHolderName, setCardHolderName] = useState("");
@@ -66,7 +66,11 @@ function PaymentMethod() {
   const handleNavLinkClick = (page) => {};
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div
+      className={`flex items-center justify-center h-screen ${
+        darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
+      }`}
+    >
       <div className="fixed top-0 left-0">
         <Button>
           <NavLink
@@ -80,7 +84,11 @@ function PaymentMethod() {
           </NavLink>
         </Button>
       </div>
-      <div className="w-full md:w-auto m-4 md:m-32 p-4 bg-slate-100 rounded-md shadow-lg text-gray-500">
+      <div
+        className={`w-full md:w-auto m-4 md:m-32 p-4  rounded-md shadow-lg text-gray-500 ${
+          darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
+        }`}
+      >
         <h2 className="text-2xl font-bold mb-4">Payment Method</h2>
 
         <div className="grid md:grid-cols-2 gap-4 ">
@@ -93,7 +101,7 @@ function PaymentMethod() {
                 type="text"
                 value={cardNumber}
                 onChange={handleCardNumberChange}
-                className="w-full border border-gray-300 rounded-md"
+                className="w-full border border-gray-500 rounded-md"
               />
               {cardType && (
                 <p className="text-gray-500 mt-1">Card Type: {cardType}</p>
@@ -107,7 +115,7 @@ function PaymentMethod() {
                 type="text"
                 value={cardHolderName}
                 onChange={(e) => setCardHolderName(e.target.value)}
-                className="w-full  border border-gray-300 rounded-md"
+                className="w-full  border border-gray-500 rounded-md"
               />
             </div>
             <div className="p-4 pb-0">
@@ -119,7 +127,7 @@ function PaymentMethod() {
                 value={expiryDate}
                 onChange={(e) => setExpiryDate(e.target.value)}
                 placeholder=""
-                className="border border-gray-300 rounded-md"
+                className="border border-gray-500 rounded-md"
               />
             </div>
             <div className="p-4 pb-0">
@@ -131,7 +139,7 @@ function PaymentMethod() {
                 value={cvv}
                 onChange={(e) => setCvv(e.target.value)}
                 placeholder="***"
-                className="w-20 border border-gray-300 rounded-md"
+                className="w-20 border border-gray-500 rounded-md"
               />
             </div>
 
@@ -160,7 +168,7 @@ function PaymentMethod() {
                       value="PayPal"
                       checked={paymentMethod === "PayPal"}
                       onChange={(e) => setPaymentMethod(e.target.value)}
-                      className="form-radio h-3 w-3 text-blue-600"
+                      className="form-radio h-3 w-3 text-blue-600 outline-gray-500 "
                     />
                     <span className="flex gap-1 ml-2">
                       PayPal
@@ -234,7 +242,11 @@ function PaymentMethod() {
               </div>
             </div>
           </form>
-          <div className="bg-slate-200 rounded-md">
+          <div
+            className={`rounded-md ${
+              darkMode ? "dark bg-DarkMode-border" : "bg-slate-100"
+            }`}
+          >
             <h3 className="text-2xl mb-4 p-2">Payment Summary</h3>
             <div className="p-6">
               <h4 className="text-2xl mb-4">Pro Plan</h4>

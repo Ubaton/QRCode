@@ -1,7 +1,7 @@
 // App.js
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+
 import HomePage from "../src/pages/HomePage";
 import AboutPage from "../src/pages/AboutPage";
 import ContactPage from "../src/pages/ContactPage";
@@ -23,65 +23,59 @@ function App() {
   };
 
   return (
-    <>
-      <Routes>
-        <Route
-          path="/about"
-          element={
-            <AboutPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <ContactPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <HomePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          }
-        />
-        <Route
-          path="/fileconvert"
-          element={
-            <FileConvertPage
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-          }
-        />
-        <Route
-          path="/compressimage"
-          element={
-            <CompressImagePage
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-          }
-        />
-        <Route
-          path="/compressvideo"
-          element={
-            <CompressVideoPage
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-          }
-        />
-        <Route
-          path="/paymentmethod"
-          element={
-            <PaymentMethod
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-          }
-        />
-      </Routes>
-      <ToastContainer />
-    </>
+    <Routes>
+      <Route
+        path="/about"
+        element={
+          <AboutPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <ContactPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <HomePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/fileconvert"
+        element={
+          <FileConvertPage
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
+        }
+      />
+      <Route
+        path="/compressimage"
+        element={
+          <CompressImagePage
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
+        }
+      />
+      <Route
+        path="/compressvideo"
+        element={
+          <CompressVideoPage
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
+        }
+      />
+      <Route
+        path="/paymentmethod"
+        element={
+          <PaymentMethod darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+    </Routes>
   );
 }
 
