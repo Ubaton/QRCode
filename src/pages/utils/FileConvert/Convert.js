@@ -40,7 +40,7 @@ const convertWordToPdf = async (wordFile) => {
       method: "POST",
       body: formData,
       headers: {
-        Authorization: "884a393ee60fd3ec6cede030c0920e4d", // Replace with your Convertio API key
+        Authorization: "884a393ee60fd3ec6cede030c0920e4d", // Convertio API key
       },
     });
 
@@ -51,7 +51,7 @@ const convertWordToPdf = async (wordFile) => {
         `https://api.convertio.co/convert/${taskId}/status`,
         {
           headers: {
-            Authorization: "884a393ee60fd3ec6cede030c0920e4d", // Replace with your Convertio API key
+            Authorization: "884a393ee60fd3ec6cede030c0920e4d", // Convertio API key
           },
         }
       );
