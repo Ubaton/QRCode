@@ -211,7 +211,7 @@ function PaymentMethod() {
                       className="w-full border border-gray-300 rounded-md"
                     />
                     <span className="font-sm font-xs font-thin  ">
-                      <p className="p-1 text-gray-500">
+                      <p className="p-1 text-green-500">
                         Use you PayPal Email Only
                       </p>
                     </span>
