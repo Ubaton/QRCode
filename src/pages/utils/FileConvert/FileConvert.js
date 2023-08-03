@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import { convertPdfToWord, convertWordToPdf } from "./Convert";
 import SideBar from "../../../components/SideBar/SideBar";
 
@@ -12,8 +15,9 @@ function FileConvertPage({ darkMode }) {
   const handlePdfToWord = () => {
     if (selectedFile && selectedFile.type === "application/pdf") {
       convertPdfToWord(selectedFile);
+      toast.success("Converting PDF to Word...");
     } else {
-      alert("Please select a valid PDF file.");
+      toast.error("Please select a valid PDF file.");
     }
   };
 
@@ -24,8 +28,9 @@ function FileConvertPage({ darkMode }) {
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ) {
       convertWordToPdf(selectedFile);
+      toast.success("Converting Word to PDF...");
     } else {
-      alert("Please select a valid Word file.");
+      toast.error("Please select a valid Word file.");
     }
   };
 
@@ -38,9 +43,9 @@ function FileConvertPage({ darkMode }) {
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
-      <div className="items-center justify-center h-screen grid-cols-2 p-8">
+      <div className="items-center text-gray-500 justify-center h-screen grid-cols-2 p-8">
         <div className="flex items-center justify-center h-screen">
-          <div className="w-96 p-4 bg-gray-100 rounded-md shadow-lg">
+          <div className="w-96 h-96 p-4 bg-gray-100 rounded-md shadow-lg">
             <h2 className="text-2xl font-bold mb-4">File Converter</h2>
             <input type="file" onChange={handleFileChange} className="mb-4" />
 
@@ -61,6 +66,7 @@ function FileConvertPage({ darkMode }) {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
