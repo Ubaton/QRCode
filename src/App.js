@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "../src/pages/HomePage";
 import AboutPage from "../src/pages/AboutPage";
 import ContactPage from "../src/pages/ContactPage";
-import FileConvertPage from "../src/pages/utils/FileConvert";
+import FileConvertPage from "../src/pages/utils/FileConvert/FileConvert";
 import CompressImagePage from "../src/pages/utils/CompressImage";
 import CompressVideoPage from "../src/pages/utils/CompressVideo";
 import PaymentMethod from "../src/pages/PaymentMethod";
