@@ -74,13 +74,13 @@ function FileConvertPage({ darkMode }) {
       <div className="items-center  text-gray-500 justify-center h-screen grid-cols-2 p-8">
         <div className="flex pt-16 items-center justify-center ">
           <div
-            className={`w-96 h-96 p-4  rounded-md shadow-lg ${
+            className={`w-96 h-96 p-4 rounded-md shadow-lg ${
               darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
             }`}
           >
             <h2 className="text-2xl font-bold mb-4">File Converter</h2>
             <input
-              disabled={!convertedFile}
+              // disabled={!convertedFile}
               type="file"
               onChange={handleFileChange}
               className="mb-4"
@@ -89,14 +89,14 @@ function FileConvertPage({ darkMode }) {
             <div className="flex items-center justify-center gap-2">
               <div className="">
                 <Button
-                  disabled={!convertedFile}
+                  // disabled={!convertedFile}
                   variant="contained"
                   onClick={handlePdfToWord}
                   className="flex-1 text-gray-500 rounded-md"
                 >
-                  PDF to Word
+                  <p className="text-gray-300">PDF to Word</p>
                 </Button>
-                <div className="grid grid-cols-3 pl-2">
+                <div className="grid grid-cols-3 pl-2 p-1">
                   <img src={PDF} alt="PDF" width="32" height="32" />
                   <ArrowRightAltIcon />
                   <img src={WORD} alt="WORD" width="32" height="32" />
@@ -104,14 +104,14 @@ function FileConvertPage({ darkMode }) {
               </div>
               <div>
                 <Button
-                  disabled={!convertedFile}
+                  // disabled={!convertedFile}
                   variant="contained"
                   onClick={handleWordToPdf}
                   className="flex-1  text-gray-500 rounded-md"
                 >
-                  Word to PDF
+                  <p className="text-gray-300">Word to PDF</p>
                 </Button>
-                <div className="grid grid-cols-3 pl-2">
+                <div className="grid grid-cols-3 pl-2 p-1">
                   <img src={WORD} alt="WORD" width="32" height="32" />
                   <ArrowRightAltIcon />
                   <img src={PDF} alt="PDF" width="32" height="32" />
@@ -145,13 +145,10 @@ function FileConvertPage({ darkMode }) {
                 variant="contained"
                 onClick={handleDownloadConvertedFile}
                 className=" bg-green-500 hover:bg-green-600 text-gray-500 px-2 py-2 rounded-md"
-                disabled={!convertedFile}
+                // disabled={!convertedFile}
               >
-                Download Converted File
+                <p className="text-gray-300">Download Converted File</p>
               </Button>
-            </div>
-            <div className="flex items-center justify-center text-green-500 pt-12">
-              <h3 className="text-2xl font-bold mb-4">Coming Soon</h3>
             </div>
           </div>
         </div>

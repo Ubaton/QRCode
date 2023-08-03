@@ -42,15 +42,7 @@ function App() {
           <HomePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         }
       />
-      <Route
-        path="/fileconvert"
-        element={
-          <FileConvertPage
-            darkMode={darkMode}
-            toggleDarkMode={toggleDarkMode}
-          />
-        }
-      />
+
       <Route
         path="/compressimage"
         element={
@@ -73,6 +65,15 @@ function App() {
         path="/paymentmethod"
         element={
           <PaymentMethod darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/fileconvert"
+        element={
+          <FileConvertPage
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
         }
       />
     </Routes>

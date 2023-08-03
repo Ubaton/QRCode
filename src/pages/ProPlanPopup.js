@@ -77,7 +77,7 @@ function ProPlanPopup({ darkMode }) {
         {showProPlanPopup && (
           <div className="fixed top-0 left-0 w-full h-full bg-background-border bg-opacity-100 flex items-center justify-center">
             <div
-              className={`p-8 rounded-md shadow-lg relative text-gray-500 ${
+              className={`p-8 z-10 rounded-md shadow-lg relative text-gray-500 ${
                 darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
               }`}
             >
