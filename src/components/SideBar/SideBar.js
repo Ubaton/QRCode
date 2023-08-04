@@ -12,7 +12,7 @@ import ProPlanPopup from "../../pages/ProPlanPopup";
 
 const settingsOptions = [
   { name: "File Convert", link: "/fileconvert", isNew: false },
-  { name: "Compress Image", link: "/compressimage", isNew: true },
+  { name: "Compress Image", link: "/compressimage", isNew: false },
   { name: "Compress Video", link: "/compressvideo", isNew: true },
 ];
 
