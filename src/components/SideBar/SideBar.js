@@ -151,7 +151,7 @@ function SideBar({ darkMode }) {
         </div>
 
         {/* Settings Icon */}
-        <div className="fixed bottom-20 left-5">
+        <div className="fixed block bottom-20 left-6">
           <button
             onClick={toggleSettingsMenu}
             className="text-gray-500 hover:text-gray-700 focus:outline-none"

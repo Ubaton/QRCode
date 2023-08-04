@@ -97,8 +97,12 @@ function CompressImagePage({ darkMode }) {
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
-      <div className="flex items-center justify-center h-screen   pt-8">
-        <div className="py-8 bg-slate-200 rounded-md p-4">
+      <div className="flex items-center justify-center h-screen text-gray-500 pt-8">
+        <div
+          className={`py-4 rounded-md p-4 ${
+            darkMode ? "dark bg-DarkMode-cards" : "bg-slate-200"
+          }`}
+        >
           <h2 className="text-2xl font-bold mb-4">Image Compression</h2>
           <input type="file" onChange={handleImageChange} className="mb-4" />
 

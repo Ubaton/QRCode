@@ -8,12 +8,15 @@ import { saveAs } from "file-saver";
 import ModeNightOutlinedIcon from "@mui/icons-material/ModeNightOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import SideBar from "../components/SideBar/SideBar";
+import CoffeeIcon from "@mui/icons-material/Coffee";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
   const [image, setImage] = useState(null);
   const [color, setColor] = useState("black");
   const [url, setUrl] = useState("");
+  // Function to handle showing and hiding the "Buy Me Coffee" bubble
+  const [showBubble, setShowBubble] = useState(false);
 
   return (
     <div className="">
@@ -93,6 +96,23 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 </div>
               </div>
               {/* The Card Component */}
+            </div>
+          </div>
+
+          <div className="fixed bottom-4 right-4">
+            <div
+              className="relative"
+              onMouseEnter={() => setShowBubble(true)}
+              onMouseLeave={() => setShowBubble(false)}
+            >
+              <button className="text-gray-500 hover:text-amber-900 focus:outline-none pl-36">
+                <CoffeeIcon />
+              </button>
+              {showBubble && (
+                <div className="absolute bottom-[1.75rem] left-1/2 transform -translate-x-1/4 bg-amber-900 text-white px-2 py-1 rounded-md text-center text-sm">
+                  Buy Me Coffee
+                </div>
+              )}
             </div>
           </div>
         </div>
