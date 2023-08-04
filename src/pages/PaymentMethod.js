@@ -101,7 +101,9 @@ function PaymentMethod({ darkMode }) {
                 type="text"
                 value={cardNumber}
                 onChange={handleCardNumberChange}
-                className="w-full border border-gray-500 rounded-md"
+                className={` w-full border border-gray-500 rounded-md ${
+                  darkMode ? "dark bg-DarkMode-border" : "bg-slate-100"
+                }`}
               />
               {cardType && (
                 <p className="text-gray-500 mt-1">Card Type: {cardType}</p>
@@ -115,7 +117,9 @@ function PaymentMethod({ darkMode }) {
                 type="text"
                 value={cardHolderName}
                 onChange={(e) => setCardHolderName(e.target.value)}
-                className="w-full  border border-gray-500 rounded-md"
+                className={` w-full border border-gray-500 rounded-md ${
+                  darkMode ? "dark bg-DarkMode-border" : "bg-slate-100"
+                }`}
               />
             </div>
             <div className="p-4 pb-0">
@@ -127,7 +131,9 @@ function PaymentMethod({ darkMode }) {
                 value={expiryDate}
                 onChange={(e) => setExpiryDate(e.target.value)}
                 placeholder=""
-                className="border border-gray-500 rounded-md"
+                className={` w-full border border-gray-500 rounded-md  ${
+                  darkMode ? "dark bg-DarkMode-border" : "bg-slate-100"
+                }`}
               />
             </div>
             <div className="p-4 pb-0">
@@ -139,7 +145,9 @@ function PaymentMethod({ darkMode }) {
                 value={cvv}
                 onChange={(e) => setCvv(e.target.value)}
                 placeholder="***"
-                className="w-20 border border-gray-500 rounded-md"
+                className={` w-20 border border-gray-500 rounded-md ${
+                  darkMode ? "dark bg-DarkMode-border" : "bg-slate-100"
+                }`}
               />
             </div>
 
@@ -147,7 +155,7 @@ function PaymentMethod({ darkMode }) {
               <label className="block mb-1">Select Payment Method</label>
               <div className=" grid grid-cols-2 p-2 gap-4 text-sm">
                 <div>
-                  <label className="inline-flex items-center">
+                  <label className="inline-flex items-center text-gray-500">
                     <Radio
                       type="radio"
                       value="VISA Card"
@@ -216,7 +224,9 @@ function PaymentMethod({ darkMode }) {
                       type="email"
                       value={email}
                       onChange={handleEmailChange}
-                      className="w-full border border-gray-300 rounded-md"
+                      className={`w-full border border-gray-500 rounded-md ${
+                        darkMode ? "dark bg-DarkMode-border" : "bg-slate-100"
+                      }`}
                     />
                     <span className="font-sm font-xs font-thin  ">
                       <p className="p-1 text-green-500">
