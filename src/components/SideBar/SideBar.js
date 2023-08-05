@@ -166,14 +166,11 @@ function SideBar({ darkMode }) {
           </button>
           {showSettingsMenu && (
             <div
-              className={`absolute h-28 bottom-8 text-gray-500 border border-gray-100 border-spacing-1 left-0 mt-2 w-48 p-2 rounded-md shadow-lg items-center justify-center ${
+              className={`absolute h-38 bottom-8 text-gray-500 border border-gray-100 border-spacing-1 left-0 mt-2 w-48 p-2 rounded-md shadow-lg items-center justify-center ${
                 darkMode ? "dark bg-DarkMode-border" : "bg-slate-50"
               }`}
             >
               <div className="grid grid-flow-row items-left justify-left  ">
-                <Button variant="text">
-                  <p className="normal-case text-gray-500">Sign Up</p>
-                </Button>
                 <Button variant="text">
                   <p className="normal-case text-gray-500">Profile</p>
                 </Button>

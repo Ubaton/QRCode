@@ -9,6 +9,7 @@ import ModeNightOutlinedIcon from "@mui/icons-material/ModeNightOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import SideBar from "../components/SideBar/SideBar";
 import CoffeeIcon from "@mui/icons-material/Coffee";
+import { Button } from "@mui/material";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
@@ -26,16 +27,24 @@ function HomePage({ darkMode, toggleDarkMode }) {
         }`}
       >
         <div className="items-center justify-center h-screen grid-cols-2">
-          <button
-            onClick={toggleDarkMode}
-            className={`fixed top-0 right-0 p-2  sm:p-1 sm:m-1 ${
-              darkMode
-                ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
-                : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"
-            } text-white rounded-md`}
-          >
-            {darkMode ? <LightModeOutlinedIcon /> : <ModeNightOutlinedIcon />}
-          </button>
+          <div className="fixed top-0 right-0 p-2  sm:p-1 sm:m-1 space-x-4">
+            <Button variant="outlined">
+              <p className="normal-case text-gray-500">Login</p>
+            </Button>
+            <Button variant="outlined">
+              <p className="normal-case text-gray-500">Sign Up</p>
+            </Button>
+            <button
+              onClick={toggleDarkMode}
+              className={`p-[0.4em] ${
+                darkMode
+                  ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
+                  : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"
+              } text-white rounded-md`}
+            >
+              {darkMode ? <LightModeOutlinedIcon /> : <ModeNightOutlinedIcon />}
+            </button>
+          </div>
 
           <div className="fixed left-0">
             <SideBar darkMode={darkMode} />
