@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { Button } from "@mui/material";
 import { convertPdfToWord, convertWordToPdf } from "./Convert";
 import SideBar from "../../../components/SideBar/SideBar";
 import PDF from "../../../assets/icons/pdf-96.png";
@@ -88,14 +87,14 @@ function FileConvertPage({ darkMode }) {
 
             <div className="flex items-center justify-center gap-2">
               <div className="">
-                <Button
+                <button
                   // disabled={!convertedFile}
                   variant="contained"
                   onClick={handlePdfToWord}
-                  className="flex-1 text-gray-500 rounded-md"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                 >
                   <p className="text-gray-300">PDF to Word</p>
-                </Button>
+                </button>
                 <div className="grid grid-cols-3 pl-2 p-1">
                   <img src={PDF} alt="PDF" width="32" height="32" />
                   <ArrowRightAltIcon />
@@ -103,14 +102,14 @@ function FileConvertPage({ darkMode }) {
                 </div>
               </div>
               <div>
-                <Button
+                <button
                   // disabled={!convertedFile}
                   variant="contained"
                   onClick={handleWordToPdf}
-                  className="flex-1  text-gray-500 rounded-md"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                 >
                   <p className="text-gray-300">Word to PDF</p>
-                </Button>
+                </button>
                 <div className="grid grid-cols-3 pl-2 p-1">
                   <img src={WORD} alt="WORD" width="32" height="32" />
                   <ArrowRightAltIcon />
@@ -141,14 +140,14 @@ function FileConvertPage({ darkMode }) {
             )}
 
             <div className="flex items-center justify-center pt-16">
-              <Button
+              <button
                 variant="contained"
                 onClick={handleDownloadConvertedFile}
-                className=" bg-green-500 hover:bg-green-600 text-gray-500 px-2 py-2 rounded-md"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                 // disabled={!convertedFile}
               >
                 <p className="text-gray-300">Download Converted File</p>
-              </Button>
+              </button>
             </div>
           </div>
         </div>
