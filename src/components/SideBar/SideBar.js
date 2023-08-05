@@ -11,7 +11,7 @@ import ContactPage from "../../pages/ContactPage";
 import ProPlanPopup from "../../pages/ProPlanPopup";
 
 const settingsOptions = [
-  { name: "File Convert", link: "/fileconvert", isNew: false },
+  { nameC: "File Convert", link: "/fileconvert", isNewC: true },
   { name: "Compress Image", link: "/compressimage", isNew: false },
   { name: "Compress Video", link: "/compressvideo", isNew: true },
 ];
@@ -141,6 +141,12 @@ function SideBar({ darkMode }) {
                     {option.isNew && (
                       <span className="absolute top-0 right-0 inline-block whitespace-nowrap rounded-[0.27rem] bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.35em] pb-[0.15em] pt-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-gray-50">
                         <span>soon</span>
+                      </span>
+                    )}
+                    {option.nameC}
+                    {option.isNewC && (
+                      <span className="absolute top-0 right-0 inline-block whitespace-nowrap rounded-[0.27rem] bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.35em] pb-[0.15em] pt-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-gray-50">
+                        <span>Building</span>
                       </span>
                     )}
                   </NavLink>
