@@ -191,9 +191,9 @@ function SideBar({ darkMode }) {
             href="https://www.facebook.com/CreativeMindsGraphic/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block mb-2 text-gray-500 hover:text-sky-500"
+            className="block mb-2 text-gray-500 hover:text--500"
           >
-            <span className="flex text-gray-500 text-center justify-center m-1">
+            <span className="flex text-center justify-center m-1">
               Powered By<br></br>Creative Minds Graphics (Pty) Ltd
             </span>
           </a>

@@ -10,6 +10,7 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import SideBar from "../components/SideBar/SideBar";
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import { Button } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
@@ -28,9 +29,12 @@ function HomePage({ darkMode, toggleDarkMode }) {
       >
         <div className="items-center justify-center h-screen grid-cols-2">
           <div className="fixed top-0 right-0 p-2  sm:p-1 sm:m-1 space-x-4">
-            <Button variant="outlined">
-              <p className="normal-case text-gray-500">Login</p>
-            </Button>
+            <NavLink to="/login">
+              <Button variant="outlined">
+                <p className="normal-case text-gray-500">Login</p>
+              </Button>
+            </NavLink>
+
             <Button variant="outlined">
               <p className="normal-case text-gray-500">Sign Up</p>
             </Button>
@@ -57,7 +61,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
                 } rounded-md`}
               >
-                <ImageUpload className="" setImage={setImage} />
+                <ImageUpload setImage={setImage} />
 
                 <div className="flex items-center justify-center p-1">
                   <ColorPicker setColor={setColor} />

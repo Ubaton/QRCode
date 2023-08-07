@@ -9,6 +9,8 @@ import FileConvertPage from "../src/pages/utils/FileConvert/FileConvert";
 import CompressImagePage from "../src/pages/utils/CompressImage";
 import CompressVideoPage from "../src/pages/utils/CompressVideo";
 import PaymentMethod from "../src/pages/PaymentMethod";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -75,6 +77,15 @@ function App() {
             toggleDarkMode={toggleDarkMode}
           />
         }
+      />
+
+      <Route
+        path="/login"
+        element={<Login darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
+      />
+      <Route
+        path="/signup"
+        element={<SignUp darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
       />
     </Routes>
   );
