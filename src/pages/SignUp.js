@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { auth } from "../data/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../data/firebase";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Logo from "../assets/images/cmg.svg";
 
 const SignUp = () => {
@@ -19,11 +19,17 @@ const SignUp = () => {
     }
 
     try {
+      // Get the auth object from Firebase
+      const auth = getAuth();
+
       // Sign up with email and password using Firebase
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+          console.log("User created:", userCredential.user);
+        }
+      );
 
       // Redirect the user to the login page on successful signup
-      // Replace '/login' with your desired route
       window.location.href = "/login";
     } catch (error) {
       setError(error.message);
