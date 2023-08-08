@@ -171,9 +171,11 @@ function SideBar({ darkMode }) {
               }`}
             >
               <div className="grid grid-flow-row items-left justify-left  ">
-                <Button variant="text">
-                  <p className="normal-case text-gray-500">Profile</p>
-                </Button>
+                <NavLink to="/profilepage">
+                  <Button variant="text">
+                    <p className="normal-case text-gray-500">Profile</p>
+                  </Button>
+                </NavLink>
               </div>
             </div>
           )}

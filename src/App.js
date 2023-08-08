@@ -12,6 +12,7 @@ import PaymentMethod from "../src/pages/PaymentMethod";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import AuthDetails from "./data/AuthDetails";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -43,6 +44,12 @@ function App() {
         path="/"
         element={
           <HomePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/profilepage"
+        element={
+          <ProfilePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         }
       />
 
