@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../data/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import Logo from "../assets/images/cmg.svg";
 
 const SignUp = () => {
@@ -19,14 +20,10 @@ const SignUp = () => {
 
     try {
       // Sign up with email and password using Firebase
-      await auth
-        .createUserWithEmailAndPassword(auth, email, password)
-        .then((useCredential) => {
-          console.log(useCredential);
-        });
+      await createUserWithEmailAndPassword(auth, email, password);
 
-      // Redirect the user to the dashboard or another page on successful signup
-      // Replace '/dashboard' with your desired route
+      // Redirect the user to the login page on successful signup
+      // Replace '/login' with your desired route
       window.location.href = "/login";
     } catch (error) {
       setError(error.message);

@@ -11,6 +11,7 @@ import CompressVideoPage from "../src/pages/utils/CompressVideo";
 import PaymentMethod from "../src/pages/PaymentMethod";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import AuthDetails from "./data/AuthDetails";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -86,6 +87,12 @@ function App() {
       <Route
         path="/signup"
         element={<SignUp darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
+      />
+      <Route
+        path="/authdetails"
+        element={
+          <AuthDetails darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
       />
     </Routes>
   );
