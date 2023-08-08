@@ -35,9 +35,12 @@ function HomePage({ darkMode, toggleDarkMode }) {
               </Button>
             </NavLink>
 
-            <Button variant="outlined">
-              <p className="normal-case text-gray-500">Sign Up</p>
-            </Button>
+            <NavLink to="/signup">
+              <Button variant="outlined">
+                <p className="normal-case text-gray-500">Sign Up</p>
+              </Button>
+            </NavLink>
+
             <button
               onClick={toggleDarkMode}
               className={`p-[0.4em] ${
