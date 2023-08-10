@@ -24,7 +24,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
     <div className="">
       <div
         className={`flex items-center justify-center ${
-          darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
+          darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
         }`}
       >
         <div className="items-center justify-center h-screen grid-cols-2">
@@ -60,8 +60,8 @@ function HomePage({ darkMode, toggleDarkMode }) {
             <div className="container mx-auto">
               {/* The Card Component */}
               <div
-                className={`containergrid mr-1 shadow-md grid-cols-2 gap-4 mx-auto p-4 ${
-                  darkMode ? "bg-DarkMode-cards dark" : "bg-slate-200"
+                className={`containergrid mr-1 shadow-lg grid-cols-2 gap-4 mx-auto p-4 ${
+                  darkMode ? "bg-DarkMode-cards dark" : "bg-slate-100"
                 } rounded-md`}
               >
                 <ImageUpload setImage={setImage} />
