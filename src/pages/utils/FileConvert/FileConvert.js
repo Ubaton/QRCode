@@ -64,7 +64,7 @@ function FileConvertPage({ darkMode }) {
   return (
     <div
       className={`flex  items-center justify-center  ${
-        darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
+        darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
       <div className="fixed left-0">
@@ -74,7 +74,7 @@ function FileConvertPage({ darkMode }) {
         <div className="flex pt-16 items-center justify-center ">
           <div
             className={`w-96 h-96 p-4 rounded-md shadow-lg ${
-              darkMode ? "dark bg-DarkMode-cards" : "bg-slate-200"
+              darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
             }`}
           >
             <h2 className="text-2xl font-bold mb-4">File Converter</h2>

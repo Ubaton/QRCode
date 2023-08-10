@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 // import FFmpeg from "ffmpeg.js/ffmpeg-mp4";
 import SideBar from "../../components/SideBar/SideBar";
 
 function CompressVideoPage({ darkMode }) {
   // const [compressedFile, setCompressedFile] = useState(null);
   // const [isLoading, setIsLoading] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
+  // const handleFileChange = (event) => {
+  //   setSelectedFile(event.target.files[0]);
+  // };
 
   // const compressVideo = async () => {
   //   setIsLoading(true);
@@ -53,7 +53,7 @@ function CompressVideoPage({ darkMode }) {
   return (
     <div
       className={`flex h-screen items-center text-gray-500 justify-center ${
-        darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
+        darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
       <div className="fixed left-0">
@@ -61,7 +61,7 @@ function CompressVideoPage({ darkMode }) {
       </div>
 
       <div
-        className={`flex rounded-md items-center justify-center ${
+        className={`flex shadow-lg rounded-md items-center justify-center ${
           darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
         }`}
       >
@@ -72,7 +72,7 @@ function CompressVideoPage({ darkMode }) {
               <input
                 type="file"
                 accept="video/*"
-                onChange={handleFileChange}
+                // onChange={handleFileChange}
                 className="mb-2"
               />
               <button

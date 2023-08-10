@@ -90,16 +90,16 @@ function CompressImagePage({ darkMode }) {
   return (
     <div
       className={`flex items-center justify-center ${
-        darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
+        darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
-      <div className="flex items-center justify-center h-screen text-gray-500 pt-8">
+      <div className="flex  items-center justify-center h-screen text-gray-500 pt-8">
         <div
-          className={`py-4 rounded-md p-4 ${
-            darkMode ? "dark bg-DarkMode-cards" : "bg-slate-200"
+          className={`py-4 shadow-lg rounded-md p-4 ${
+            darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
           }`}
         >
           <h2 className="text-2xl font-bold mb-4">Image Compression</h2>
