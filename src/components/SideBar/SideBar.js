@@ -13,7 +13,7 @@ import ProPlanPopup from "../../pages/ProPlanPopup";
 const settingsOptions = [
   { nameC: "File Convert", link: "/fileconvert", isNewC: true },
   { name: "Compress Image", link: "/compressimage", isNew: false },
-  { name: "Compress Video", link: "/compressvideo", isNew: true },
+  { nameC: "Compress Video", link: "/compressvideo", isNewC: true },
 ];
 
 function SideBar({ darkMode }) {
@@ -73,10 +73,9 @@ function SideBar({ darkMode }) {
         <div className="flex items-center justify-center py-6">
           <img
             src={Logo}
-            alt="Creative Minds Graphics"
+            alt="Creative Minds Graphics (PTy) Ltd"
             width="157"
             height="29"
-            className=""
           />
         </div>
         {currentPage === "home" && <div></div>}
