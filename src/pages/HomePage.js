@@ -1,5 +1,5 @@
 // HomePage.js
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ImageUpload from "../components/ImageUpload/ImageUpload";
 import ColorPicker from "../components/ColorPicker/ColorPicker";
 import QRCodeGenerator from "../components/QRCodeGenerator/QRCodeGenerator";
@@ -11,14 +11,36 @@ import SideBar from "../components/SideBar/SideBar";
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { auth } from "../data/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { IoPersonCircleOutline } from "react-icons/io5";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
   const [image, setImage] = useState(null);
   const [color, setColor] = useState("black");
   const [url, setUrl] = useState("");
-  // Function to handle showing and hiding the "Buy Me Coffee" bubble
   const [showBubble, setShowBubble] = useState(false);
+  const [authUser, setAuthUser] = useState(null);
+  const [profilePictureUrl, setProfilePictureUrl] = useState("");
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+        setProfilePictureUrl(
+          `https://www.google.com/s2/photos/profile/${user.email}`
+        );
+      } else {
+        setAuthUser(null);
+        setProfilePictureUrl("");
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
 
   return (
     <div className="">
@@ -28,29 +50,51 @@ function HomePage({ darkMode, toggleDarkMode }) {
         }`}
       >
         <div className="items-center justify-center h-screen grid-cols-2">
-          <div className="fixed top-0 right-0 p-2  sm:p-1 sm:m-1 space-x-4">
-            <NavLink to="/login">
-              <Button variant="outlined">
-                <p className="normal-case text-gray-500">Login</p>
-              </Button>
-            </NavLink>
+          <div className="fixed top-0 right-0   sm:p-1 sm:m-1 space-x-4">
+            <div className="flex w-62 items-center justify-center gap-2">
+              {authUser ? (
+                <>
+                  {profilePictureUrl ? (
+                    <img
+                      src={profilePictureUrl}
+                      alt="Profile"
+                      className="w-8 h-8 rounded-full mr-2"
+                    />
+                  ) : (
+                    <IoPersonCircleOutline className="text-4xl text-gray-500 mr-2" />
+                  )}
+                </>
+              ) : (
+                <></>
+              )}
+              <NavLink to="/login" className="px-2">
+                <Button variant="outlined">
+                  <p className="normal-case text-gray-500">Login</p>
+                </Button>
+              </NavLink>
 
-            <NavLink to="/signup">
-              <Button variant="outlined">
-                <p className="normal-case text-gray-500">Sign Up</p>
-              </Button>
-            </NavLink>
-
-            <button
-              onClick={toggleDarkMode}
-              className={`p-[0.4em] ${
-                darkMode
-                  ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
-                  : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"
-              } text-white rounded-md`}
-            >
-              {darkMode ? <LightModeOutlinedIcon /> : <ModeNightOutlinedIcon />}
-            </button>
+              <NavLink to="/signup">
+                <Button variant="outlined">
+                  <p className="normal-case text-gray-500">Sign Up</p>
+                </Button>
+              </NavLink>
+              <div>
+                <button
+                  onClick={toggleDarkMode}
+                  className={`p-[0.4em]  ${
+                    darkMode
+                      ? "bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-blue-600"
+                      : "bg-gradient-to-r from-gray-200 to-gray-500 hover:bg-gray-700"
+                  } text-white rounded-md`}
+                >
+                  {darkMode ? (
+                    <LightModeOutlinedIcon />
+                  ) : (
+                    <ModeNightOutlinedIcon />
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="fixed left-0">
