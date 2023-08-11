@@ -86,14 +86,14 @@ function PaymentMethod({ darkMode }) {
         </Button>
       </div>
       <div
-        className={`w-full md:w-auto m-4 md:m-32 p-4  rounded-md shadow-lg text-gray-500 ${
+        className={`w-full p-3 md:w-auto m-4 md:m-32 rounded-md shadow-lg text-gray-500 ${
           darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
         }`}
       >
         <h2 className="text-2xl font-bold mb-4">Payment Method</h2>
 
         <div className="grid md:grid-cols-2 gap-4 ">
-          <form className="grid grid-cols-2 gap-2" onSubmit={handleSubmit}>
+          <form className="grid grid-cols-2 " onSubmit={handleSubmit}>
             <div className="p-4 pb-0">
               <TextField
                 id="outlined-basic"
@@ -152,9 +152,9 @@ function PaymentMethod({ darkMode }) {
               />
             </div>
 
-            <div className=" Select p-4 mb-4">
+            <div className="Select p-4 mb-4">
               <label className="block mb-1">Select Payment Method</label>
-              <div className=" grid grid-cols-2 p-2 gap-4 text-sm">
+              <div className=" grid md:grid-cols-2 p-2 gap-4 text-sm">
                 <div>
                   <label className="inline-flex items-center text-gray-500">
                     <Radio
