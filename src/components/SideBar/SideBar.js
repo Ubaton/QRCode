@@ -5,6 +5,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Button } from "@mui/material";
+import { auth } from "../../data/firebase";
+import { signOut } from "firebase/auth";
 //Page imports
 import AboutPage from "../../pages/AboutPage";
 import ContactPage from "../../pages/ContactPage";
@@ -49,6 +51,14 @@ function SideBar({ darkMode }) {
     if (showSettingsMenu) {
       setShowSettingsMenu(false);
     }
+  };
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Sign out successful");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -170,11 +180,20 @@ function SideBar({ darkMode }) {
               }`}
             >
               <div className="grid grid-flow-row items-left justify-left  ">
-                <NavLink to="/profilepage">
+                <NavLink
+                  to="/profilepage"
+                  className="flex items-center justify-center "
+                >
                   <Button variant="text">
-                    <p className="normal-case text-gray-500">Profile</p>
+                    <p className="normal-case px-14 text-gray-500">Profile</p>
                   </Button>
                 </NavLink>
+                <button
+                  onClick={handleSignOut}
+                  className="mt-4 w-full px-4 py-1.5 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300"
+                >
+                  Sign Out
+                </button>
               </div>
             </div>
           )}
