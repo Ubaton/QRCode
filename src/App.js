@@ -11,6 +11,8 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import AuthDetails from "./data/AuthDetails";
 import ProfilePage from "./pages/ProfilePage";
+import PrivacyPolicy from "./pages/utils/Use/PrivacyPolicy";
+import TermsOfUse from "./pages/utils/Use/TermsOfUse";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -97,6 +99,18 @@ function App() {
         path="/authdetails"
         element={
           <AuthDetails darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/privacy-policy"
+        element={
+          <PrivacyPolicy darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/terms-of-use"
+        element={
+          <TermsOfUse darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         }
       />
     </Routes>
