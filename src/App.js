@@ -1,7 +1,5 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-
 import HomePage from "../src/pages/HomePage";
 import AboutPage from "../src/pages/AboutPage";
 import ContactPage from "../src/pages/ContactPage";

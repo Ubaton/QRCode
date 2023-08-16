@@ -159,7 +159,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
             </div>
           </div>
 
-          <div className="fixed bottom-4 right-4">
+          <div className="fixed bottom-1 right-4">
             <div
               className="relative"
               onMouseEnter={() => setShowBubble(true)}
