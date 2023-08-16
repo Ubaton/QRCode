@@ -19,7 +19,11 @@ const cardData = [
     content:
       "Our diverse range of services includes website development, 3D digital art, photo editing, video editing, motion graphics, and strategic advertising. Whether you need a visually stunning website to showcase your brand or engaging motion graphics to tell your story, we have the expertise to bring your ideas to life.",
   },
-  // Add more card data as needed
+  {
+    title: "Our Vision",
+    content:
+      "At Creative Minds Graphics (Pty) Ltd, our vision is to redefine creativity and innovation. We strive to be a global leader in providing cutting-edge design and digital solutions that inspire and captivate. Through our unwavering commitment to excellence, creativity, and customer satisfaction, we aim to shape the future of visual communication and empower individuals and businesses to achieve their creative aspirations.",
+  },
 ];
 
 const Card = ({ title, content }) => {
