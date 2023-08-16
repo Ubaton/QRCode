@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { auth } from "../data/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Logo from "../assets/images/cmg.svg";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -90,6 +91,12 @@ const Login = () => {
               Log in
             </button>
           </div>
+          <p className="text-center">
+            Don't have an account?{" "}
+            <NavLink to="/signup">
+              <span className="text-blue-500">Sign Up</span>
+            </NavLink>
+          </p>
         </form>
       </div>
     </div>

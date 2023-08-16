@@ -42,6 +42,15 @@ function HomePage({ darkMode, toggleDarkMode }) {
     };
   }, []);
 
+  const generateQRCode = async () => {
+    const canvas = await html2canvas(qrCodeRef.current);
+
+    // Convert the canvas to an image file and save it
+    canvas.toBlob((blob) => {
+      saveAs(blob, "qr_code.png");
+    });
+  };
+
   return (
     <div className="">
       <div
@@ -131,21 +140,25 @@ function HomePage({ darkMode, toggleDarkMode }) {
                     placeholder="Enter URL or text"
                     className="w-50% rounded-md p-2 m-2 border border-spacing-2 border-blue-500"
                   />
-                  {/* This is button to generate the QR code */}
-                  <button
-                    onClick={async () => {
-                      const canvas = await html2canvas(qrCodeRef.current);
-
-                      // Convert the canvas to an image file and save it
-                      canvas.toBlob((blob) => {
-                        saveAs(blob, "qr_code.png");
-                      });
-                    }}
-                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
-                  >
-                    Generate QR Code
-                  </button>
+                  {/* Conditionally render the QR code generation button */}
+                  {authUser ? (
+                    <button
+                      onClick={generateQRCode}
+                      className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                    >
+                      Generate QR Code
+                    </button>
+                  ) : (
+                    <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2">
+                      <NavLink to="/signup">
+                        <p className="text-gray-50 text-center3">
+                          Create an Account
+                        </p>
+                      </NavLink>
+                    </button>
+                  )}
                 </div>
+
                 <div className="text-center">
                   <p>
                     <strong className="text-gray-500">Try Use</strong>{" "}
