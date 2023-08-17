@@ -71,11 +71,11 @@ function ContactPage({ darkMode }) {
         </NavLink>
       </Button>
       <div
-        className={`p-5 shadow-xl rounded-md m-8 text-gray-500 ${
+        className={`p-2 shadow-xl rounded-md m-4 text-gray-500 ${
           darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
         }`}
       >
-        <div className="text-center p-8">
+        <div className="text-center p-2">
           <h1 className="text-3xl font-semibold mb-4">Contact Us</h1>
           <p className="mb-4">
             We'd love to hear from you! If you have any questions or inquiries,
