@@ -25,7 +25,7 @@ function ContactPage({ darkMode }) {
     e.preventDefault();
 
     // Email JS parameters
-    const serviceId = "service_yc004e7";
+    const serviceId = "service_rl7zw8b";
     const templateId = "template_2wgukvc";
     const userId = "S08JiKSAzUq8Rb3KH";
 
