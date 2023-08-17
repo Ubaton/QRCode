@@ -1,4 +1,3 @@
-// HomePage.js
 import React, { useState, useEffect, useRef } from "react";
 import ImageUpload from "../components/ImageUpload/ImageUpload";
 import ColorPicker from "../components/ColorPicker/ColorPicker";
