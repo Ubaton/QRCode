@@ -190,7 +190,7 @@ function SideBar({ darkMode }) {
                 </NavLink>
                 <button
                   onClick={handleSignOut}
-                  className="mt-4 w-full px-4 py-1.5 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300"
+                  className="mt-2 px-3 py-1.5 bg-gradient-to-r from-red-400 to-red-600 text-white rounded-md hover:from-red-600 hover:to-red-400 focus:outline-none focus:ring focus:ring-red-300"
                 >
                   Sign Out
                 </button>

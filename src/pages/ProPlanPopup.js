@@ -105,9 +105,9 @@ function ProPlanPopup({ darkMode }) {
               <Link to="/paymentmethod">
                 <Button
                   variant="contained"
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-3 m-2"
                   onClick={handleButtonClick}
-                  disabled={isLoading} // Disable the button while loading
+                  disabled={isLoading}
                 >
                   {isLoading ? (
                     <CircularProgress

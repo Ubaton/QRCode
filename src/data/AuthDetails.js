@@ -44,7 +44,7 @@ const AuthDetails = () => {
               className="w-16 h-16 rounded-full m-4"
             />
           ) : (
-            <IoPersonCircleOutline className="text-4xl text-gray-500 m-4" />
+            <IoPersonCircleOutline className="text-4xl text-gray-800 m-4" />
           )}
           <p className="text-xl font-semibold">{`Signed In as ${authUser.email}`}</p>
           <button
