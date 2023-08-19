@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 function ColorPicker({ setColor }) {
   const colors = [
@@ -9,26 +11,89 @@ function ColorPicker({ setColor }) {
     { name: "yellow", hex: "#FFFF00" },
     { name: "purple", hex: "#800080" },
     { name: "orange", hex: "#FFA500" },
+    { name: "pink", hex: "#FFC0CB" },
+    { name: "brown", hex: "#A52A2A" },
+    { name: "teal", hex: "#008080" },
+    { name: "gold", hex: "#FFD700" },
+    { name: "silver", hex: "#C0C0C0" },
+    { name: "maroon", hex: "#800000" },
+    { name: "navy", hex: "#000080" },
+    { name: "gray", hex: "#808080" },
   ];
+  const colorPickerRef = useRef(null);
+
+  const handleScroll = (scrollOffset) => {
+    const scrollStep = 10;
+    const scrollTarget = colorPickerRef.current.scrollLeft + scrollOffset;
+    smoothScrollTo(colorPickerRef.current, scrollTarget, scrollStep);
+  };
+
+  const smoothScrollTo = (element, target, step) => {
+    let currentScroll = element.scrollLeft;
+    const scrollTowards = target > currentScroll ? 1 : -1;
+
+    const scrollInterval = setInterval(() => {
+      currentScroll += step * scrollTowards;
+
+      if (
+        (scrollTowards === 1 && currentScroll >= target) ||
+        (scrollTowards === -1 && currentScroll <= target)
+      ) {
+        clearInterval(scrollInterval);
+        currentScroll = target;
+      }
+
+      element.scrollLeft = currentScroll;
+    }, 10);
+  };
+
+  useEffect(() => {
+    const handleMouseWheel = (event) => {
+      event.preventDefault();
+      const scrollOffset = event.deltaY;
+      handleScroll(scrollOffset);
+    };
+
+    colorPickerRef.current.addEventListener("wheel", handleMouseWheel);
+
+    return () => {
+      colorPickerRef.current.removeEventListener("wheel", handleMouseWheel);
+    };
+  }, []);
 
   return (
     <div>
-      <p className="mb-2 ">
+      <p className="mb-2">
         <strong className="p-2 text-gray-500">Select QR code color:</strong>
       </p>
-      <div className="grid grid-cols-7 gap-1 ">
-        {colors.map((color) => (
-          <div
-            key={color.name}
-            className="w-8 h-8 m-2 rounded-md cursor-pointer"
-            style={{
-              backgroundColor: color.hex,
-              border: color.name === "white" ? "1px solid black" : "none",
-            }}
-            onClick={() => setColor(color.name)}
-          />
-        ))}
+      <div className="flex items-center">
+        <button className="px-1" onClick={() => handleScroll(-100)}>
+          <KeyboardArrowLeftIcon />
+        </button>
+        <div
+          ref={colorPickerRef}
+          className="flex overflow-x-hidden w-96"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          <div className="flex">
+            {colors.map((color) => (
+              <div
+                key={color.name}
+                className="w-8 h-8 m-2 rounded-md cursor-pointer"
+                style={{
+                  backgroundColor: color.hex,
+                  border: color.name === "white" ? "1px solid black" : "none",
+                }}
+                onClick={() => setColor(color.name)}
+              />
+            ))}
+          </div>
+        </div>
+        <button className="px-1" onClick={() => handleScroll(100)}>
+          <KeyboardArrowRightIcon />
+        </button>
       </div>
+      <div className="flex justify-center mt-2"></div>
     </div>
   );
 }
