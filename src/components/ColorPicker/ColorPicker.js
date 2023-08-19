@@ -69,7 +69,10 @@ function ColorPicker({ setColor }) {
         <strong className="p-2 text-gray-500">Select QR code color:</strong>
       </p>
       <div className="flex items-center">
-        <button className="px-1" onClick={() => handleScroll(-100)}>
+        <button
+          className="px-1 text-gray-500"
+          onClick={() => handleScroll(-100)}
+        >
           <KeyboardArrowLeftIcon />
         </button>
         <div
@@ -91,7 +94,10 @@ function ColorPicker({ setColor }) {
             ))}
           </div>
         </div>
-        <button className="px-1" onClick={() => handleScroll(100)}>
+        <button
+          className="px-1 text-gray-500"
+          onClick={() => handleScroll(100)}
+        >
           <KeyboardArrowRightIcon />
         </button>
       </div>
