@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
@@ -20,13 +20,14 @@ function ColorPicker({ setColor }) {
     { name: "navy", hex: "#000080" },
     { name: "gray", hex: "#808080" },
   ];
+
   const colorPickerRef = useRef(null);
 
-  const handleScroll = (scrollOffset) => {
+  const handleScroll = useCallback((scrollOffset) => {
     const scrollStep = 10;
     const scrollTarget = colorPickerRef.current.scrollLeft + scrollOffset;
     smoothScrollTo(colorPickerRef.current, scrollTarget, scrollStep);
-  };
+  }, []);
 
   const smoothScrollTo = (element, target, step) => {
     let currentScroll = element.scrollLeft;
@@ -48,18 +49,19 @@ function ColorPicker({ setColor }) {
   };
 
   useEffect(() => {
+    const refCurrent = colorPickerRef.current;
     const handleMouseWheel = (event) => {
       event.preventDefault();
       const scrollOffset = event.deltaY;
       handleScroll(scrollOffset);
     };
 
-    colorPickerRef.current.addEventListener("wheel", handleMouseWheel);
+    refCurrent.addEventListener("wheel", handleMouseWheel);
 
     return () => {
-      colorPickerRef.current.removeEventListener("wheel", handleMouseWheel);
+      refCurrent.removeEventListener("wheel", handleMouseWheel);
     };
-  }, []);
+  }, [handleScroll]);
 
   return (
     <div>
