@@ -74,7 +74,7 @@ function ColorPicker({ setColor }) {
         </button>
         <div
           ref={colorPickerRef}
-          className="flex overflow-x-hidden w-96"
+          className="flex overflow-x-hidden w-72"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           <div className="flex">
