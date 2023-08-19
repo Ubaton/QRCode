@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../data/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 const AuthDetails = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -66,13 +67,16 @@ const AuthDetails = () => {
           measure to ensure the confidentiality and protection of your data.
         </p>
         <p className="text-center">
-          <a href="/privacy-policy" className="text-gray-400 hover:underline">
+          <NavLink
+            to="/privacy-policy"
+            className="text-gray-400 hover:underline"
+          >
             Privacy Policy
-          </a>{" "}
+          </NavLink>{" "}
           &{" "}
-          <a href="/terms-of-use" className="text-gray-400 hover:underline">
+          <NavLink to="/terms-of-use" className="text-gray-400 hover:underline">
             Terms of Use
-          </a>
+          </NavLink>
         </p>
       </div>
     </div>
