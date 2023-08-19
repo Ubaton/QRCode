@@ -3,8 +3,10 @@ import { auth } from "../data/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const AuthDetails = () => {
+  const handleNavLinkClick = (page) => {};
   const [authUser, setAuthUser] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
 
@@ -36,6 +38,17 @@ const AuthDetails = () => {
 
   return (
     <div className="flex flex-col text-gray-500 items-center justify-center space-y-4">
+      <button className="fixed left-4 top-4">
+        <NavLink
+          onClick={() => handleNavLinkClick("home")}
+          exact
+          to="/"
+          activeClassName="bg-blue-500 text-white"
+          className="p-1 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
+        >
+          <ArrowBackIcon />
+        </NavLink>
+      </button>
       {authUser ? (
         <div className="flex flex-col items-center">
           {profilePictureUrl ? (

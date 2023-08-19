@@ -1,8 +1,23 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 function TermsOfUse() {
+  const handleNavLinkClick = (page) => {};
+
   return (
     <div className="container mx-auto p-4">
+      <button className="fixed left-4 top-4">
+        <NavLink
+          onClick={() => handleNavLinkClick("home")}
+          exact
+          to="/profilepage"
+          activeClassName="bg-blue-500 text-white"
+          className="p-1 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
+        >
+          <ArrowBackIcon />
+        </NavLink>
+      </button>
       <h1 className="text-2xl font-semibold mb-4">Terms of Use</h1>
       <hr></hr>
       <div className="p-6">
