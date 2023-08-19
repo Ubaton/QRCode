@@ -18,7 +18,7 @@ function TermsOfUse() {
           <ArrowBackIcon />
         </NavLink>
       </button>
-      <h1 className="text-2xl font-semibold mb-4">Terms of Use</h1>
+      <h1 className="text-2xl font-semibold mb-4 text-center">Terms of Use</h1>
       <hr></hr>
       <div className="p-6">
         <p>

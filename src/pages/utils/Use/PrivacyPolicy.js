@@ -18,7 +18,9 @@ function PrivacyPolicy() {
           <ArrowBackIcon />
         </NavLink>
       </button>
-      <h1 className="text-2xl font-semibold mb-4">Privacy Policy</h1>
+      <h1 className="text-2xl font-semibold mb-4 text-center">
+        Privacy Policy
+      </h1>
       <hr></hr>
       <div className="p-6">
         <p>
