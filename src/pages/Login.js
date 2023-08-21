@@ -3,11 +3,13 @@ import { auth } from "../data/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Logo from "../assets/images/cmg.svg";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ const Login = () => {
 
       // Redirect the user to the dashboard or another page on successful login
       // Replace '/dashboard' with your desired route
-      window.location.href = "/";
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }
