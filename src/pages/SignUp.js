@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Logo from "../assets/images/cmg.svg";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -31,7 +33,7 @@ const SignUp = () => {
       );
 
       // Redirect the user to the login page on successful signup
-      window.location.NavLink = "/login";
+      navigate("/login");
     } catch (error) {
       setError(error.message);
     }
