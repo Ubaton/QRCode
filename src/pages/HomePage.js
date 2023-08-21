@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import ImageUpload from "../components/ImageUpload/ImageUpload";
 import ColorPicker from "../components/ColorPicker/ColorPicker";
 import QRCodeGenerator from "../components/QRCodeGenerator/QRCodeGenerator";
+import qrCodeStyles from "../components/QRCodeGenerator/QRCodeStyles";
 import html2canvas from "html2canvas";
 import { saveAs } from "file-saver";
 import ModeNightOutlinedIcon from "@mui/icons-material/ModeNightOutlined";
@@ -22,6 +23,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
   const [showBubble, setShowBubble] = useState(false);
   const [authUser, setAuthUser] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
+  const [styleIndex, setStyleIndex] = useState(0);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -48,6 +50,14 @@ function HomePage({ darkMode, toggleDarkMode }) {
     canvas.toBlob((blob) => {
       saveAs(blob, "qr_code.png");
     });
+  };
+
+  const handleStyleChange = (event) => {
+    const newIndex = parseInt(event.target.value);
+
+    if (!isNaN(newIndex) && newIndex >= 0 && newIndex < qrCodeStyles.length) {
+      setStyleIndex(newIndex);
+    }
   };
 
   return (
@@ -126,7 +136,27 @@ function HomePage({ darkMode, toggleDarkMode }) {
                     className="w-250 h-250 p-1 rounded-md overflow-hidden"
                     ref={qrCodeRef}
                   >
-                    <QRCodeGenerator image={image} color={color} url={url} />
+                    <QRCodeGenerator
+                      image={image}
+                      color={color}
+                      url={url}
+                      styleIndex={styleIndex}
+                    />
+                    <div className="flex items-center justify-center">
+                      <div className="p-2">
+                        <select
+                          value={styleIndex}
+                          onChange={handleStyleChange}
+                          className="border border-gray-300 rounded px-2 py-1"
+                        >
+                          {qrCodeStyles.map((style, index) => (
+                            <option key={index} value={index}>
+                              {style.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

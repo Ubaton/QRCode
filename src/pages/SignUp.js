@@ -31,7 +31,7 @@ const SignUp = () => {
       );
 
       // Redirect the user to the login page on successful signup
-      window.location.href = "/login";
+      window.location.NavLink = "/login";
     } catch (error) {
       setError(error.message);
     }

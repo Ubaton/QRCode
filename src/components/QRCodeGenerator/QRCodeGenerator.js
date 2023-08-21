@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import QRCode from "qrcode.react";
+import qrCodeStyles from "./QRCodeStyles";
 
-function QRCodeGenerator({ image, color, url }) {
+function QRCodeGenerator({ image, color, url, styleIndex, qrCodeUpdate }) {
+  const [selectedStyle, setSelectedStyle] = useState(qrCodeStyles[styleIndex]);
+
+  useEffect(() => {
+    setSelectedStyle(qrCodeStyles[styleIndex]);
+  }, [styleIndex]);
+
+  const qrCodeStyle = {
+    borderColor: color,
+  };
+
   return (
     <div
-      className="m-1 p-2 border-4 border-black rounded-md "
-      style={{ borderColor: color }}
+      className="m-1 p-2 border-4 border-black rounded-md"
+      style={qrCodeStyle}
     >
       <QRCode
         value={url}
-        size={250}
-        bgColor="#ffffff"
-        fgColor={color}
+        size={selectedStyle.size}
+        bgColor={selectedStyle.bgColor}
+        fgColor={selectedStyle.fgColor}
         imageSettings={{
           src: image,
-          height: 60,
-          width: 60,
+          height: 70,
+          width: 70,
           excavate: true,
         }}
       />
