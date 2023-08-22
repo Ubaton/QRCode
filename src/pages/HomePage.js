@@ -14,6 +14,7 @@ import { NavLink } from "react-router-dom";
 import { auth } from "../data/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import SocialsPage from "../components/Socials/SocialsPage";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
@@ -118,6 +119,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
           <div className="fixed left-0">
             <SideBar darkMode={darkMode} />
           </div>
+
           <div className="p-2 pt-12">
             <div className="container mx-auto">
               {/* The Card Component */}
@@ -219,6 +221,11 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   Buy Me Coffee
                 </div>
               )}
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="fixed top-80 right-[-32] pl-40 ">
+                <SocialsPage />
+              </div>
             </div>
           </div>
         </div>

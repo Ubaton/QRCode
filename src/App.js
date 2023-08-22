@@ -13,6 +13,7 @@ import AuthDetails from "./data/AuthDetails";
 import ProfilePage from "./pages/ProfilePage";
 import PrivacyPolicy from "./pages/utils/Use/PrivacyPolicy";
 import TermsOfUse from "./pages/utils/Use/TermsOfUse";
+import SocialsPage from "./components/Socials/SocialsPage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -111,6 +112,12 @@ function App() {
         path="/terms-of-use"
         element={
           <TermsOfUse darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        }
+      />
+      <Route
+        path="/socials"
+        element={
+          <SocialsPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         }
       />
     </Routes>
