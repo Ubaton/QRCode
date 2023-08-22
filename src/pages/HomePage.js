@@ -18,7 +18,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
   const [image, setImage] = useState(null);
-  const [color, setColor] = useState("red");
+  const [color, setColor] = useState("black");
   const [url, setUrl] = useState("");
   const [showBubble, setShowBubble] = useState(false);
   const [authUser, setAuthUser] = useState(null);
