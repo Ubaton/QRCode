@@ -18,7 +18,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
   const [image, setImage] = useState(null);
-  const [color, setColor] = useState("black");
+  const [color, setColor] = useState("red");
   const [url, setUrl] = useState("");
   const [showBubble, setShowBubble] = useState(false);
   const [authUser, setAuthUser] = useState(null);
@@ -148,11 +148,11 @@ function HomePage({ darkMode, toggleDarkMode }) {
                           value={styleIndex}
                           onChange={handleStyleChange}
                           id="small"
-                          class=" w-full p-2  text-sm text-gray-50  rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-center"
+                          className="w-full p-2 text-sm text-gray-50 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-center"
                         >
                           {qrCodeStyles.map((style, index) => (
                             <option
-                              className="bg-gray-600 rounded-md "
+                              className="bg-gray-600 rounded-md"
                               key={index}
                               value={index}
                             >
@@ -164,7 +164,6 @@ function HomePage({ darkMode, toggleDarkMode }) {
                     </div>
                   </div>
                 </div>
-
                 {/* This is input field for URL and button to trigger QR code generation */}
                 <div className="grid grid-cols-2">
                   <input

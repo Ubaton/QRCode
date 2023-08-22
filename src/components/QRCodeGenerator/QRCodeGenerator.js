@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import QRCode from "qrcode.react";
 import qrCodeStyles from "./QRCodeStyles";
 
-function QRCodeGenerator({ image, color, url, styleIndex, qrCodeUpdate }) {
+function QRCodeGenerator({ image, color, url, styleIndex }) {
   const [selectedStyle, setSelectedStyle] = useState(qrCodeStyles[styleIndex]);
 
   useEffect(() => {
@@ -21,8 +21,7 @@ function QRCodeGenerator({ image, color, url, styleIndex, qrCodeUpdate }) {
       <QRCode
         value={url}
         size={selectedStyle.size}
-        bgColor={selectedStyle.bgColor}
-        fgColor={selectedStyle.fgColor}
+        fgColor={color}
         imageSettings={{
           src: image,
           height: 70,
