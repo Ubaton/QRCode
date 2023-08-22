@@ -147,10 +147,15 @@ function HomePage({ darkMode, toggleDarkMode }) {
                         <select
                           value={styleIndex}
                           onChange={handleStyleChange}
-                          className="border border-gray-300 rounded px-2 py-1"
+                          id="small"
+                          class=" w-full p-2  text-sm text-gray-50  rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-center"
                         >
                           {qrCodeStyles.map((style, index) => (
-                            <option key={index} value={index}>
+                            <option
+                              className="bg-gray-600 rounded-md "
+                              key={index}
+                              value={index}
+                            >
                               {style.name}
                             </option>
                           ))}
@@ -173,12 +178,12 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   {authUser ? (
                     <button
                       onClick={generateQRCode}
-                      className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                      className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                     >
                       Generate QR Code
                     </button>
                   ) : (
-                    <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2">
+                    <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2">
                       <NavLink to="/signup">
                         <p className="text-gray-50 text-center3">
                           Create an Account
