@@ -20,7 +20,7 @@ function SocialsPage() {
           </span>
           <i className="fab fa-instagram text-xl text-pink-600"></i>
         </NavLink>
-        <div className="border border-gray-200 border-spacing-2 rotated-container gradient-animation"></div>
+        <div className="border border-gray-200 border-spacing-2 rotated-container"></div>
         <NavLink
           to="https://twitter.com/_GoldManRay"
           target="_blank"
@@ -32,7 +32,7 @@ function SocialsPage() {
           </span>
           <i className="fab fa-twitter text-xl text-blue-500"></i>
         </NavLink>
-        <div className="border border-gray-200 border-spacing-2 rotated-container gradient-animation"></div>
+        <div className="border border-gray-200 border-spacing-2 rotated-container "></div>
         <NavLink
           to="https://github.com/Ubaton"
           target="_blank"
