@@ -1,3 +1,10 @@
+<h1>QR Code Generator</h1>
+<img src="https://github.com/Ubaton/QRCode/blob/master/src/assets/images/CMG_QRcodeG.png" atl="QR Code Website Image" />
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
