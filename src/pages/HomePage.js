@@ -214,7 +214,12 @@ function HomePage({ darkMode, toggleDarkMode }) {
               onMouseLeave={() => setShowBubble(false)}
             >
               <button className="text-gray-500 hover:text-amber-900 focus:outline-none pl-36">
-                <CoffeeIcon />
+                <NavLink
+                  to="https://www.paypal.com/donate/?hosted_button_id=FBWXAGZU3AHLA"
+                  target="blank"
+                >
+                  <CoffeeIcon />
+                </NavLink>
               </button>
               {showBubble && (
                 <div className="absolute bottom-[1.75rem] left-1/2 transform -translate-x-1/4 bg-amber-900 text-white px-2 py-1 rounded-md text-center text-sm">

@@ -44,7 +44,7 @@ function PaymentMethod({ darkMode }) {
 
   // Function to handle card number input and detect card type
   const handleCardNumberChange = (e) => {
-    const inputNumber = e.target.value.replace(/\s/g, ""); // Remove any spaces from the input
+    const inputNumber = e.target.value.replace(/\s/g, "");
     setCardNumber(inputNumber);
     detectCardType(inputNumber);
   };
