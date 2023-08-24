@@ -81,12 +81,14 @@ function SideBar({ darkMode }) {
       >
         {/* Logo */}
         <div className="flex items-center justify-center py-6">
-          <img
-            src={Logo}
-            alt="Creative Minds Graphics (PTy) Ltd"
-            width="157"
-            height="29"
-          />
+          <NavLink to="/">
+            <img
+              src={Logo}
+              alt="Creative Minds Graphics (PTy) Ltd"
+              width="157"
+              height="29"
+            />
+          </NavLink>
         </div>
         {currentPage === "home" && <div></div>}
 

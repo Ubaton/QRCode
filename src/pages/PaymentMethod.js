@@ -7,6 +7,7 @@ import PayPal from "../../src/assets/icons/paypal-32.png";
 import TextField from "@mui/material/TextField";
 import { NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import PayPalpay from "../components/PayPal_Pay/PayPalpay";
 
 function PaymentMethod({ darkMode }) {
   // State to store payment information
@@ -16,7 +17,7 @@ function PaymentMethod({ darkMode }) {
   const [cvv, setCvv] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
   const [cardType, setCardType] = useState("");
-  const [email, setEmail] = useState(""); // Add email state
+  // const [email, setEmail] = useState(""); // Add email state
 
   // Function to handle form submission for payment processing
   const handleSubmit = (e) => {
@@ -50,19 +51,19 @@ function PaymentMethod({ darkMode }) {
   };
 
   // Function to handle radio button change and show/hide email input
-  const handlePaymentMethodChange = (e) => {
-    const selectedMethod = e.target.value;
-    setPaymentMethod(selectedMethod);
-    // Reset the email input when VISA or MasterCard is selected
-    if (selectedMethod === "VISA Card" || selectedMethod === "MasterCard") {
-      setEmail("");
-    }
-  };
+  // const handlePaymentMethodChange = (e) => {
+  //   const selectedMethod = e.target.value;
+  //   setPaymentMethod(selectedMethod);
+  //   // Reset the email input when VISA or MasterCard is selected
+  //   if (selectedMethod === "VISA Card" || selectedMethod === "MasterCard") {
+  //     setEmail("");
+  //   }
+  // };
 
   // Function to handle email input change
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  // const handleEmailChange = (e) => {
+  //   setEmail(e.target.value);
+  // };
 
   const handleNavLinkClick = (page) => {};
 
@@ -92,11 +93,13 @@ function PaymentMethod({ darkMode }) {
       >
         <h2 className="text-2xl font-bold mb-4">Payment Method</h2>
 
-        <div className="grid md:grid-cols-2 gap-4 ">
+        <div className="grid md:grid-cols-2">
           <form className="grid grid-cols-2 " onSubmit={handleSubmit}>
-            <div className="p-4 pb-0">
+            <div className="flex items-center justify-center p-2">
               <TextField
-                id="outlined-basic"
+                id="outlined-size-small"
+                defaultValue="Small"
+                size="small"
                 label="Card Number"
                 variant="outlined"
                 type="text"
@@ -110,9 +113,11 @@ function PaymentMethod({ darkMode }) {
                 <p className="text-gray-500 mt-1">Card Type: {cardType}</p>
               )}
             </div>
-            <div className="p-4 pb-0">
+            <div className="flex items-center justify-center p-2">
               <TextField
-                id="outlined-basic"
+                id="outlined-size-small"
+                defaultValue="Small"
+                size="small"
                 label="Card Holder Name"
                 variant="outlined"
                 type="text"
@@ -123,9 +128,11 @@ function PaymentMethod({ darkMode }) {
                 }`}
               />
             </div>
-            <div className="p-4 pb-0">
+            <div className="flex items-center justify-center p-2">
               <TextField
-                id="outlined-basic"
+                id="outlined-size-small"
+                defaultValue="Small"
+                size="small"
                 label="Expiry Date"
                 variant="outlined"
                 type="text"
@@ -137,9 +144,11 @@ function PaymentMethod({ darkMode }) {
                 }`}
               />
             </div>
-            <div className="p-4 pb-0">
+            <div className="flex items-center p-2 ">
               <TextField
-                id="outlined-basic"
+                id="outlined-size-small"
+                defaultValue="Small"
+                size="small"
                 label="CVV"
                 variant="outlined"
                 type="text"
@@ -215,41 +224,8 @@ function PaymentMethod({ darkMode }) {
             </div>
 
             <div className=" pb-0 ">
-              <div className="p-4">
-                {paymentMethod === "PayPal" && (
-                  <div className="pb-5">
-                    <TextField
-                      id="outlined-basic"
-                      label="PayPal email"
-                      variant="outlined"
-                      type="email"
-                      value={email}
-                      onChange={handleEmailChange}
-                      className={`w-full border border-gray-500 rounded-md ${
-                        darkMode ? "dark bg-DarkMode-border" : "bg-slate-100"
-                      }`}
-                    />
-                    <span className="font-sm font-xs font-thin  ">
-                      <p className="p-1 text-green-500">
-                        Use you PayPal Email Only
-                      </p>
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-4">
-                <button>
-                  <Button
-                    onClick={handlePaymentMethodChange}
-                    type="submit"
-                    className="m-2 rounded-md "
-                    variant="contained"
-                    color="success"
-                  >
-                    Make Payment
-                  </Button>
-                </button>
+              <div className="p-2">
+                {paymentMethod === "PayPal" && <PayPalpay />}
               </div>
             </div>
           </form>
