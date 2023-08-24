@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button, Radio } from "@mui/material";
 import MasterCard from "../../src/assets/icons/mastercard-32.png";
 import VISA from "../../src/assets/icons/visa-32.png";
+import Unknown from "../assets/icons/unknown-card-24.png";
 import PayPal from "../../src/assets/icons/paypal-32.png";
 import TextField from "@mui/material/TextField";
 import { NavLink } from "react-router-dom";
@@ -17,6 +18,7 @@ function PaymentMethod({ darkMode }) {
   const [cvv, setCvv] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
   const [cardType, setCardType] = useState("");
+  const [cardIcon, setCardIcon] = useState(null);
   // const [email, setEmail] = useState(""); // Add email state
 
   // Function to handle form submission for payment processing
@@ -35,11 +37,14 @@ function PaymentMethod({ darkMode }) {
       /^(5[1-5][0-9]{14}|2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9]{2}|7(?:[01][0-9]|20))\d{12})$/;
 
     if (visaPattern.test(number)) {
-      setCardType("Visa Card");
+      setCardType(" ");
+      setCardIcon(VISA); // Set the icon for VISA
     } else if (mastercardPattern.test(number)) {
-      setCardType("MasterCard");
+      setCardType(" ");
+      setCardIcon(MasterCard); // Set the icon for MasterCard
     } else {
-      setCardType("Unknown");
+      setCardType(" ");
+      setCardIcon(Unknown); // No icon for Unknown
     }
   };
 
@@ -110,9 +115,15 @@ function PaymentMethod({ darkMode }) {
                 }`}
               />
               {cardType && (
-                <p className="text-gray-500 mt-1">Card Type: {cardType}</p>
+                <div className="flex items-center">
+                  <p className="text-gray-500 mt-1 mr-2">{cardType}</p>
+                  {cardIcon && (
+                    <img src={cardIcon} alt={cardType} width="32" height="32" />
+                  )}
+                </div>
               )}
             </div>
+
             <div className="flex items-center justify-center p-2">
               <TextField
                 id="outlined-size-small"
