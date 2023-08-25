@@ -1,76 +1,97 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 
-const PayPalpay = () => {
-  const createOrder = () => {
-    return fetch("/my-server/create-paypal-order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        cart: [
-          {
-            sku: "PRODUCT123",
-            quantity: "1",
-          },
-        ],
-      }),
-    })
-      .then((response) => response.json())
-      .then((order) => order.id);
-  };
+// const PayPalpay = () => {
+//   const createOrder = async () => {
+//     try {
+//       const response = await fetch(
+//         "http://localhost:5000/my-server/create-paypal-order",
+//         {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify({
+//             cart: [
+//               {
+//                 sku: "PRODUCT123",
+//                 quantity: "1",
+//               },
+//             ],
+//           }),
+//         }
+//       );
 
-  const onApprove = (data) => {
-    return fetch("/my-server/capture-paypal-order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        orderID: data.orderID,
-      }),
-    })
-      .then((response) => response.json())
-      .then((orderData) => {
-        console.log(
-          "Capture result",
-          orderData,
-          JSON.stringify(orderData, null, 2)
-        );
-        const transaction = orderData.purchase_units[0].payments.captures[0];
-        alert(
-          `Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`
-        );
-      });
-  };
+//       if (!response.ok) {
+//         throw new Error("Failed to create order");
+//       }
 
-  const loadPaypalScript = () => {
-    const script = document.createElement("script");
-    script.src = "https://www.paypal.com/sdk/js?client-id=test&currency=USD";
-    script.async = true;
-    script.onload = () => {
-      // Directly use the global 'paypal' object from the SDK
-      window.paypal
-        .Buttons({
-          createOrder,
-          onApprove,
-        })
-        .render("#paypal-button-container");
-    };
-    document.body.appendChild(script);
-  };
+//       const order = await response.json();
+//       return order.id;
+//     } catch (error) {
+//       console.error("Error creating order:", error);
+//     }
+//   };
 
-  useEffect(() => {
-    loadPaypalScript();
-  }, []);
+//   const onApprove = async (data) => {
+//     try {
+//       const response = await fetch(
+//         "http://localhost:5000/my-server/capture-paypal-order",
+//         {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify({
+//             orderID: data.orderID,
+//           }),
+//         }
+//       );
 
-  return (
-    <div>
-      <div className="flex items-center justify-center App">
-        <div id="paypal-button-container"></div>
-      </div>
-    </div>
-  );
-};
+//       if (!response.ok) {
+//         throw new Error("Failed to capture order");
+//       }
 
-export default PayPalpay;
+//       const orderData = await response.json();
+//       console.log(
+//         "Capture result",
+//         orderData,
+//         JSON.stringify(orderData, null, 2)
+//       );
+//       const transaction = orderData.purchase_units[0].payments.captures[0];
+//       alert(
+//         `Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`
+//       );
+//     } catch (error) {
+//       console.error("Error capturing order:", error);
+//     }
+//   };
+
+//   const loadPaypalScript = () => {
+//     const script = document.createElement("script");
+//     script.src = "https://www.paypal.com/sdk/js?client-id=test&currency=USD";
+//     script.async = true;
+//     script.onload = () => {
+//       if (window.paypal) {
+//         window.paypal
+//           .Buttons({
+//             createOrder,
+//             onApprove,
+//           })
+//           .render("#paypal-button-container");
+//       }
+//     };
+//     document.body.appendChild(script);
+//   };
+
+//   useEffect(() => {
+//     loadPaypalScript();
+//   }, []);
+
+//   return (
+//     <div className="flex items-center justify-center pt-4 App">
+//       <div id="paypal-button-container"></div>
+//     </div>
+//   );
+// };
+
+// export default PayPalpay;

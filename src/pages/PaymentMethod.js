@@ -8,7 +8,7 @@ import PayPal from "../../src/assets/icons/paypal-32.png";
 import TextField from "@mui/material/TextField";
 import { NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import PayPalpay from "../components/PayPal_Pay/PayPalpay";
+// import PayPalpay from "../components/PayPal_Pay/PayPalpay";
 
 function PaymentMethod({ darkMode }) {
   // State to store payment information
@@ -19,7 +19,7 @@ function PaymentMethod({ darkMode }) {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [cardType, setCardType] = useState("");
   const [cardIcon, setCardIcon] = useState(null);
-  // const [email, setEmail] = useState(""); // Add email state
+  const [email, setEmail] = useState(""); // Add email state
 
   // Function to handle form submission for payment processing
   const handleSubmit = (e) => {
@@ -56,19 +56,19 @@ function PaymentMethod({ darkMode }) {
   };
 
   // Function to handle radio button change and show/hide email input
-  // const handlePaymentMethodChange = (e) => {
-  //   const selectedMethod = e.target.value;
-  //   setPaymentMethod(selectedMethod);
-  //   // Reset the email input when VISA or MasterCard is selected
-  //   if (selectedMethod === "VISA Card" || selectedMethod === "MasterCard") {
-  //     setEmail("");
-  //   }
-  // };
+  const handlePaymentMethodChange = (e) => {
+    const selectedMethod = e.target.value;
+    setPaymentMethod(selectedMethod);
+    // Reset the email input when VISA or MasterCard is selected
+    if (selectedMethod === "VISA Card" || selectedMethod === "MasterCard") {
+      setEmail("");
+    }
+  };
 
   // Function to handle email input change
-  // const handleEmailChange = (e) => {
-  //   setEmail(e.target.value);
-  // };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
   const handleNavLinkClick = (page) => {};
 
@@ -236,7 +236,50 @@ function PaymentMethod({ darkMode }) {
 
             <div className=" pb-0 ">
               <div className="p-2">
-                {paymentMethod === "PayPal" && <PayPalpay />}
+                {paymentMethod === "PayPal" && (
+                  <div className=" pb-0 ">
+                    <div className="">
+                      {paymentMethod === "PayPal" && (
+                        <div className="pb-5">
+                          <TextField
+                            id="outlined-size-small"
+                            defaultValue="Small"
+                            size="small"
+                            label="PayPal email"
+                            variant="outlined"
+                            type="email"
+                            value={email}
+                            onChange={handleEmailChange}
+                            className={`w-full border border-gray-500 rounded-md ${
+                              darkMode
+                                ? "dark bg-DarkMode-border"
+                                : "bg-slate-100"
+                            }`}
+                          />
+                          <span className="font-sm font-xs font-thin  ">
+                            <p className="p-1 text-green-500">
+                              Use you PayPal Email Only
+                            </p>
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-4">
+                      <button>
+                        <Button
+                          onClick={handlePaymentMethodChange}
+                          type="submit"
+                          className="m-2 rounded-md "
+                          variant="contained"
+                          color="success"
+                        >
+                          Make Payment
+                        </Button>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </form>

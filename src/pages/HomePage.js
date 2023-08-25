@@ -169,6 +169,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 {/* This is input field for URL and button to trigger QR code generation */}
                 <div className="grid grid-cols-2">
                   <input
+                    name="Link_QRCode"
                     type="text"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
