@@ -265,19 +265,15 @@ function PaymentMethod({ darkMode }) {
                       )}
                     </div>
 
-                    <div className="p-4">
-                      <button>
-                        <Button
-                          onClick={handlePaymentMethodChange}
-                          type="submit"
-                          className="m-2 rounded-md "
-                          variant="contained"
-                          color="success"
-                        >
-                          Make Payment
-                        </Button>
-                      </button>
-                    </div>
+                    <Button
+                      onClick={handlePaymentMethodChange}
+                      type="submit"
+                      className="m-2 rounded-md "
+                      variant="contained"
+                      color="success"
+                    >
+                      Make Payment
+                    </Button>
                   </div>
                 )}
               </div>
