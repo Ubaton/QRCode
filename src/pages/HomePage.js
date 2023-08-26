@@ -133,7 +133,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 <div className="flex items-center justify-center p-1">
                   <ColorPicker setColor={setColor} />
                 </div>
-                <div className="flex items-center justify-center ">
+                <div className=" flex items-center justify-center ">
                   <div
                     className="w-250 h-250 p-1 rounded-md overflow-hidden"
                     ref={qrCodeRef}
@@ -144,26 +144,26 @@ function HomePage({ darkMode, toggleDarkMode }) {
                       url={url}
                       styleIndex={styleIndex}
                     />
-                    <div className="flex items-center justify-center">
-                      <div className="p-2">
-                        <select
-                          value={styleIndex}
-                          onChange={handleStyleChange}
-                          id="small"
-                          className="w-full p-2 text-sm text-gray-50 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-center"
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  <div className="p-2">
+                    <select
+                      value={styleIndex}
+                      onChange={handleStyleChange}
+                      id="small"
+                      className="w-full p-2 text-sm text-gray-50 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-center"
+                    >
+                      {qrCodeStyles.map((style, index) => (
+                        <option
+                          className="bg-gray-600 rounded-md"
+                          key={index}
+                          value={index}
                         >
-                          {qrCodeStyles.map((style, index) => (
-                            <option
-                              className="bg-gray-600 rounded-md"
-                              key={index}
-                              value={index}
-                            >
-                              {style.name}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
+                          {style.name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 {/* This is input field for URL and button to trigger QR code generation */}
