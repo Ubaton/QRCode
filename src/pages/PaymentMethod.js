@@ -59,8 +59,8 @@ function PaymentMethod({ darkMode }) {
                 <li>Feature 3: Advanced analytics</li>
               </ul>
               <p className="text-gray-500 mb-4">
-                Price: <span className="text-green-500 font-bold">R 75</span>{" "}
-                per month
+                Price: <span className="text-green-500 font-bold">$ 4.00</span>{" "}
+                once off
               </p>
               <p className="text-gray-500">
                 Enjoy all the benefits of our Pro Plan!
