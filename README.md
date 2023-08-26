@@ -1,4 +1,4 @@
-<h1>QR Code Generator</h1> <img src="https://github.com/Ubaton/QRCode/blob/master/src/assets/icons/Q.png" alt="Q Logo">
+<h1>QR Code Generator<img src="https://github.com/Ubaton/QRCode/blob/master/src/assets/icons/Q.png" alt="Q Logo"></h1> 
 <img src="https://github.com/Ubaton/QRCode/blob/master/src/assets/images/CMG_QRcodeG.png" atl="QR Code Website Image" />
 
 
