@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const PayPalpay = (props) => {
   const { product, hasAlreadyBoughtPlan } = props;
@@ -39,49 +39,52 @@ const PayPalpay = (props) => {
       ) : error ? (
         <p>Error: {error}</p>
       ) : (
-        <PayPalButtons
-          onClick={async (data, actions) => {
-            // Validate this onClick or from the client or the server side
+        <PayPalScriptProvider>
+          <PayPalButtons
+            className="p-4"
+            onClick={async (data, actions) => {
+              // Validate this onClick or from the client or the server side
 
-            if (hasAlreadyBoughtPlan) {
-              setError(
-                "You already have a ProPlan, check your profile to view"
-              );
-              return actions.reject();
-            } else {
-              return actions.resolve();
-            }
-          }}
-          createOrder={(data, actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  description: product.description,
-                  amount: {
-                    currency_code: "USD",
-                    value: product.price,
+              if (hasAlreadyBoughtPlan) {
+                setError(
+                  "You already have a ProPlan, check your profile to view"
+                );
+                return actions.reject();
+              } else {
+                return actions.resolve();
+              }
+            }}
+            createOrder={(data, actions) => {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    description: product.description,
+                    amount: {
+                      currency_code: "USD",
+                      value: product.price,
+                    },
                   },
-                },
-              ],
-            });
-          }}
-          onApprove={async (data, actions) => {
-            const order = await actions.order.capture();
-            console.log("order", order);
+                ],
+              });
+            }}
+            onApprove={async (data, actions) => {
+              const order = await actions.order.capture();
+              console.log("order", order);
 
-            handleApprove(data.orderID);
-          }}
-          onCancel={() => {
-            // Display cancel message or handle cancellation
-            console.log("Payment was canceled.");
-          }}
-          onError={(err) => {
-            setError("An error occurred during payment. Please try again.");
-            console.log("PayPal checkout onError", err);
-          }}
-          // Pass your PayPal client ID here
-          options={{ "client-id": PAYPAL_CLIENT_ID }}
-        />
+              handleApprove(data.orderID);
+            }}
+            onCancel={() => {
+              // Display cancel message or handle cancellation
+              console.log("Payment was canceled.");
+            }}
+            onError={(err) => {
+              setError("An error occurred during payment. Please try again.");
+              console.log("PayPal checkout onError", err);
+            }}
+            // Pass your PayPal client ID here
+            options={{ "client-id": PAYPAL_CLIENT_ID }}
+          />
+        </PayPalScriptProvider>
       )}
     </div>
   );
