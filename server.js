@@ -1,83 +1,41 @@
-// const express = require("express");
-// const bodyParser = require("body-parser");
-// import fetch from "node-fetch";
-// require("dotenv").config();
+const express = require("express");
+const bodyParser = require("body-parser");
 
-// const app = express();
-// const port = process.env.PORT || 5000;
+const app = express();
+const port = process.env.PORT || 5000;
 
-// const { CLIENT_ID, APP_SECRET } = process.env;
-// const baseURL = {
-//   sandbox: "https://api-m.sandbox.paypal.com",
-//   production: "https://api-m.paypal.com",
-// };
+// Middleware
+app.use(bodyParser.json());
 
-// app.use(bodyParser.json());
+// Simulate a simple order fulfillment function
+const fulfillOrder = (orderID) => {
+  // Simulate successful order fulfillment
+  return {
+    success: true,
+    message: "Order fulfilled successfully.",
+  };
+};
 
-// app.post("/my-server/create-paypal-order", async (req, res) => {
-//   const order = await createOrder();
-//   res.json(order);
-// });
+// Route to handle order fulfillment
+app.post("/fulfill-order", (req, res) => {
+  const { orderID } = req.body;
 
-// app.post("/my-server/capture-paypal-order", async (req, res) => {
-//   const { orderID } = req.body;
-//   const captureData = await capturePayment(orderID);
-//   res.json(captureData);
-// });
+  if (!orderID) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Invalid order ID." });
+  }
 
-// // PayPal API helpers
-// async function generateAccessToken() {
-//   const auth = Buffer.from(CLIENT_ID + ":" + APP_SECRET).toString("base64");
-//   const response = await fetch(`${baseURL.sandbox}/v1/oauth2/token`, {
-//     method: "POST",
-//     body: "grant_type=client_credentials",
-//     headers: {
-//       Authorization: `Basic ${auth}`,
-//     },
-//   });
-//   const data = await response.json();
-//   return data.access_token;
-// }
+  const fulfillmentResult = fulfillOrder(orderID);
 
-// async function createOrder() {
-//   const accessToken = await generateAccessToken();
-//   const url = `${baseURL.sandbox}/v2/checkout/orders`;
-//   const response = await fetch(url, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${accessToken}`,
-//     },
-//     body: JSON.stringify({
-//       intent: "CAPTURE",
-//       purchase_units: [
-//         {
-//           amount: {
-//             currency_code: "USD",
-//             value: "100.00",
-//           },
-//         },
-//       ],
-//     }),
-//   });
-//   const data = await response.json();
-//   return data;
-// }
+  if (fulfillmentResult.success) {
+    return res.json(fulfillmentResult);
+  } else {
+    return res.status(500).json(fulfillmentResult);
+  }
+});
 
-// async function capturePayment(orderId) {
-//   const accessToken = await generateAccessToken();
-//   const url = `${baseURL.sandbox}/v2/checkout/orders/${orderId}/capture`;
-//   const response = await fetch(url, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${accessToken}`,
-//     },
-//   });
-//   const data = await response.json();
-//   return data;
-// }
-
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

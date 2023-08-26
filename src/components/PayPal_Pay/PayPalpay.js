@@ -1,97 +1,90 @@
-// import React, { useEffect } from "react";
+import React, { useState } from "react";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 
-// const PayPalpay = () => {
-//   const createOrder = async () => {
-//     try {
-//       const response = await fetch(
-//         "http://localhost:5000/my-server/create-paypal-order",
-//         {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify({
-//             cart: [
-//               {
-//                 sku: "PRODUCT123",
-//                 quantity: "1",
-//               },
-//             ],
-//           }),
-//         }
-//       );
+const PayPalpay = (props) => {
+  const { product, hasAlreadyBoughtPlan } = props;
+  const [paidFor, setPaidFor] = useState(false);
+  const [error, setError] = useState(null);
 
-//       if (!response.ok) {
-//         throw new Error("Failed to create order");
-//       }
+  const PAYPAL_CLIENT_ID = process.env.REACT_APP_PAYPAL_CLIENT_ID;
 
-//       const order = await response.json();
-//       return order.id;
-//     } catch (error) {
-//       console.error("Error creating order:", error);
-//     }
-//   };
+  const handleApprove = async (orderID) => {
+    try {
+      const response = await fetch("/fulfill-order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ orderID }),
+      });
 
-//   const onApprove = async (data) => {
-//     try {
-//       const response = await fetch(
-//         "http://localhost:5000/my-server/capture-paypal-order",
-//         {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify({
-//             orderID: data.orderID,
-//           }),
-//         }
-//       );
+      const result = await response.json();
 
-//       if (!response.ok) {
-//         throw new Error("Failed to capture order");
-//       }
+      if (result.success) {
+        setPaidFor(true);
+        // Refresh the user's account or subscription status
+        // ...
+      } else {
+        setError("An error occurred while processing your order.");
+      }
+    } catch (error) {
+      setError("An error occurred while processing your order.");
+    }
+  };
 
-//       const orderData = await response.json();
-//       console.log(
-//         "Capture result",
-//         orderData,
-//         JSON.stringify(orderData, null, 2)
-//       );
-//       const transaction = orderData.purchase_units[0].payments.captures[0];
-//       alert(
-//         `Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`
-//       );
-//     } catch (error) {
-//       console.error("Error capturing order:", error);
-//     }
-//   };
+  return (
+    <div>
+      {paidFor ? (
+        <p>Thank you for your purchase!</p>
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <PayPalButtons
+          onClick={async (data, actions) => {
+            // Validate this onClick or from the client or the server side
 
-//   const loadPaypalScript = () => {
-//     const script = document.createElement("script");
-//     script.src = "https://www.paypal.com/sdk/js?client-id=test&currency=USD";
-//     script.async = true;
-//     script.onload = () => {
-//       if (window.paypal) {
-//         window.paypal
-//           .Buttons({
-//             createOrder,
-//             onApprove,
-//           })
-//           .render("#paypal-button-container");
-//       }
-//     };
-//     document.body.appendChild(script);
-//   };
+            if (hasAlreadyBoughtPlan) {
+              setError(
+                "You already have a ProPlan, check your profile to view"
+              );
+              return actions.reject();
+            } else {
+              return actions.resolve();
+            }
+          }}
+          createOrder={(data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: product.description,
+                  amount: {
+                    currency_code: "USD",
+                    value: product.price,
+                  },
+                },
+              ],
+            });
+          }}
+          onApprove={async (data, actions) => {
+            const order = await actions.order.capture();
+            console.log("order", order);
 
-//   useEffect(() => {
-//     loadPaypalScript();
-//   }, []);
+            handleApprove(data.orderID);
+          }}
+          onCancel={() => {
+            // Display cancel message or handle cancellation
+            console.log("Payment was canceled.");
+          }}
+          onError={(err) => {
+            setError("An error occurred during payment. Please try again.");
+            console.log("PayPal checkout onError", err);
+          }}
+          // Pass your PayPal client ID here
+          options={{ "client-id": PAYPAL_CLIENT_ID }}
+        />
+      )}
+    </div>
+  );
+};
 
-//   return (
-//     <div className="flex items-center justify-center pt-4 App">
-//       <div id="paypal-button-container"></div>
-//     </div>
-//   );
-// };
-
-// export default PayPalpay;
+export default PayPalpay;
