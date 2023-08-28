@@ -49,12 +49,17 @@ function FileConvertPage({ darkMode }) {
     }
   };
 
+  // Function to handle downloading the converted file
   const handleDownloadConvertedFile = () => {
     if (convertedFile) {
+      const fileExtension =
+        selectedFile.type === "application/pdf" ? "pdf" : "docx";
+      const fileName = `converted_file.${fileExtension}`;
+
       // Create a temporary anchor element to trigger the download
       const tempAnchor = document.createElement("a");
       tempAnchor.href = URL.createObjectURL(convertedFile);
-      tempAnchor.download = "converted_file";
+      tempAnchor.download = fileName;
       tempAnchor.click();
     } else {
       toast.error("No converted file available for download.");
