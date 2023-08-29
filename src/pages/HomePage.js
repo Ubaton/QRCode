@@ -28,7 +28,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
   const [styleIndex, setStyleIndex] = useState(0);
   const StyledButton = styled(Button)`
     &.bg-gradient-button {
-      background: linear-gradient(to right, #00bcd4, #2196f3);
+      background: linear-gradient(to right, #00bcd4, #006dc0);
       color: white;
       font-size: 14px;
       padding: 6px 16px;
