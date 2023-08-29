@@ -15,6 +15,7 @@ import { auth } from "../data/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import SocialsPage from "../components/Socials/SocialsPage";
+import { styled } from "@mui/material/styles";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
@@ -25,6 +26,28 @@ function HomePage({ darkMode, toggleDarkMode }) {
   const [authUser, setAuthUser] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
   const [styleIndex, setStyleIndex] = useState(0);
+  const StyledButton = styled(Button)`
+    &.bg-gradient-button {
+      background: linear-gradient(to right, #00bcd4, #2196f3);
+      color: white;
+      font-size: 14px;
+      padding: 6px 16px;
+      text-align: center;
+      margin-right: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+
+      &:hover {
+        background: linear-gradient(to bottom left, #00bcd4, #2196f3);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(79, 196, 255, 0.6);
+      }
+    }
+  `;
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -88,14 +111,16 @@ function HomePage({ darkMode, toggleDarkMode }) {
               )}
               <NavLink to="/login" className="px-2">
                 <Button variant="outlined">
-                  <p className="normal-case text-gray-500">Login</p>
+                  <p className="upper-case text-gray-500 ">Login</p>
                 </Button>
               </NavLink>
 
               <NavLink to="/signup">
-                <Button variant="outlined">
-                  <p className="normal-case text-gray-500">Sign Up</p>
-                </Button>
+                <div>
+                  <StyledButton className="bg-gradient-button">
+                    Sign Up
+                  </StyledButton>
+                </div>
               </NavLink>
               <div>
                 <button
