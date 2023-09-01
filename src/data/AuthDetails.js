@@ -37,62 +37,68 @@ const AuthDetails = () => {
   };
 
   return (
-    <div className="flex flex-col text-gray-500 items-center justify-center space-y-4">
-      <button className="fixed left-4 top-4">
-        <NavLink
-          onClick={() => handleNavLinkClick("home")}
-          exact
-          to="/"
-          activeClassName="bg-blue-500 text-white"
-          className="p-1 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
-        >
-          <ArrowBackIcon />
-        </NavLink>
-      </button>
-      {authUser ? (
-        <div className="flex flex-col items-center">
-          {profilePictureUrl ? (
-            <img
-              src={profilePictureUrl}
-              alt="Profile"
-              className="w-16 h-16 rounded-full m-4"
-            />
-          ) : (
-            <IoPersonCircleOutline className="text-4xl text-gray-800 m-4" />
-          )}
-          <p className="text-xl font-semibold">{`Signed In as ${authUser.email}`}</p>
-          <button
-            onClick={handleSignOut}
-            className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300"
-          >
-            Sign Out
-          </button>
-        </div>
-      ) : (
-        <p className="text-center">Signed Out</p>
-      )}
-
-      <div className="text-gray-600 mt-4">
-        <p className="text-center">
-          At Creative Minds Graphics (Pty) Ltd, we prioritize transparency as an
-          essential element of our commitment to safeguarding your information.
-          Your security is of paramount importance to us, and we take every
-          measure to ensure the confidentiality and protection of your data.
-        </p>
-        <p className="text-center">
+    <>
+      <div className="flex flex-col text-gray-500 items-center justify-center space-y-4">
+        <button className="fixed left-4 top-4">
           <NavLink
-            to="/privacy-policy"
-            className="text-gray-400 hover:underline"
+            onClick={() => handleNavLinkClick("home")}
+            exact
+            to="/"
+            activeClassName="bg-blue-500 text-white"
+            className="p-1 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
           >
-            Privacy Policy
-          </NavLink>{" "}
-          &{" "}
-          <NavLink to="/terms-of-use" className="text-gray-400 hover:underline">
-            Terms of Use
+            <ArrowBackIcon />
           </NavLink>
-        </p>
+        </button>
+        {authUser ? (
+          <div className="flex flex-col items-center">
+            {profilePictureUrl ? (
+              <img
+                src={profilePictureUrl}
+                alt="Profile"
+                className="w-16 h-16 rounded-full m-4"
+              />
+            ) : (
+              <IoPersonCircleOutline className="text-4xl text-gray-800 m-4" />
+            )}
+            <p className="text-xl font-semibold">{`Signed In as ${authUser.email}`}</p>
+            <button
+              onClick={handleSignOut}
+              className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300"
+            >
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <p className="text-center">Signed Out</p>
+        )}
+
+        <div className="text-gray-600 mt-4">
+          <p className="text-center">
+            At Creative Minds Graphics (Pty) Ltd, we prioritize transparency as
+            an essential element of our commitment to safeguarding your
+            information. Your security is of paramount importance to us, and we
+            take every measure to ensure the confidentiality and protection of
+            your data.
+          </p>
+          <p className="text-center">
+            <NavLink
+              to="/privacy-policy"
+              className="text-gray-400 hover:underline"
+            >
+              Privacy Policy
+            </NavLink>{" "}
+            &{" "}
+            <NavLink
+              to="/terms-of-use"
+              className="text-gray-400 hover:underline"
+            >
+              Terms of Use
+            </NavLink>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

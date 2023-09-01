@@ -113,7 +113,7 @@ function ProPlanPopup({ darkMode }) {
                     <CircularProgress
                       size={20}
                       color="inherit"
-                      style={{ marginRight: "8px", color: "#4caf50" }} // Customize the color to green
+                      style={{ marginRight: "8px", color: "#4caf50" }}
                     />
                   ) : (
                     "Continue"
