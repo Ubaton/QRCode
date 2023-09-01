@@ -5,10 +5,29 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
+const plan = [
+  {
+    YourPlan: "Free Plan",
+    title: "Your current plan",
+    header: "Free plan",
+    paragraph: "Get started with our Free Plan and enjoy basic features.",
+    list: [
+      "Feature 1: Limited downloads",
+      "Feature 2: Standard customer support",
+      "Feature 3: Basic usage analytics",
+    ],
+  },
+];
+
 const AuthDetails = () => {
   const handleNavLinkClick = (page) => {};
   const [authUser, setAuthUser] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
+  const [isPlanOpen, setIsPlanOpen] = useState(false);
+
+  const togglePlan = () => {
+    setIsPlanOpen(!isPlanOpen); // Toggle the open/close state
+  };
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -49,6 +68,24 @@ const AuthDetails = () => {
           >
             <ArrowBackIcon />
           </NavLink>
+        </button>
+        <button className="fixed right-4 top-0" onClick={togglePlan}>
+          <svg
+            stroke="currentColor"
+            fill="none"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4 flex-shrink-0 text-gray-500"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="2"></circle>
+            <circle cx="19" cy="12" r="2"></circle>
+            <circle cx="5" cy="12" r="2"></circle>
+          </svg>
         </button>
         {authUser ? (
           <div className="flex flex-col items-center">
@@ -98,6 +135,39 @@ const AuthDetails = () => {
           </p>
         </div>
       </div>
+      {isPlanOpen && (
+        <div
+          className="bg-gray-400 text-center text-gray-300 p-2 rounded-md fixed right-4 top-8 w-80"
+          style={{ zIndex: 5 }}
+        >
+          {plan.map((p) => (
+            <div key={p.YourPlan}>
+              <div className="flex items-center justify-center">
+                <div className="grid grid-cols-1">
+                  <span className="text-medium text-2xl font-semibold">
+                    {p.title}
+                  </span>
+                  <span className="text-xl">{p.header}</span>
+                  <div className="bg-gray-300 rounded-md p-1">
+                    <span className="text-gray-500 text-sm">{p.paragraph}</span>
+                  </div>
+                  <div className="p-6">
+                    <ul className="list-disc pl-6 text-gray-700 mb-4 text-left">
+                      {plan[0].list.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                    <p className="text-gray-500">
+                      Sign up now and experience the benefits of{" "}
+                      {plan[0].YourPlan}!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 };
