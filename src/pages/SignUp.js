@@ -4,6 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Logo from "../assets/images/cmg.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Petten from "../assets/images/Petten.png";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -40,7 +41,13 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-transparent py-12 px-4 sm:px-6 lg:px-8">
+      <img
+        src={Petten}
+        alt="PettenBG"
+        className="bg-cover fixed bottom-0 top-0"
+        style={{ zIndex: -5 }}
+      />
       <div className="max-w-md w-full bg-slate-100 rounded-md p-5 space-y-8">
         {/* Logo */}
         <div className="flex items-center justify-center py-6">
