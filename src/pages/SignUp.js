@@ -42,12 +42,11 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-transparent py-12 px-4 sm:px-6 lg:px-8">
-      <img
-        src={Petten}
-        alt="PettenBG"
-        className="bg-cover fixed bottom-0 top-0"
-        style={{ zIndex: -5 }}
-      />
+      <div
+        className="bg-cover bg-space bg-repeat fixed bottom-0 top-0 max-w-full w-full h-screen"
+        style={{ backgroundImage: `url(${Petten})`, zIndex: -5 }}
+      ></div>
+
       <div className="max-w-md w-full bg-slate-100 rounded-md p-5 space-y-8">
         {/* Logo */}
         <div className="flex items-center justify-center py-6">
