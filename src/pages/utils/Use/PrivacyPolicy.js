@@ -7,7 +7,7 @@ function PrivacyPolicy({ darkMode }) {
 
   return (
     <div
-      className={`md:h-auto lg:h-screen p-4 ${
+      className={`md:h-auto lg:h-auto p-4 ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
@@ -69,6 +69,14 @@ function PrivacyPolicy({ darkMode }) {
             steadfast in our commitment to protecting your privacy, recognizing
             it as an indispensable facet of your interaction with Creative Minds
             Graphics (Pty) Ltd.
+          </p>
+          <br></br>
+          <p>
+            We reserve the right to modify this Privacy Policy at any time. Any changes will be promptly updated on this page. We encourage you to periodically review this Privacy Policy to stay informed about how we are helping to protect the personal information we collect.
+          </p>
+          <br></br>
+          <p>
+            If you have any questions or concerns about this Privacy Policy, please feel free to contact us at any time. We are committed to resolving any complaints about our collection or use of your personal information.
           </p>
         </div>
       </div>

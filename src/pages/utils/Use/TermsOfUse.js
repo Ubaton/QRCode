@@ -7,7 +7,7 @@ function TermsOfUse({ darkMode }) {
 
   return (
     <div
-      className={`md:h-auto lg:h-screen p-4 ${
+      className={`md:h-auto lg:h-auto p-4 ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
@@ -66,6 +66,21 @@ function TermsOfUse({ darkMode }) {
             need may arise, to conclude their provision entirely. This
             prerogative is exercised judiciously, with the objective of
             advancing the overall quality and scope of our offerings.
+          </p>
+          <br></br>
+          <p>
+            We, at Creative Minds Graphics (Pty) Ltd, are committed to providing
+            a safe and secure environment for our users. We strictly adhere to
+            all applicable laws and regulations and expect our users to do the
+            same. Any violation of these terms may result in immediate
+            termination of your access to our services.
+          </p>
+          <br></br>
+          <p>
+            We reserve the right to update these Terms of Use at any time. Any
+            changes will be effective immediately upon posting to this page. Your
+            continued use of our services following the posting of changes will
+            constitute your acceptance of such changes.
           </p>
           <br></br>
           <p>
