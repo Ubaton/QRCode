@@ -18,7 +18,7 @@ function ImageUpload({ setImage, image }) {
           }
           return newProgress;
         });
-      }, 30); // Adjust the interval speed for smoother animation
+      }, 30); 
     }
   }, [loading]);
 
@@ -27,7 +27,7 @@ function ImageUpload({ setImage, image }) {
     if (file) {
       setLoading(true);
       setUploadProgress(0);
-      setFileName(file.name); // Set the file name
+      setFileName(file.name); 
 
       // Delay the image upload by 0.9 seconds
       setTimeout(() => {
@@ -50,7 +50,7 @@ function ImageUpload({ setImage, image }) {
         };
 
         reader.readAsDataURL(file);
-      }, 900); // 0.9 seconds (900 milliseconds)
+      }, 900); 
     }
   };
 
@@ -90,8 +90,7 @@ function ImageUpload({ setImage, image }) {
           </div>
         </div>
       ) : (
-        // Disable ESLint check for 'image' prop
-        /* eslint-disable-next-line no-undef */
+   
         image && (
           <img
             src={image}
