@@ -1,12 +1,11 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"; //
+import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDsRXkfClni0n5o6mm42pxBikoItJ2tI8s",
+  apiKey: process.env.GOOGLE_AOTH_APIKEY,
   authDomain: "qr-code-generator-9e005.firebaseapp.com",
   projectId: "qr-code-generator-9e005",
   storageBucket: "qr-code-generator-9e005.appspot.com",
