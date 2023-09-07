@@ -9,7 +9,7 @@ import ModeNightOutlinedIcon from "@mui/icons-material/ModeNightOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import SideBar from "../components/SideBar/SideBar";
 import CoffeeIcon from "@mui/icons-material/Coffee";
-import { Button } from "@mui/material";
+import { Button, Radio } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { auth } from "../data/firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -172,23 +172,24 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   </div>
                 </div>
                 <div className="flex items-center justify-center">
-                  <div className="p-2">
-                    <select
-                      value={styleIndex}
-                      onChange={handleStyleChange}
-                      id="small"
-                      className="w-full p-2 text-sm text-gray-50 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-center"
-                    >
+                  <div className="gap-6 p-2">
+                    <div className="flex items-center justify-center">
                       {qrCodeStyles.map((style, index) => (
-                        <option
-                          className="bg-gray-600 rounded-md"
+                        <label
+                          className="flex items-center justify-center"
                           key={index}
-                          value={index}
                         >
-                          {style.name}
-                        </option>
+                          <Radio size="small"
+                            type="radio"
+                            value={index}
+                            checked={styleIndex === index}
+                            onChange={handleStyleChange}
+                            className="mr-1 border-gray-500"
+                          />
+                          <span className="text-gray-500 m-1">{style.name}</span>
+                        </label>
                       ))}
-                    </select>
+                    </div>
                   </div>
                 </div>
                 {/* This is input field for URL and button to trigger QR code generation */}
