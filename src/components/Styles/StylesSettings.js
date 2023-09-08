@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ArrowRight } from "@mui/icons-material";
+import AddIcon from "@mui/icons-material/Add";
 
 const StylesSettings = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,43 +20,43 @@ const StylesSettings = () => {
           id="dropdownRightEnd"
           className={`z-10 ${
             isOpen ? "" : "hidden"
-          } ml-40 mt-32 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-100 text-gray-500`}
+          } ml-96 mt-32 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-100 text-gray-500`}
         >
           <ul
-            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+            className="py-2 text-left text-sm w-80 text-gray-700 dark:text-gray-200"
             aria-labelledby="dropdownRightEndButton"
           >
             <li>
-              <a
-                href="/"
-                className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800"
-              >
-                Options
-              </a>
+              <span className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800">
+                <div className="grid grid-cols-2 gap-60 justify-between">
+                  Options
+                  <AddIcon />
+                </div>
+              </span>
             </li>
             <li>
-              <a
-                href="/"
-                className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800"
-              >
-                Logo
-              </a>
+              <span className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800">
+                <div className="grid grid-cols-2 gap-60 justify-between">
+                  Logo
+                  <AddIcon />
+                </div>
+              </span>
             </li>
             <li>
-              <a
-                href="/"
-                className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800"
-              >
-                Frame
-              </a>
+              <span className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800">
+                <div className="grid grid-cols-2 gap-60 justify-between">
+                  Frame
+                  <AddIcon />
+                </div>
+              </span>
             </li>
             <li>
-              <a
-                href="/"
-                className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800"
-              >
-                API
-              </a>
+              <span className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800">
+                <div className="grid grid-cols-2 gap-60 justify-between">
+                  API
+                  <AddIcon />
+                </div>
+              </span>
             </li>
           </ul>
         </div>
