@@ -24,8 +24,8 @@ function QRCodeGenerator({ image, color, url, styleIndex }) {
         fgColor={color}
         imageSettings={{
           src: image,
-          height: 70,
-          width: 70,
+          height: 60,
+          width: 60,
           excavate: true,
         }}
       />

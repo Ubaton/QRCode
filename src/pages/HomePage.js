@@ -16,6 +16,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import SocialsPage from "../components/Socials/SocialsPage";
 import { styled } from "@mui/material/styles";
+import StylesSettings from "../components/Styles/StylesSettings";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
@@ -87,12 +88,12 @@ function HomePage({ darkMode, toggleDarkMode }) {
   return (
     <div className="">
       <div
-        className={`flex items-center justify-center ${
+        className={`flex flex-col  items-center justify-center ${
           darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
         }`}
       >
         <div className="items-center justify-center h-screen grid-cols-2">
-          <div className="fixed top-0 right-0   sm:p-1 sm:m-1 space-x-4">
+          <div className="fixed top-0 right-0 sm:p-1 sm:m-1 space-x-4">
             <div className="flex pt-0.5 pr-3 w-62 items-center justify-center gap-2">
               {authUser ? (
                 <>
@@ -141,15 +142,18 @@ function HomePage({ darkMode, toggleDarkMode }) {
             </div>
           </div>
 
-          <div className="fixed left-0">
+          <div className="fixed left-0 z-10">
             <SideBar darkMode={darkMode} />
           </div>
 
-          <div className="p-2 pt-12">
+          <div className="p-4 pt-12">
             <div className="container mx-auto">
+              <div className="hidden sm:flex z-10 ">
+                <StylesSettings />
+              </div>
               {/* The Card Component */}
               <div
-                className={`containergrid mr-1 shadow-lg grid-cols-2 gap-4 mx-auto p-4 ${
+                className={`container mr-1 shadow-lg  gap-2 mx-auto p-2 ${
                   darkMode ? "bg-DarkMode-cards dark" : "bg-slate-100"
                 } rounded-md`}
               >
@@ -160,7 +164,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 </div>
                 <div className=" flex items-center justify-center ">
                   <div
-                    className="w-250 h-250 p-1 rounded-md overflow-hidden"
+                    className="w-200 h-200 p-1 rounded-md overflow-hidden"
                     ref={qrCodeRef}
                   >
                     <QRCodeGenerator
@@ -172,21 +176,24 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   </div>
                 </div>
                 <div className="flex items-center justify-center">
-                  <div className="gap-6 p-2">
+                  <div className="gap-2 p-2">
                     <div className="flex items-center justify-center">
                       {qrCodeStyles.map((style, index) => (
                         <label
                           className="flex items-center justify-center"
                           key={index}
                         >
-                          <Radio size="small"
+                          <Radio
+                            size="small"
                             type="radio"
                             value={index}
                             checked={styleIndex === index}
                             onChange={handleStyleChange}
-                            className="mr-1 border-gray-500"
+                            className="mr-1 z-0 border-gray-500"
                           />
-                          <span className="text-gray-500 m-1">{style.name}</span>
+                          <span className="text-gray-500 m-1">
+                            {style.name}
+                          </span>
                         </label>
                       ))}
                     </div>
