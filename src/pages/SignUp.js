@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 // import { auth } from "../data/firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import Logo from "../assets/images/cmg.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -28,8 +32,13 @@ const SignUp = () => {
 
       // Sign up with email and password using Firebase
       await createUserWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
-          console.log("User created:", userCredential.user);
+        async (userCredential) => {
+          const user = userCredential.user;
+          console.log("User created:", user);
+
+          // Send email verification
+          await sendEmailVerification(user);
+          console.log("Verification email sent to:", user.email);
         }
       );
 
