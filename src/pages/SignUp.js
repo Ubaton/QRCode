@@ -11,6 +11,8 @@ import Logo from "../assets/images/cmg.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Petten from "../assets/images/Petten.png";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -39,7 +41,7 @@ const SignUp = () => {
 
           // Send email verification
           await sendEmailVerification(user);
-          console.log("Verification email sent to:", user.email);
+          toast.success("Verification email sent to:", user.email);
 
           // Add user data to Firestore (example)
           const db = getFirestore(app);
@@ -51,10 +53,15 @@ const SignUp = () => {
 
           // Redirect the user to the login page on successful signup
           navigate("/login");
+
+          // Display a success toast
+          toast.success("Signup successful!");
         }
       );
     } catch (error) {
       setError(error.message);
+      // Display an error toast with the Firebase error message
+      toast.error(error.message);
     }
   };
 
@@ -170,6 +177,11 @@ const SignUp = () => {
           </p>
         </form>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+      />
     </div>
   );
 };
