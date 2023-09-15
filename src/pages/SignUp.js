@@ -5,6 +5,8 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { app } from "../data/firebase";
 import Logo from "../assets/images/cmg.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +29,6 @@ const SignUp = () => {
     }
 
     try {
-      // Get the auth object from Firebase
       const auth = getAuth();
 
       // Sign up with email and password using Firebase
@@ -39,11 +40,19 @@ const SignUp = () => {
           // Send email verification
           await sendEmailVerification(user);
           console.log("Verification email sent to:", user.email);
+
+          // Add user data to Firestore (example)
+          const db = getFirestore(app);
+          const usersCollection = collection(db, "users");
+          await addDoc(usersCollection, {
+            username: username,
+            email: email,
+          });
+
+          // Redirect the user to the login page on successful signup
+          navigate("/login");
         }
       );
-
-      // Redirect the user to the login page on successful signup
-      navigate("/login");
     } catch (error) {
       setError(error.message);
     }
