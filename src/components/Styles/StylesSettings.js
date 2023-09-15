@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { ArrowRight } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
 
 const StylesSettings = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,18 +57,26 @@ const StylesSettings = () => {
                 <div className="grid grid-cols-2 gap-60 justify-between">
                   Logo
                   <AddIcon
-                    className={`transition-transform transform ${
-                      isLogoOpen ? "rotate-45" : "rotate-0"
-                    }`}
+                    className={`transform ${
+                      isLogoOpen
+                        ? "rotate-45 delay-1000"
+                        : "rotate-0 delay-1000"
+                    } transition-transform duration-1000 ease-in-out`}
                   />
                 </div>
               </span>
               {isLogoOpen && (
                 <div className="ml-4 text-gray-50 transition duration-150 ease-in-out ">
                   <ul className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"></li>
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"></li>
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"></li>
+                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
+                      <FaGithub className="w-20 h-20" />
+                    </li>
+                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
+                      <FaInstagram className="w-20 h-20" />
+                    </li>
+                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
+                      <FaXTwitter className="w-20 h-20" />
+                    </li>
                   </ul>
                 </div>
               )}
@@ -80,9 +91,11 @@ const StylesSettings = () => {
                 <div className="grid grid-cols-2 gap-60 justify-between">
                   Frame
                   <AddIcon
-                    className={`transition-transform transform ${
-                      isFrameOpen ? "rotate-45" : "rotate-0"
-                    }`}
+                    className={`transform ${
+                      isFrameOpen
+                        ? "rotate-45 delay-1000"
+                        : "rotate-0 delay-1000"
+                    } transition-transform duration-1000 ease-in-out`}
                   />
                 </div>
               </span>

@@ -1,0 +1,13 @@
+/* Add this to your CSS or SCSS file */
+.dropdown-menu-entering,
+.dropdown-menu-exiting,
+.dropdown-menu-exited {
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+.dropdown-menu-entered {
+  max-height: 1000px; /* Adjust this value based on your content */
+  opacity: 1;
+}

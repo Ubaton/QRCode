@@ -2,7 +2,7 @@ import React from "react";
 import "./SocialsPage.css";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import { FaXTwitter } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 function SocialsPage() {
@@ -28,7 +28,7 @@ function SocialsPage() {
           className="flex items-center hover:bg-gray-100"
         >
           <span className="text-sm text-gray-300 mr-2 social-icon ">
-            <TwitterIcon className="gradient-animation rounded-xl" />
+            <FaXTwitter className="w-6 h-6 gradient-animation rounded-xl" />
           </span>
           <i className="fab fa-twitter text-xl text-blue-500"></i>
         </NavLink>
