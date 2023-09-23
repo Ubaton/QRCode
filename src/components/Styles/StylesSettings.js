@@ -4,6 +4,12 @@ import AddIcon from "@mui/icons-material/Add";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
+import GitHub_Frame from "../../assets/icons/GitHub_Frame.svg";
+import TwitterX_Frame from "../../assets/icons/TwitterX_Frame.svg";
+import Instagram_Frame from "../../assets/icons/Instagram_Frame.svg";
+import Facebook_Frame from "../../assets/icons/Facebook_Frame.svg";
+import WhatsApp_Frame from "../../assets/icons/WhatsApp_Frame.svg";
+import NewFrame from "../../assets/icons/NewFrame.svg";
 
 const StylesSettings = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,11 +107,67 @@ const StylesSettings = () => {
               </span>
               {isFrameOpen && (
                 <div className="ml-4 text-gray-50 ">
-                  <ul className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"></li>
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"></li>
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"></li>
-                  </ul>
+                  <div
+                    className="max-w-full"
+                    style={{
+                      display: "flex",
+                      overflowX: "auto",
+                      scrollbarWidth: "none",
+                      WebkitOverflowScrolling: "touch",
+                    }}
+                  >
+                    <ul
+                      className="flex items-center gap-4 p-2 text-center"
+                      style={{
+                        flexWrap: "nowrap",
+                        marginRight: "-8px", // Add negative margin to counteract the padding of the last item
+                      }}
+                    >
+                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <img
+                          src={GitHub_Frame}
+                          alt="GitHub Frame"
+                          style={{ width: "80px", height: "80px" }}
+                        />
+                      </li>
+                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <img
+                          src={Instagram_Frame}
+                          alt="Instagram Frame"
+                          style={{ width: "80px", height: "80px" }}
+                        />
+                      </li>
+                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <img
+                          src={TwitterX_Frame}
+                          alt="TwitterX Frame"
+                          style={{ width: "80px", height: "80px" }}
+                        />
+                      </li>
+                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <img
+                          src={Facebook_Frame}
+                          alt="TwitterX Frame"
+                          style={{ width: "80px", height: "80px" }}
+                        />
+                      </li>
+                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <img
+                          src={WhatsApp_Frame}
+                          alt="TwitterX Frame"
+                          style={{ width: "80px", height: "80px" }}
+                        />
+                      </li>
+                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <img
+                          src={NewFrame}
+                          alt="TwitterX Frame"
+                          style={{ width: "80px", height: "80px" }}
+                        />
+                      </li>
+                      {/* Add more items here */}
+                    </ul>
+                  </div>
                 </div>
               )}
             </li>
