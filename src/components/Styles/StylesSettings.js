@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { ArrowRight } from "@mui/icons-material";
+import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
@@ -9,14 +9,13 @@ import TwitterX_Frame from "../../assets/icons/TwitterX_Frame.svg";
 import Instagram_Frame from "../../assets/icons/Instagram_Frame.svg";
 import Facebook_Frame from "../../assets/icons/Facebook_Frame.svg";
 import WhatsApp_Frame from "../../assets/icons/WhatsApp_Frame.svg";
-import NewFrame from "../../assets/icons/WhatsApp_Frame.svg";
+import NewFrame from "../../assets/icons/NewFrame.svg";
 
 const StylesSettings = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogoOpen, setIsLogoOpen] = useState(false);
   const [isFrameOpen, setIsFrameOpen] = useState(false);
   const frameContainerRef = useRef(null);
-  // const [isApiOpen, setIsApiOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -36,6 +35,23 @@ const StylesSettings = () => {
     if (frameContainerRef.current) {
       frameContainerRef.current.scrollLeft += e.deltaY;
     }
+  };
+
+  const handleScrollLeft = () => {
+    if (frameContainerRef.current) {
+      frameContainerRef.current.scrollLeft -= 100;
+    }
+  };
+
+  const handleScrollRight = () => {
+    if (frameContainerRef.current) {
+      frameContainerRef.current.scrollLeft += 100;
+    }
+  };
+
+  const handleListItemClick = (e) => {
+    // Prevent the click event from propagating to the dropdown container
+    e.stopPropagation();
   };
 
   return (
@@ -81,13 +97,22 @@ const StylesSettings = () => {
               {isLogoOpen && (
                 <div className="ml-4 text-gray-50 transition duration-150 ease-in-out ">
                   <ul className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
+                    <li
+                      className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                      onClick={handleListItemClick}
+                    >
                       <FaGithub className="w-20 h-20" />
                     </li>
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
+                    <li
+                      className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                      onClick={handleListItemClick}
+                    >
                       <FaInstagram className="w-20 h-20" />
                     </li>
-                    <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
+                    <li
+                      className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                      onClick={handleListItemClick}
+                    >
                       <FaXTwitter className="w-20 h-20" />
                     </li>
                   </ul>
@@ -113,12 +138,19 @@ const StylesSettings = () => {
                 </div>
               </span>
               {isFrameOpen && (
-                <div className="ml-4 text-gray-50 ">
+                <div className="flex flex-row items-center text-gray-50 ">
+                  <ArrowLeft
+                    className="text-gray-500 cursor-pointer"
+                    onClick={(e) => {
+                      handleScrollLeft();
+                      handleListItemClick(e);
+                    }}
+                  />
                   <div
-                    className="max-w-full"
+                    className="w-72"
                     style={{
                       display: "flex",
-                      overflowX: "auto",
+                      overflowX: "hidden",
                       scrollbarWidth: "none",
                       WebkitOverflowScrolling: "touch",
                     }}
@@ -126,48 +158,66 @@ const StylesSettings = () => {
                     ref={frameContainerRef}
                   >
                     <ul
-                      className="flex items-center gap-4 p-2 text-center"
+                      className="flex items-center gap-2 p-2 text-center"
                       style={{
                         flexWrap: "nowrap",
                         marginRight: "-8px",
                       }}
                     >
-                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                      <li
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                        onClick={handleListItemClick}
+                      >
                         <img
                           src={GitHub_Frame}
                           alt="GitHub Frame"
                           style={{ width: "80px", height: "80px" }}
                         />
                       </li>
-                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                      <li
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                        onClick={handleListItemClick}
+                      >
                         <img
                           src={Instagram_Frame}
                           alt="Instagram Frame"
                           style={{ width: "80px", height: "80px" }}
                         />
                       </li>
-                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                      <li
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                        onClick={handleListItemClick}
+                      >
                         <img
                           src={TwitterX_Frame}
                           alt="TwitterX Frame"
                           style={{ width: "80px", height: "80px" }}
                         />
                       </li>
-                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                      <li
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                        onClick={handleListItemClick}
+                      >
                         <img
                           src={Facebook_Frame}
                           alt="TwitterX Frame"
                           style={{ width: "80px", height: "80px" }}
                         />
                       </li>
-                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                      <li
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                        onClick={handleListItemClick}
+                      >
                         <img
                           src={WhatsApp_Frame}
                           alt="TwitterX Frame"
                           style={{ width: "80px", height: "80px" }}
                         />
                       </li>
-                      <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+                      <li
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                        onClick={handleListItemClick}
+                      >
                         <img
                           src={NewFrame}
                           alt="TwitterX Frame"
@@ -177,6 +227,13 @@ const StylesSettings = () => {
                       {/* Add more items here */}
                     </ul>
                   </div>
+                  <ArrowRight
+                    className="text-gray-500 cursor-pointer"
+                    onClick={(e) => {
+                      handleScrollRight();
+                      handleListItemClick(e);
+                    }}
+                  />
                 </div>
               )}
             </li>
