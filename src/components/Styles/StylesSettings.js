@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ArrowRight } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
 import { FaXTwitter } from "react-icons/fa6";
@@ -9,12 +9,13 @@ import TwitterX_Frame from "../../assets/icons/TwitterX_Frame.svg";
 import Instagram_Frame from "../../assets/icons/Instagram_Frame.svg";
 import Facebook_Frame from "../../assets/icons/Facebook_Frame.svg";
 import WhatsApp_Frame from "../../assets/icons/WhatsApp_Frame.svg";
-import NewFrame from "../../assets/icons/NewFrame.svg";
+import NewFrame from "../../assets/icons/WhatsApp_Frame.svg";
 
 const StylesSettings = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogoOpen, setIsLogoOpen] = useState(false);
   const [isFrameOpen, setIsFrameOpen] = useState(false);
+  const frameContainerRef = useRef(null);
   // const [isApiOpen, setIsApiOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -29,6 +30,12 @@ const StylesSettings = () => {
   const toggleFrameDropdown = (e) => {
     e.stopPropagation();
     setIsFrameOpen((prevIsFrameOpen) => !prevIsFrameOpen);
+  };
+
+  const handleFrameScroll = (e) => {
+    if (frameContainerRef.current) {
+      frameContainerRef.current.scrollLeft += e.deltaY;
+    }
   };
 
   return (
@@ -115,12 +122,14 @@ const StylesSettings = () => {
                       scrollbarWidth: "none",
                       WebkitOverflowScrolling: "touch",
                     }}
+                    onWheel={handleFrameScroll}
+                    ref={frameContainerRef}
                   >
                     <ul
                       className="flex items-center gap-4 p-2 text-center"
                       style={{
                         flexWrap: "nowrap",
-                        marginRight: "-8px", // Add negative margin to counteract the padding of the last item
+                        marginRight: "-8px",
                       }}
                     >
                       <li className="w-20 h-20 rounded-md transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
