@@ -10,10 +10,12 @@ import Instagram_Frame from "../../assets/icons/Instagram_Frame.svg";
 import Facebook_Frame from "../../assets/icons/Facebook_Frame.svg";
 import WhatsApp_Frame from "../../assets/icons/WhatsApp_Frame.svg";
 import NewFrame from "../../assets/icons/NewFrame.svg";
+import DynamicColor from "../QRCodeGenerator/DynamicColor";
 
 const StylesSettings = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogoOpen, setIsLogoOpen] = useState(false);
+  const [isColorOpen, setIsColorOpen] = useState(false);
   const [isFrameOpen, setIsFrameOpen] = useState(false);
   const frameContainerRef = useRef(null);
 
@@ -24,6 +26,11 @@ const StylesSettings = () => {
   const toggleLogoDropdown = (e) => {
     e.stopPropagation();
     setIsLogoOpen((prevIsLogoOpen) => !prevIsLogoOpen);
+  };
+
+  const toggleColorDropdown = (e) => {
+    e.stopPropagation();
+    setIsColorOpen((prevIsColorOpen) => !prevIsColorOpen);
   };
 
   const toggleFrameDropdown = (e) => {
@@ -113,6 +120,37 @@ const StylesSettings = () => {
                       onClick={handleListItemClick}
                     >
                       <FaXTwitter className="w-20 h-20" />
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </li>
+            <li>
+              <span
+                className={`block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800 ${
+                  isColorOpen ? "bg-blue-100 text-blue-600" : ""
+                }`}
+                onClick={toggleColorDropdown}
+              >
+                <div className="grid grid-cols-2 gap-60 justify-between">
+                  <p>Dynamic_Color</p>
+                  <AddIcon
+                    className={`transform ${
+                      isColorOpen
+                        ? "rotate-45 delay-1000"
+                        : "rotate-0 delay-1000"
+                    } transition-transform duration-1000 ease-in-out`}
+                  />
+                </div>
+              </span>
+              {isColorOpen && (
+                <div className="ml-4 text-gray-50 transition duration-150 ease-in-out ">
+                  <ul className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
+                    <li
+                      className="w-auto h-auto p-2 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                      onClick={handleListItemClick}
+                    >
+                      <DynamicColor />
                     </li>
                   </ul>
                 </div>

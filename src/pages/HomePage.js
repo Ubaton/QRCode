@@ -151,7 +151,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
               <div className="hidden sm:flex z-10 ">
                 <StylesSettings />
               </div>
-              {/* The Card Component */}
+              {/* The Card Component  */}
               <div
                 className={`container mr-1 shadow-lg  gap-2 mx-auto p-2 ${
                   darkMode ? "bg-DarkMode-cards dark" : "bg-slate-100"
