@@ -86,7 +86,7 @@ const StylesSettings = () => {
                 </span>
               )}
               <li>
-                <span className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800">
+                <span className="block px-4 py-2 bg-gray-100 text-gray-800">
                   <div className="text-center font-bold text-md">Options</div>
                 </span>
               </li>
