@@ -50,7 +50,6 @@ const StylesSettings = () => {
   };
 
   const handleListItemClick = (e) => {
-    // Prevent the click event from propagating to the dropdown container
     e.stopPropagation();
   };
 
