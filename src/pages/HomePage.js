@@ -262,7 +262,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
               )}
             </div>
             <div className="flex items-center justify-center">
-              <div className="fixed top-80 right-[-32] pl-40 ">
+              <div className="fixed w-4 top-72 right-[-32] ml-40">
                 <SocialsPage />
               </div>
             </div>
