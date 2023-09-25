@@ -19,6 +19,7 @@ const StylesSettings = () => {
   const [isLogoOpen, setIsLogoOpen] = useState(false);
   const [isColorOpen, setIsColorOpen] = useState(false);
   const [isFrameOpen, setIsFrameOpen] = useState(false);
+  const [isApiOpen, setIsApiOpen] = useState(false);
   const frameContainerRef = useRef(null);
 
   const toggleDropdown = () => {
@@ -38,6 +39,11 @@ const StylesSettings = () => {
   const toggleFrameDropdown = (e) => {
     e.stopPropagation();
     setIsFrameOpen((prevIsFrameOpen) => !prevIsFrameOpen);
+  };
+
+  const toggleApiDropdown = (e) => {
+    e.stopPropagation();
+    setIsApiOpen((prevIsApiOpen) => !prevIsApiOpen);
   };
 
   const handleFrameScroll = (e) => {
@@ -283,12 +289,35 @@ const StylesSettings = () => {
                 )}
               </li>
               <li>
-                <span className="block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800">
+                <span
+                  className={`block px-4 py-2 hover:bg-gray-100 text-gray-500 dark:hover:bg-gray-200 dark:hover:text-gray-800 ${
+                    isApiOpen ? "bg-blue-100 text-blue-600" : ""
+                  }`}
+                  onClick={toggleApiDropdown}
+                >
                   <div className="grid grid-cols-2 gap-60 justify-between">
-                    API
-                    <AddIcon />
+                    <p>API</p>
+                    <AddIcon
+                      className={`transform ${
+                        isApiOpen
+                          ? "rotate-45 delay-1000"
+                          : "rotate-0 delay-1000"
+                      } transition-transform duration-1000 ease-in-out`}
+                    />
                   </div>
                 </span>
+                {isApiOpen && (
+                  <div className="ml-4 text-gray-50 transition duration-150 ease-in-out ">
+                    <ul className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
+                      <li
+                        className="w-auto h-auto p-2 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:bg-indigo-500 duration-300"
+                        onClick={handleListItemClick}
+                      >
+                        API Playground
+                      </li>
+                    </ul>
+                  </div>
+                )}
               </li>
             </ul>
           ))}
