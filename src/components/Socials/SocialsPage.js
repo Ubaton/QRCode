@@ -15,7 +15,7 @@ function SocialsPage() {
           rel="noopener noreferrer"
           className="flex items-center"
         >
-          <span className="text-sm text-gray-300 mr-2">
+          <span className="text-sm text-gray-50 mr-2">
             <InstagramIcon className="gradient-animation rounded-md" />
           </span>
         </NavLink>
@@ -26,7 +26,7 @@ function SocialsPage() {
           rel="noopener noreferrer"
           className="flex items-center"
         >
-          <span className="text-sm text-gray-300 mr-2">
+          <span className="text-sm text-gray-50 mr-2">
             <FaXTwitter className="w-6 h-6 gradient-animation rounded-md" />
           </span>
         </NavLink>
@@ -37,7 +37,7 @@ function SocialsPage() {
           rel="noopener noreferrer"
           className="flex items-center"
         >
-          <span className="text-sm text-gray-300 mr-2">
+          <span className="text-sm text-gray-50 mr-2">
             <GitHubIcon className="gradient-animation rounded-md" />
           </span>
         </NavLink>
