@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 function SocialsPage() {
   return (
     <div className="">
-      <div className="hidden sm:flex space-x-4">
+      <div className="flex space-x-4">
         <NavLink
           to="https://www.instagram.com/creativemindsgraphic_cmg/"
           target="_blank"
