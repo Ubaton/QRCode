@@ -70,9 +70,16 @@ const AuthDetails = () => {
           </NavLink>
         </button>
         <button className="fixed right-4 top-0" onClick={togglePlan}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-  <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-</svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-three-dots-vertical"
+            viewBox="0 0 16 16"
+          >
+            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+          </svg>
         </button>
         {authUser ? (
           <div className="flex flex-col items-center">
@@ -141,7 +148,7 @@ const AuthDetails = () => {
                   <div className="p-6">
                     <ul className="list-disc pl-6 text-gray-700 mb-4 text-left">
                       {plan[0].list.map((item, index) => (
-                        <li key={index}>{item}</li>
+                        <li key={index}>✔️{item}</li>
                       ))}
                     </ul>
                     <p className="text-gray-500">

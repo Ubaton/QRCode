@@ -17,16 +17,29 @@ import TermsOfUse from "./pages/utils/Use/TermsOfUse";
 import SocialsPage from "./components/Socials/SocialsPage";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+  const [darkMode, setDarkMode] = useState(prefersDarkMode.matches);
 
   useEffect(() => {
     // Apply the dark mode class to the root element based on the darkMode state
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
+  // Function to toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
+
+  // Watch for changes in system dark mode preference
+  useEffect(() => {
+    const mediaQueryListener = (e) => {
+      setDarkMode(e.matches);
+    };
+    prefersDarkMode.addEventListener("change", mediaQueryListener);
+    return () => {
+      prefersDarkMode.removeEventListener("change", mediaQueryListener);
+    };
+  }, [prefersDarkMode]);
 
   return (
     <PayPalScriptProvider
