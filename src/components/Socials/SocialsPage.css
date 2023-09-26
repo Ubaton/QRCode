@@ -2,7 +2,6 @@
   background-image: linear-gradient(120deg, #3498db, #9b59b6);
   background-size: 200% 200%;
   animation: gradientAnimation 6s ease-in-out infinite;
-  opacity: 30%;
 }
 
 @keyframes gradientAnimation {

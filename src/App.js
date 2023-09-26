@@ -5,7 +5,7 @@ import HomePage from "../src/pages/HomePage";
 import AboutPage from "../src/pages/AboutPage";
 import ContactPage from "../src/pages/ContactPage";
 import FileConvertPage from "../src/pages/utils/FileConvert/FileConvert";
-import CompressImagePage from "../src/pages/utils/CompressImage";
+import CompressImagePage from "./pages/utils/CompressImage/CompressImage";
 import CompressVideoPage from "../src/pages/utils/CompressVideo";
 import PaymentMethod from "../src/pages/PaymentMethod";
 import Login from "./pages/Login";

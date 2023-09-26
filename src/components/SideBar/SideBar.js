@@ -11,6 +11,7 @@ import { signOut } from "firebase/auth";
 import AboutPage from "../../pages/AboutPage";
 import ContactPage from "../../pages/ContactPage";
 import ProPlanPopup from "../../pages/ProPlanPopup";
+import SocialsPage from "../Socials/SocialsPage";
 
 const settingsOptions = [
   { nameC: "File Convert", link: "/fileconvert", isNewC: true },
@@ -206,6 +207,10 @@ function SideBar({ darkMode }) {
           <ProPlanPopup />
         </div>
         {/* ProPlanPopup */}
+
+        <div className="flex items-center justify-center p-2">
+          <SocialsPage />
+        </div>
 
         {/* Footer */}
         <div className="flex flex-col w-52 h-16 items-center justify-center fixed bottom-0 ml-4 mb-2 text-xs">
