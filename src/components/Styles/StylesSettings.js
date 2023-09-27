@@ -81,8 +81,9 @@ const StylesSettings = () => {
             isOpen ? "" : "hidden"
           } ml-96 mt-32 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-100 text-gray-500`}
         >
-          {settingsOptions.map((option) => (
+          {settingsOptions.map((option, index) => (
             <ul
+              key={index}
               className=" relative py-2 text-left text-sm w-80 text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownRightEndButton"
             >

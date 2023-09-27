@@ -106,9 +106,7 @@ function SideBar({ darkMode }) {
           <nav className="flex flex-col space-y-2 p-1 text-center">
             <NavLink
               onClick={() => handleNavLinkClick("home")}
-              exact
               to="/"
-              activeClassName="bg-blue-500 text-white"
               className="block px-20 py-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
             >
               Home
@@ -117,7 +115,6 @@ function SideBar({ darkMode }) {
             <NavLink
               onClick={() => handleNavLinkClick("about")}
               to="/about"
-              activeClassName="bg-blue-500 text-white"
               className="block px-20 py-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
             >
               About
@@ -126,7 +123,6 @@ function SideBar({ darkMode }) {
             <NavLink
               onClick={() => handleNavLinkClick("contact")}
               to="/contact"
-              activeClassName="bg-blue-500 text-white"
               className="block px-20 py-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
             >
               Contact
@@ -146,7 +142,6 @@ function SideBar({ darkMode }) {
                   <NavLink
                     key={option.link}
                     to={option.link}
-                    activeClassName="bg-blue-500 text-white"
                     className="block py-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200 relative"
                   >
                     {option.name}
