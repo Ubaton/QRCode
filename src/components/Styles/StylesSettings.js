@@ -118,19 +118,19 @@ const StylesSettings = () => {
                   <div className="ml-4 text-gray-50 transition duration-150 ease-in-out ">
                     <ul className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
                       <li
-                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-cyan-600 duration-300"
                         onClick={handleListItemClick}
                       >
                         <FaGithub className="w-20 h-20" />
                       </li>
                       <li
-                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-cyan-600 duration-300"
                         onClick={handleListItemClick}
                       >
                         <FaInstagram className="w-20 h-20" />
                       </li>
                       <li
-                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                        className="w-20 h-20 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-cyan-600 duration-300"
                         onClick={handleListItemClick}
                       >
                         <FaXTwitter className="w-20 h-20" />
@@ -161,7 +161,7 @@ const StylesSettings = () => {
                   <div className="ml-4 text-gray-50 transition duration-150 ease-in-out ">
                     <ul className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
                       <li
-                        className="w-auto h-auto p-2 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-100 hover:bg-indigo-500 duration-300"
+                        className="w-auto h-auto p-2 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:scale-100 hover:bg-cyan-600 duration-300"
                         onClick={handleListItemClick}
                       >
                         <DynamicColor />
