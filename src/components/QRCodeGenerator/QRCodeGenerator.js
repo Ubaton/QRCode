@@ -4,26 +4,19 @@ import qrCodeStyles from "./QRCodeStyles";
 
 function QRCodeGenerator({ image, color, url, styleIndex }) {
   const [selectedStyle, setSelectedStyle] = useState(qrCodeStyles[styleIndex]);
-  const [borderColor, setBorderColor] = useState(color);
 
   useEffect(() => {
     setSelectedStyle(qrCodeStyles[styleIndex]);
   }, [styleIndex]);
 
   const qrCodeStyle = {
-    borderColor: borderColor,
-  };
-
-  const handleBorderColorChange = (newColor) => {
-    setBorderColor(newColor);
+    borderColor: color,
   };
 
   return (
-    <div className="m-1 p-2 border-4 border-black rounded-md">
-      <div style={qrCodeStyle}>
+    <div className="m-1 p-2 border-4 rounded-md" style={qrCodeStyle}>
+      <div>
         <QRCode
-          initialColor={borderColor}
-          onColorChange={handleBorderColorChange}
           value={url}
           size={selectedStyle.size}
           fgColor={color}
