@@ -101,7 +101,6 @@ function ColorPicker({ setColor }) {
           <KeyboardArrowRightIcon />
         </button>
       </div>
-      <div className="flex justify-center mt-2"></div>
     </div>
   );
 }
