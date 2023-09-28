@@ -79,13 +79,12 @@ const StylesSettings = () => {
           id="dropdownRightEnd"
           className={`z-10 ${
             isOpen ? "" : "hidden"
-          } ml-96 mt-32 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-100 text-gray-500`}
+          } ml-96 mt-32 bg-gray-50 divide-y divide-gray-100 rounded-lg shadow-lg`}
         >
           {settingsOptions.map((option, index) => (
             <ul
               key={index}
-              className=" relative py-2 text-left text-sm w-80 text-gray-700 dark:text-gray-200"
-              aria-labelledby="dropdownRightEndButton"
+              className="relative py-2 text-left text-sm w-80 text-gray-700"
             >
               {option.isNew && (
                 <span className="absolute top-1 right-1 bg-blue-500 inline-block whitespace-nowrap rounded-[0.27rem] bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.35em] pb-[0.15em] pt-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-gray-50">
