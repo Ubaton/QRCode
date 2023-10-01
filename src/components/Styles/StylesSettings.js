@@ -69,7 +69,7 @@ const StylesSettings = () => {
   };
 
   return (
-    <div className="fixed top-[11.5rem] right-96 ">
+    <div className="">
       <button
         className=" relative rounded-full h-10 w-10 flex items-center justify-center bg-blue-500 text-white shadow-inner shadow-zinc-600"
         onClick={toggleDropdown}

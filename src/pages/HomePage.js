@@ -147,10 +147,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
           </div>
 
           <div className="p-4 pt-12">
-            <div className="container mx-auto">
-              <div className="hidden sm:flex z-10 ">
-                <StylesSettings />
-              </div>
+            <div className="container flex flex-row mx-auto">
               {/* The Card Component  */}
               <div
                 className={`container mr-1 shadow-lg  gap-2 mx-auto p-2 ${
@@ -236,6 +233,11 @@ function HomePage({ darkMode, toggleDarkMode }) {
                     </span>
                   </p>
                 </div>
+              </div>
+              <div className="flex justify-end mt-32 z-10">
+                <span className="hidden sm:flex">
+                  <StylesSettings />
+                </span>
               </div>
               {/* The Card Component */}
             </div>
