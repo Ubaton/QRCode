@@ -15,6 +15,7 @@ import ProfilePage from "./pages/ProfilePage";
 import PrivacyPolicy from "./pages/utils/Use/PrivacyPolicy";
 import TermsOfUse from "./pages/utils/Use/TermsOfUse";
 import SocialsPage from "./components/Socials/SocialsPage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
@@ -148,6 +149,7 @@ function App() {
           }
         />
       </Routes>
+      <ToastContainer />
     </PayPalScriptProvider>
   );
 }
