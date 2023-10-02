@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import SideBar from "../../../components/SideBar/SideBar";
 
 function CompressImagePage({ darkMode }) {
@@ -138,7 +137,6 @@ function CompressImagePage({ darkMode }) {
           )}
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 }
