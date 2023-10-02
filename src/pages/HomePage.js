@@ -14,7 +14,6 @@ import { NavLink } from "react-router-dom";
 import { auth } from "../data/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
-// import SocialsPage from "../components/Socials/SocialsPage";
 import { styled } from "@mui/material/styles";
 import StylesSettings from "../components/Styles/StylesSettings";
 
@@ -263,11 +262,6 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 </div>
               )}
             </div>
-            {/* <div className="flex items-center justify-center">
-              <div className="fixed w-4 top-72 right-[-32] ml-40">
-                <SocialsPage />
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

@@ -54,9 +54,13 @@ function PaymentMethod({ darkMode }) {
                 Your premium features on our Pro Plan.
               </p>
               <ul className="list-disc pl-6 text-gray-500 mb-4">
-                <li>Feature 1: Unlimited downloads</li>
-                <li>Feature 2: Priority customer support</li>
-                <li>Feature 3: Advanced analytics</li>
+                <li>✔️Feature 1: Unlimited downloads</li>
+                <li>✔️Feature 2: Priority customer support</li>
+                <li>✔️Feature 3: Advanced analytics</li>
+                <li>✔️Feature 4: Advanced "Dynamic Color" change</li>
+                <li>✔️Feature 5: Build-in Social Logos picker</li>
+                <li>✔️Feature 6: Build-in frame changer</li>
+                <li>✔️Feature 7: Accec to the API playground</li>
               </ul>
               <p className="text-gray-500 mb-4">
                 Price: <span className="text-green-500 font-bold">$ 4.00</span>{" "}
