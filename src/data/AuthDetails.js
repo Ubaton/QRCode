@@ -15,6 +15,7 @@ const plan = [
       "Feature 1: Limited downloads",
       "Feature 2: Standard customer support",
       "Feature 3: Basic usage analytics",
+      "Feature 4: 15 Colors to Choose from",
     ],
   },
 ];

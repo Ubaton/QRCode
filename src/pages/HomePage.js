@@ -234,7 +234,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   </p>
                 </div>
               </div>
-              <div className="flex justify-end mt-32 z-10">
+              <div className="flex justify-end mt-32">
                 <span className="hidden sm:flex">
                   <StylesSettings />
                 </span>
