@@ -18,6 +18,7 @@ To create QR codes effortlessly, follow these straightforward steps:
 ## Dependencies
 
 Our web app is built using React, ensuring a seamless and responsive user experience.
+To view a comprehensive list of the installed dependencies, please refer to the `package.json` file. Additionally, running the app through testing ensures an optimized and enhanced user experience.
 
 ## Installation
 
