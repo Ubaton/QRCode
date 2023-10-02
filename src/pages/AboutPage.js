@@ -56,7 +56,7 @@ const AboutPage = ({ darkMode }) => {
 
   return (
     <div
-      className={`flex items-center justify-center ${
+      className={`flex min-h-screen items-center justify-center ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
       }`}
     >

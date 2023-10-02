@@ -7,7 +7,7 @@ function TermsOfUse({ darkMode }) {
 
   return (
     <div
-      className={`md:h-auto lg:h-auto p-4 ${
+      className={`min-h-screen md:h-auto lg:h-auto p-4 ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >

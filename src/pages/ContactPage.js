@@ -56,7 +56,7 @@ function ContactPage({ darkMode }) {
 
   return (
     <div
-      className={`h-screen text-gray-500 ${
+      className={`min-h-screen text-gray-500 ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
       }`}
     >
@@ -71,66 +71,68 @@ function ContactPage({ darkMode }) {
           <ArrowBackIcon />
         </NavLink>
       </Button>
-      <div
-        className={`p-2 shadow-xl rounded-md m-4 text-gray-500 ${
-          darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
-        }`}
-      >
-        <div className=" text-center p-2">
-          <form onSubmit={handleSubmit} className="grid md:grid-cols-2">
-            <div className=" p-6">
-              <h1 className="text-3xl font-semibold mb-4">Contact Us</h1>
-              <p className="mb-4">
-                We'd love to hear from you! If you have any questions or
-                inquiries, please feel free to get in touch with us using the
-                contact information below.
-              </p>
-              <div className="flex p-5 flex-col space-y-2">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  className="rounded-md p-2"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your Email"
-                  className="rounded-md p-2"
-                  required
-                />
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your Message"
-                  className="rounded-md p-2"
-                  required
-                ></textarea>
+      <div className="flex items-center justify-center h-screen">
+        <div
+          className={`container p-2 shadow-xl rounded-md m-4 text-gray-500 ${
+            darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
+          }`}
+        >
+          <div className=" text-center p-2">
+            <form onSubmit={handleSubmit} className="grid md:grid-cols-2">
+              <div className=" p-6">
+                <h1 className="text-3xl font-semibold mb-4">Contact Us</h1>
+                <p className="mb-4">
+                  We'd love to hear from you! If you have any questions or
+                  inquiries, please feel free to get in touch with us using the
+                  contact information below.
+                </p>
+                <div className="flex p-5 flex-col space-y-2">
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    className="rounded-md p-2"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your Email"
+                    className="rounded-md p-2"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Your Message"
+                    className="rounded-md p-2"
+                    required
+                  ></textarea>
+                </div>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                >
+                  Submit
+                </Button>
               </div>
-              <Button
-                type="submit"
-                variant="contained"
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
-              >
-                Submit
-              </Button>
-            </div>
 
-            <div className="flex items-center justify-center p-6 ">
-              <img
-                src={Contact}
-                alt="Creative Minds Graphics (Pty) Ltd Logo"
-                width="450"
-                height="300"
-              />
-            </div>
-          </form>
+              <div className="flex items-center justify-center p-6 ">
+                <img
+                  src={Contact}
+                  alt="Creative Minds Graphics (Pty) Ltd Logo"
+                  width="450"
+                  height="300"
+                />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
