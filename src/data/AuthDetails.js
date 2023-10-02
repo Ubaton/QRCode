@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../data/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const plan = [
@@ -152,9 +152,13 @@ const AuthDetails = () => {
                         <li key={index}>✔️{item}</li>
                       ))}
                     </ul>
-                    <p className="text-gray-500">
-                      Sign up now and experience the benefits of{" "}
-                      {plan[0].YourPlan}!
+                    <p className="text-gray-300">
+                      <Link to="/signup">
+                        <span className=" hover:text-blue-500 underline underline-offset-2">
+                          Sign-up
+                        </span>
+                      </Link>{" "}
+                      now and experience the benefits of {<span>Pro Plan</span>}
                     </p>
                   </div>
                 </div>
