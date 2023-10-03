@@ -114,6 +114,6 @@ To implement the **FileConvert** page in your project, follow these steps:
 
 The **FileConvert** page relies on React and Material-UI to provide seamless and efficient file conversion functionality.
 
-##License
+## License
 
 This web app is licensed under the MIT License, ensuring that it remains open-source and accessible for all. Your contributions are greatly appreciated, and together, we can continue to improve and enhance this valuable tool for the community.
