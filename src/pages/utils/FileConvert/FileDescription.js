@@ -5,8 +5,12 @@ const itemData = [
   {
     key: "1",
     header: <p className="text-gray-500">PDF to Word Conversion</p>,
-    text: `Our PDF to Word conversion tool lets you easily transform
-            PDFs into editable Word documents. Here's how it works:`,
+    text: (
+      <p className=" font-semibold ">
+        Our PDF to Word conversion tool lets you easily transform PDFs into
+        editable Word documents. Here's how it works:
+      </p>
+    ),
     list: [
       "Upload PDF: Choose your PDF file.",
       "Conversion: We'll convert it into a Word document.",
@@ -18,7 +22,12 @@ const itemData = [
   {
     key: "2",
     header: <p className="text-gray-500">Word to PDF Conversion</p>,
-    text: `Our Word to PDF conversion tool simplifies turning Word documents into PDF files. Here's how it works:`,
+    text: (
+      <p className=" font-semibold ">
+        Our Word to PDF conversion tool simplifies turning Word documents into
+        PDF files. Here's how it works:
+      </p>
+    ),
     list: [
       "Upload Word Document: Choose your Word file.",
       "Conversion: We'll transform it into a PDF file.",
@@ -29,10 +38,14 @@ const itemData = [
   {
     key: "3",
     header: <p className="text-gray-500">File Size Limitation</p>,
-    text: `File Size Limit" refers to the maximum allowable size for a file that 
-    can be processed or uploaded. It represents the upper boundary beyond which 
-    the file may not be accepted or processed by a system or application. 
-    Here's how it works:`,
+    text: (
+      <p className=" font-semibold ">
+        File Size Limit" refers to the maximum allowable size for a file that
+        can be processed or uploaded. It represents the upper boundary beyond
+        which the file may not be accepted or processed by a system or
+        application. Here's how it works:
+      </p>
+    ),
     list: [
       "File Size Limit: Any file size is supported.",
       "Conversion Limit: Only one file can be converted at a time.",
