@@ -5,6 +5,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 function TermsOfUse({ darkMode }) {
   const handleNavLinkClick = (page) => {};
 
+  const update = {
+    time: "",
+    title: "",
+  };
+
   return (
     <div
       className={`min-h-screen md:h-auto lg:h-auto p-4 ${
@@ -78,9 +83,9 @@ function TermsOfUse({ darkMode }) {
           <br></br>
           <p>
             We reserve the right to update these Terms of Use at any time. Any
-            changes will be effective immediately upon posting to this page. Your
-            continued use of our services following the posting of changes will
-            constitute your acceptance of such changes.
+            changes will be effective immediately upon posting to this page.
+            Your continued use of our services following the posting of changes
+            will constitute your acceptance of such changes.
           </p>
           <br></br>
           <p>

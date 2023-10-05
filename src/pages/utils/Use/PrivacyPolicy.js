@@ -5,6 +5,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 function PrivacyPolicy({ darkMode }) {
   const handleNavLinkClick = (page) => {};
 
+  const update = {
+    time: "",
+    title: "",
+  };
+
   return (
     <div
       className={`min-h-screen md:h-auto lg:h-auto p-4 ${
