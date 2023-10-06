@@ -6,8 +6,9 @@ function PrivacyPolicy({ darkMode }) {
   const handleNavLinkClick = (page) => {};
 
   const update = {
-    time: "",
-    title: "",
+    title: "Last update",
+    time: "12:16",
+    date: "23 August 2023",
   };
 
   return (
@@ -31,6 +32,9 @@ function PrivacyPolicy({ darkMode }) {
         <h1 className="text-2xl font-semibold mb-4 text-center">
           Privacy Policy
         </h1>
+        <span className="flex flex-row space-x-2">
+          <p>{update.title}</p> <p>{update.date}</p> <p>{update.time}</p>
+        </span>
         <hr></hr>
         <div className="p-6">
           <p>
