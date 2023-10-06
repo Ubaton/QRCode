@@ -2,7 +2,10 @@
 
 ![Q Logo](https://github.com/Ubaton/QRCode/blob/master/src/assets/icons/Q.png)
 
+## Light Mode
 ![QR Code Website Image](https://github.com/Ubaton/QRCode/blob/master/src/assets/images/CMG_QRcodeG.png)
+
+## Dark Mode
 ![QR Code Website Image](https://github.com/Ubaton/QRCode/blob/master/src/assets/images/CMG_QRcodeG2.png)
 
 Welcome to the QR Code Generator web app, a versatile tool that simplifies the process of generating QR codes. Whether you need QR codes for websites, contact information, or any other purpose, our user-friendly application has you covered.
