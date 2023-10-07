@@ -101,16 +101,24 @@ function CompressImagePage({ darkMode }) {
             darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
           }`}
         >
-          <h2 className="text-2xl font-bold mb-4">Image Compression</h2>
-          <input type="file" onChange={handleImageChange} className="mb-4" />
+          <h2 className="text-center text-2xl font-bold mb-4">
+            Image Compression
+          </h2>
+          <div className="flex flex-col items-center justify-center p-4">
+            <input
+              type="file"
+              onChange={handleImageChange}
+              className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
+            />
 
-          <button
-            onClick={handleCompressImage}
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-blod text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
-            variant="contained"
-          >
-            Compress Image
-          </button>
+            <button
+              onClick={handleCompressImage}
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-blod text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+              variant="contained"
+            >
+              Compress Image
+            </button>
+          </div>
 
           {compressedImage && (
             <div className="flex-1 justify-center items-center mt-4 p-4">

@@ -25,6 +25,10 @@ function SideBar({ darkMode }) {
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
   const [showSwitchSettingsMenu, setShowSwitchSettingsMenu] = useState(false);
 
+  const versionUpdate = {
+    version: "v1.1.1",
+  };
+
   // Function to handle navigation clicks and update the currentPage state
   const handleNavLinkClick = (page) => {
     setCurrentPage(page);
@@ -219,7 +223,7 @@ function SideBar({ darkMode }) {
               Powered By<br></br>Creative Minds Graphics (Pty) Ltd
             </span>
           </a>
-          <div className="text-gray-500">v1.1.1</div>
+          <div className="text-gray-500">{versionUpdate.version}</div>
         </div>
       </div>
     </div>

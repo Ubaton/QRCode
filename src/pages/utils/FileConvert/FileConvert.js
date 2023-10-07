@@ -82,9 +82,13 @@ function FileConvertPage({ darkMode }) {
               darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
             }`}
           >
-            <div className="w-92 h-96 p-4 ">
+            <div className="flex flex-col items-center justify-center p-4">
               <h2 className="text-2xl font-bold mb-4">File Converter</h2>
-              <input type="file" onChange={handleFileChange} className="mb-4" />
+              <input
+                type="file"
+                onChange={handleFileChange}
+                className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
+              />
 
               <div className="flex items-center justify-center gap-2">
                 <div>

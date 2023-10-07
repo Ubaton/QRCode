@@ -18,7 +18,7 @@ function ImageUpload({ setImage, image }) {
           }
           return newProgress;
         });
-      }, 30); 
+      }, 30);
     }
   }, [loading]);
 
@@ -27,7 +27,7 @@ function ImageUpload({ setImage, image }) {
     if (file) {
       setLoading(true);
       setUploadProgress(0);
-      setFileName(file.name); 
+      setFileName(file.name);
 
       // Delay the image upload by 0.9 seconds
       setTimeout(() => {
@@ -50,7 +50,7 @@ function ImageUpload({ setImage, image }) {
         };
 
         reader.readAsDataURL(file);
-      }, 900); 
+      }, 900);
     }
   };
 
@@ -90,7 +90,6 @@ function ImageUpload({ setImage, image }) {
           </div>
         </div>
       ) : (
-   
         image && (
           <img
             src={image}

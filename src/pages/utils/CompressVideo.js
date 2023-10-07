@@ -18,14 +18,21 @@ function CompressVideoPage({ darkMode }) {
               darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
             }`}
           >
-            <h2 className="text-2xl font-semibold mb-4">Video Compression</h2>
-            <div className="space-x-5 p-2">
-              <input disabled type="file" accept="video/*" className="mb-2" />
+            <h2 className="text-center text-2xl font-semibold mb-4">
+              Video Compression
+            </h2>
+            <div className="flex flex-col items-center justify-center space-x-5 p-2">
+              <input
+                disabled
+                type="file"
+                accept="video/*"
+                className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
+              />
               <button
                 disabled
                 className="bg-blue-500 text-white px-4 py-2 rounded"
               >
-                Compress Video
+                <span className="">Compress Video</span>
               </button>
             </div>
             <div className="flex items-center justify-center p-2">
