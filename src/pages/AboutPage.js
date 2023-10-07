@@ -73,7 +73,7 @@ const AboutPage = ({ darkMode }) => {
           </NavLink>
         </Button>
       </div>
-      <div className="p-8 text-gray-500 ">
+      <div className="container p-8 text-gray-500 ">
         <div className="justify-center items-center  mt-5">
           <h1 className=" flex justify-center items-center">
             <strong className="text-xl">About Us</strong>
@@ -104,9 +104,9 @@ const AboutPage = ({ darkMode }) => {
             Customer-Centric: Our clients' satisfaction is at the heart of
             everything we do. We work closely with you to understand your unique
             needs and deliver personalized solutions that exceed expectations.
-            <br></br> Cutting-Edge Technology: We stay up-to-date with the
-            latest design trends and technologies to ensure that your projects
-            are at the forefront of innovation.
+            Cutting-Edge Technology: We stay up-to-date with the latest design
+            trends and technologies to ensure that your projects are at the
+            forefront of innovation.
           </p>
         </div>
       </div>
