@@ -40,7 +40,9 @@ const itemData = [
   },
   {
     key: "3",
-    header: <p className="text-gray-500">utomatic Analysis and Optimization</p>,
+    header: (
+      <p className="text-gray-500">Automatic Analysis and Optimization</p>
+    ),
     text: (
       <p className=" font-semibold ">
         Our image compression tool streamlines the process of image
