@@ -141,7 +141,6 @@ function FileConvertPage({ darkMode }) {
                   variant="contained"
                   onClick={handleDownloadConvertedFile}
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
-                  disabled
                 >
                   <p className="text-gray-300">Download Converted File</p>
                 </button>
