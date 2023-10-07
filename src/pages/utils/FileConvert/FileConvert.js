@@ -84,17 +84,11 @@ function FileConvertPage({ darkMode }) {
           >
             <div className="w-92 h-96 p-4 ">
               <h2 className="text-2xl font-bold mb-4">File Converter</h2>
-              <input
-                disabled
-                type="file"
-                onChange={handleFileChange}
-                className="mb-4"
-              />
+              <input type="file" onChange={handleFileChange} className="mb-4" />
 
               <div className="flex items-center justify-center gap-2">
                 <div>
                   <button
-                    disabled
                     onClick={handlePdfToWord}
                     className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                   >
@@ -108,7 +102,6 @@ function FileConvertPage({ darkMode }) {
                 </div>
                 <div>
                   <button
-                    disabled
                     onClick={handleWordToPdf}
                     className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                   >
