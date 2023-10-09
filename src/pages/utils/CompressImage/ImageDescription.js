@@ -45,13 +45,10 @@ const itemData = [
     ),
     text: (
       <p className=" font-semibold ">
-        Our image compression tool streamlines the process of image
-        optimization. When you upload PNG or JPEG images, our advanced
-        compression algorithm automatically analyzes and optimizes them. You
-        don't need to manually tweak settings or spend excessive time on
-        optimization. Enjoy the best results with minimal effort, making your
-        web projects faster and more efficient. Start using our smart image
-        compression tool today to save time and resources.
+        Our image compression tool automates image optimization for PNG and JPEG
+        files. Our advanced algorithm analyzes and optimizes your images without
+        manual tweaking, saving you time and resources for faster web projects.
+        Try our smart compression tool now for effortless, efficient results.
       </p>
     ),
     list: ["Time Savings", "Consistency", "Efficiency"],

@@ -96,9 +96,9 @@ function CompressImagePage({ darkMode }) {
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
-      <div className="flex items-center justify-center text-gray-500 md:ml-12">
+      <div className="flex items-center justify-center text-gray-500 mt-44 md:mt-0 md:ml-12">
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 py-4 shadow-lg rounded-md p-4 ${
+          className={`grid grid-cols-1 md:grid-cols-2 md:ml-44 md:mr-2 md:px-4 py-4 shadow-lg rounded-md ${
             darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
           }`}
         >
@@ -126,7 +126,7 @@ function CompressImagePage({ darkMode }) {
                   <img
                     src={URL.createObjectURL(compressedImage)}
                     alt="Compressed"
-                    className="w-60 h-60 rounded-md"
+                    className="w-96 h-60 rounded-md"
                   />
                 </div>
 
@@ -144,7 +144,7 @@ function CompressImagePage({ darkMode }) {
               </div>
             )}
           </div>
-          <div className="flex items-center justify-center p-4">
+          <div className="flex items-center justify-center m-8 p-4">
             <ImageDescription />
           </div>
         </div>
