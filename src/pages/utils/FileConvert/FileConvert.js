@@ -78,7 +78,7 @@ function FileConvertPage({ darkMode }) {
       <div className="pt-16 items-center  text-gray-500 justify-center h-screen grid-cols-2">
         <div className="flex pt-16 items-center justify-center ">
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 rounded-md shadow-lg ${
+            className={`grid grid-cols-1 md:grid-cols-2 md:ml-60 rounded-md shadow-lg ${
               darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
             }`}
           >
