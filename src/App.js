@@ -6,7 +6,7 @@ import AboutPage from "../src/pages/AboutPage";
 import ContactPage from "../src/pages/ContactPage";
 import FileConvertPage from "../src/pages/utils/FileConvert/FileConvert";
 import CompressImagePage from "./pages/utils/CompressImage/CompressImage";
-import CompressVideoPage from "../src/pages/utils/CompressVideo";
+import CompressVideoPage from "./pages/utils/CompressVideo/CompressVideo";
 import PaymentMethod from "../src/pages/PaymentMethod";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
