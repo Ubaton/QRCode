@@ -75,7 +75,7 @@ function FileConvertPage({ darkMode }) {
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
-      <div className="flex items-center text-gray-500 justify-center h-screen grid-cols-2">
+      <div className="flex items-center text-gray-500 justify-center p-4 h-screen grid-cols-2">
         <div
           className={`grid grid-cols-1 md:grid-cols-2 md:ml-60 rounded-md shadow-lg ${
             darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
