@@ -75,84 +75,82 @@ function FileConvertPage({ darkMode }) {
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
-      <div className="pt-16 items-center text-gray-500 justify-center h-screen grid-cols-2">
-        <div className="flex pt-16 p-4 items-center justify-center ">
-          <div
-            className={`grid grid-cols-1 md:grid-cols-2 md:ml-60 rounded-md shadow-lg ${
-              darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
-            }`}
-          >
-            <div className="flex flex-col items-center justify-center p-4">
-              <h2 className="text-2xl font-bold mb-4">File Converter</h2>
-              <input
-                type="file"
-                onChange={handleFileChange}
-                className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
-              />
+      <div className="flex items-center text-gray-500 justify-center h-screen grid-cols-2">
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 md:ml-60 rounded-md shadow-lg ${
+            darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
+          }`}
+        >
+          <div className="flex flex-col items-center justify-center p-4">
+            <h2 className="text-2xl font-bold mb-4">File Converter</h2>
+            <input
+              type="file"
+              onChange={handleFileChange}
+              className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
+            />
 
-              <div className="flex items-center justify-center gap-2">
-                <div>
-                  <button
-                    onClick={handlePdfToWord}
-                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
-                  >
-                    <p className="text-gray-300">PDF to Word</p>
-                  </button>
-                  <div className="grid grid-cols-3 pl-2 p-1">
-                    <img src={PDF} alt="PDF" width="32" height="32" />
-                    <ArrowRightAltIcon />
-                    <img src={WORD} alt="WORD" width="32" height="32" />
-                  </div>
-                </div>
-                <div>
-                  <button
-                    onClick={handleWordToPdf}
-                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
-                  >
-                    <p className="text-gray-300">Word to PDF</p>
-                  </button>
-                  <div className="grid grid-cols-3 pl-2 p-1">
-                    <img src={WORD} alt="WORD" width="32" height="32" />
-                    <ArrowRightAltIcon />
-                    <img src={PDF} alt="PDF" width="32" height="32" />
-                  </div>
-                </div>
-              </div>
-
-              {convertedFile && (
-                <div className="pt-4">
-                  <p className="mb-2">
-                    Converted File Type:{" "}
-                    {convertedFile.type === "application/pdf"
-                      ? "PDF Document"
-                      : "Word Document"}
-                  </p>
-                  <div className="w-full h-64 border rounded-md overflow-hidden">
-                    <object
-                      data={URL.createObjectURL(convertedFile)}
-                      type={convertedFile.type}
-                      width="100%"
-                      height="100%"
-                    >
-                      <p>Failed to load the converted file.</p>
-                    </object>
-                  </div>
-                </div>
-              )}
-
-              <div className="flex items-center justify-center pt-16">
+            <div className="flex items-center justify-center gap-2">
+              <div>
                 <button
-                  variant="contained"
-                  onClick={handleDownloadConvertedFile}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                  onClick={handlePdfToWord}
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                 >
-                  <p className="text-gray-300">Download Converted File</p>
+                  <p className="text-gray-300">PDF to Word</p>
                 </button>
+                <div className="grid grid-cols-3 pl-2 p-1">
+                  <img src={PDF} alt="PDF" width="32" height="32" />
+                  <ArrowRightAltIcon />
+                  <img src={WORD} alt="WORD" width="32" height="32" />
+                </div>
+              </div>
+              <div>
+                <button
+                  onClick={handleWordToPdf}
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                >
+                  <p className="text-gray-300">Word to PDF</p>
+                </button>
+                <div className="grid grid-cols-3 pl-2 p-1">
+                  <img src={WORD} alt="WORD" width="32" height="32" />
+                  <ArrowRightAltIcon />
+                  <img src={PDF} alt="PDF" width="32" height="32" />
+                </div>
               </div>
             </div>
-            <div className="flex items-center justify-center p-4">
-              <FileDescription />
+
+            {convertedFile && (
+              <div className="pt-4">
+                <p className="mb-2">
+                  Converted File Type:{" "}
+                  {convertedFile.type === "application/pdf"
+                    ? "PDF Document"
+                    : "Word Document"}
+                </p>
+                <div className="w-full h-64 border rounded-md overflow-hidden">
+                  <object
+                    data={URL.createObjectURL(convertedFile)}
+                    type={convertedFile.type}
+                    width="100%"
+                    height="100%"
+                  >
+                    <p>Failed to load the converted file.</p>
+                  </object>
+                </div>
+              </div>
+            )}
+
+            <div className="flex items-center justify-center pt-16">
+              <button
+                variant="contained"
+                onClick={handleDownloadConvertedFile}
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+              >
+                <p className="text-gray-300">Download Converted File</p>
+              </button>
             </div>
+          </div>
+          <div className="flex items-center justify-center p-4">
+            <FileDescription />
           </div>
         </div>
       </div>

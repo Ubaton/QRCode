@@ -71,7 +71,7 @@ function ContactPage({ darkMode }) {
           <ArrowBackIcon />
         </NavLink>
       </Button>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center md:pt-14">
         <div
           className={`container p-2 shadow-xl rounded-md m-4 text-gray-500 ${
             darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
@@ -79,9 +79,9 @@ function ContactPage({ darkMode }) {
         >
           <div className=" text-center p-2">
             <form onSubmit={handleSubmit} className="grid md:grid-cols-2">
-              <div className=" p-6">
+              <div className="p-4">
                 <h1 className="text-3xl font-semibold mb-4">Contact Us</h1>
-                <p className="mb-4">
+                <p className="text-sm  md:text-lg mb-4">
                   We'd love to hear from you! If you have any questions or
                   inquiries, please feel free to get in touch with us using the
                   contact information below.
@@ -123,12 +123,11 @@ function ContactPage({ darkMode }) {
                 </Button>
               </div>
 
-              <div className="flex items-center justify-center p-6 ">
+              <div className="flex items-center justify-center">
                 <img
                   src={Contact}
                   alt="Creative Minds Graphics (Pty) Ltd Logo"
-                  width="450"
-                  height="300"
+                  className="w-40 h-40 md:w-80 md:h-80"
                 />
               </div>
             </form>
