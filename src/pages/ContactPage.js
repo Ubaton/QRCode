@@ -56,7 +56,7 @@ function ContactPage({ darkMode }) {
 
   return (
     <div
-      className={`min-h-screen text-gray-500 ${
+      className={`min-h-screen overflow-y-auto text-gray-500 ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
       }`}
     >
@@ -71,7 +71,7 @@ function ContactPage({ darkMode }) {
           <ArrowBackIcon />
         </NavLink>
       </Button>
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center">
         <div
           className={`container p-2 shadow-xl rounded-md m-4 text-gray-500 ${
             darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"

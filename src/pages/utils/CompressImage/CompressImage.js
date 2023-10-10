@@ -144,7 +144,7 @@ function CompressImagePage({ darkMode }) {
               </div>
             )}
           </div>
-          <div className="flex items-center justify-center m-8 p-4">
+          <div className="flex items-center justify-center p-4">
             <ImageDescription />
           </div>
         </div>
