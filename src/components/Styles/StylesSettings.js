@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
 import { FaXTwitter } from "react-icons/fa6";
@@ -308,14 +309,17 @@ const StylesSettings = () => {
                 </span>
                 {isApiOpen && (
                   <div className="ml-4 text-gray-50 transition duration-150 ease-in-out ">
-                    <ul className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
-                      <li
-                        className="w-auto h-auto p-2 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:bg-indigo-500 duration-300"
-                        onClick={handleListItemClick}
-                      >
-                        API Playground
-                      </li>
-                    </ul>
+                    <span className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
+                      <Link to="/api" target="_blank">
+                        <button
+                          disabled
+                          className="w-auto h-auto p-2 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:bg-indigo-500 duration-300"
+                          onClick={handleListItemClick}
+                        >
+                          API Playground
+                        </button>
+                      </Link>
+                    </span>
                   </div>
                 )}
               </li>
