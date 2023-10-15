@@ -1,6 +1,7 @@
 import React from "react";
 import SideBar from "../../../components/SideBar/SideBar";
 import VideoDescription from "./VideoDescription";
+import { Button } from "@mui/material";
 
 function CompressVideoPage({ darkMode }) {
   return (
@@ -23,24 +24,17 @@ function CompressVideoPage({ darkMode }) {
               Video Compression
             </h2>
             <input
-              disabled
               type="file"
               accept="video/*"
               className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
             />
-            <button
-              disabled
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              <span className="">Compress Video</span>
-            </button>
+            <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-blod text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2">
+              <span className="text-gray-50">Compress Video</span>
+            </Button>
             <div className="flex items-center justify-center p-2">
-              <button
-                disabled
-                className=" bg-green-500 text-white px-4 py-2 rounded ml-2"
-              >
-                Download Compressed Video
-              </button>
+              <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-blod text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2">
+                <span className="text-gray-50">Download Compressed Video</span>
+              </Button>
             </div>
           </div>
           <div className="flex items-center justify-center p-4">

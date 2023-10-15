@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SideBar from "../../../components/SideBar/SideBar";
 import ImageDescription from "./ImageDescription";
+import { Button } from "@mui/material";
 
 function CompressImagePage({ darkMode }) {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -112,13 +113,13 @@ function CompressImagePage({ darkMode }) {
               className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
             />
 
-            <button
+            <Button
               onClick={handleCompressImage}
               className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-blod text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
               variant="contained"
             >
               Compress Image
-            </button>
+            </Button>
 
             {compressedImage && (
               <div className="flex-1 justify-center items-center mt-4 p-4">
@@ -131,7 +132,7 @@ function CompressImagePage({ darkMode }) {
                 </div>
 
                 <div className="flex justify-center items-center p-2">
-                  <button className="p-2">
+                  <Button className="p-2">
                     <a
                       href={URL.createObjectURL(compressedImage)}
                       download
@@ -139,7 +140,7 @@ function CompressImagePage({ darkMode }) {
                     >
                       Download Compressed Image
                     </a>
-                  </button>
+                  </Button>
                 </div>
               </div>
             )}

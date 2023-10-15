@@ -7,6 +7,7 @@ import PDF from "../../../assets/icons/pdf-96.png";
 import WORD from "../../../assets/icons/word-96.png";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import FileDescription from "./FileDescription";
+import { Button } from "@mui/material";
 
 function FileConvertPage({ darkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -91,12 +92,12 @@ function FileConvertPage({ darkMode }) {
 
             <div className="flex items-center justify-center gap-2">
               <div>
-                <button
+                <Button
                   onClick={handlePdfToWord}
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                 >
                   <p className="text-gray-300">PDF to Word</p>
-                </button>
+                </Button>
                 <div className="grid grid-cols-3 pl-2 p-1">
                   <img src={PDF} alt="PDF" width="32" height="32" />
                   <ArrowRightAltIcon />
@@ -104,12 +105,12 @@ function FileConvertPage({ darkMode }) {
                 </div>
               </div>
               <div>
-                <button
+                <Button
                   onClick={handleWordToPdf}
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                 >
                   <p className="text-gray-300">Word to PDF</p>
-                </button>
+                </Button>
                 <div className="grid grid-cols-3 pl-2 p-1">
                   <img src={WORD} alt="WORD" width="32" height="32" />
                   <ArrowRightAltIcon />
@@ -140,13 +141,13 @@ function FileConvertPage({ darkMode }) {
             )}
 
             <div className="flex items-center justify-center pt-16">
-              <button
+              <Button
                 variant="contained"
                 onClick={handleDownloadConvertedFile}
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
               >
                 <p className="text-gray-300">Download Converted File</p>
-              </button>
+              </Button>
             </div>
           </div>
           <div className="flex items-center justify-center p-4">
