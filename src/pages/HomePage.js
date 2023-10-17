@@ -16,6 +16,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { styled } from "@mui/material/styles";
 import StylesSettings from "../components/Styles/StylesSettings";
+import CookieConsent from "../pages/utils/CookieConsent";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   const qrCodeRef = useRef(null);
@@ -49,7 +50,14 @@ function HomePage({ darkMode, toggleDarkMode }) {
     }
   `;
 
+  const [showCookieConsent, setShowCookieConsent] = useState(true);
+
   useEffect(() => {
+    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
+    if (cookiesAccepted === "true") {
+      setShowCookieConsent(false);
+    }
+
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
@@ -66,6 +74,11 @@ function HomePage({ darkMode, toggleDarkMode }) {
       listen();
     };
   }, []);
+
+  const acceptCookies = () => {
+    localStorage.setItem("cookiesAccepted", "true");
+    setShowCookieConsent(false);
+  };
 
   const generateQRCode = async () => {
     const canvas = await html2canvas(qrCodeRef.current);
@@ -262,6 +275,9 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 </div>
               )}
             </div>
+            {showCookieConsent && (
+              <CookieConsent acceptCookies={acceptCookies} />
+            )}
           </div>
         </div>
       </div>
