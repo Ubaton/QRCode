@@ -26,7 +26,7 @@ function SideBar({ darkMode }) {
   const [showSwitchSettingsMenu, setShowSwitchSettingsMenu] = useState(false);
 
   const versionUpdate = {
-    version: "v1.1.1",
+    version: "v1.2.2",
   };
 
   // Function to handle navigation clicks and update the currentPage state
