@@ -17,7 +17,7 @@ import TermsOfUse from "./pages/utils/Use/TermsOfUse";
 import SocialsPage from "./components/Socials/SocialsPage";
 import API from "./components/API/Api";
 import { ToastContainer } from "react-toastify";
-// import CookieConsent from "./pages/utils/CookieConsent";
+import CookieConsent from "./pages/utils/CookieConsent";
 
 function App() {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
@@ -154,7 +154,7 @@ function App() {
           path="/api"
           element={<API darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
         />
-        {/* <Route
+        <Route
           path="/cookieconsent"
           element={
             <CookieConsent
@@ -162,7 +162,7 @@ function App() {
               toggleDarkMode={toggleDarkMode}
             />
           }
-        /> */}
+        />
       </Routes>
       <ToastContainer />
     </PayPalScriptProvider>

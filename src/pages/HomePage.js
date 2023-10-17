@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ImageUpload from "../components/ImageUpload/ImageUpload";
 import ColorPicker from "../components/ColorPicker/ColorPicker";
 import QRCodeGenerator from "../components/QRCodeGenerator/QRCodeGenerator";
@@ -78,6 +80,14 @@ function HomePage({ darkMode, toggleDarkMode }) {
   const acceptCookies = () => {
     localStorage.setItem("cookiesAccepted", "true");
     setShowCookieConsent(false);
+  };
+
+  const rejectCookies = () => {
+    localStorage.setItem("cookiesAccepted", "false");
+    setShowCookieConsent(false);
+    toast.error(
+      "Cookies have been rejected. Some website features may not work as expected."
+    );
   };
 
   const generateQRCode = async () => {
@@ -276,11 +286,15 @@ function HomePage({ darkMode, toggleDarkMode }) {
               )}
             </div>
             {showCookieConsent && (
-              <CookieConsent acceptCookies={acceptCookies} />
+              <CookieConsent
+                acceptCookies={acceptCookies}
+                rejectCookies={rejectCookies}
+              />
             )}
           </div>
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }
