@@ -15,7 +15,7 @@ const CookieConsent = ({ acceptCookies, rejectCookies }) => {
 
   return (
     <div
-      className={`flex items-center justify-center bg-gray-200 text-gray-500 rounded-md shadow-lg w-full z-50 ${
+      className={`flex items-center justify-center bg-gray-200 text-gray-500 rounded-md shadow-lg w-96 z-50 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       } transition-opacity ease-in-out duration-300`}
     >
