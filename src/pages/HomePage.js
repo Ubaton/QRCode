@@ -85,9 +85,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
   const rejectCookies = () => {
     localStorage.setItem("cookiesAccepted", "false");
     setShowCookieConsent(false);
-    toast.error(
-      "Cookies have been rejected. Some website features may not work as expected."
-    );
+    toast.error("Cookies have been rejected.");
   };
 
   const generateQRCode = async () => {
@@ -114,7 +112,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
           darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
         }`}
       >
-        <div className="items-center justify-center h-screen grid-cols-2">
+        <div className="relative items-center justify-center h-screen grid-cols-2">
           <div className="fixed top-0 right-0 sm:p-1 sm:m-1 space-x-4">
             <div className="flex pt-0.5 pr-3 w-62 items-center justify-center gap-2">
               {authUser ? (
@@ -285,12 +283,14 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 </div>
               )}
             </div>
-            {showCookieConsent && (
-              <CookieConsent
-                acceptCookies={acceptCookies}
-                rejectCookies={rejectCookies}
-              />
-            )}
+            <div className="absolute inset-x-0 bottom-0">
+              {showCookieConsent && (
+                <CookieConsent
+                  acceptCookies={acceptCookies}
+                  rejectCookies={rejectCookies}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>
