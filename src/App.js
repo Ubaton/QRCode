@@ -17,7 +17,6 @@ import TermsOfUse from "./pages/utils/Use/TermsOfUse";
 import SocialsPage from "./components/Socials/SocialsPage";
 import API from "./components/API/Api";
 import { ToastContainer } from "react-toastify";
-import CookieConsent from "./pages/utils/CookieConsent";
 
 function App() {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
@@ -153,15 +152,6 @@ function App() {
         <Route
           path="/api"
           element={<API darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
-        />
-        <Route
-          path="/cookieconsent"
-          element={
-            <CookieConsent
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-          }
         />
       </Routes>
       <ToastContainer />
