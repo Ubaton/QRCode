@@ -15,30 +15,33 @@ const CookieConsent = ({ acceptCookies, rejectCookies }) => {
 
   return (
     <div
-      className={`fixed bottom-4 left-4 bg-gray-200 text-gray-500 ${
+      className={`fixed w-full bottom-0 z-50 flex items-center justify-center bg-gray-200 text-gray-500 rounded-md shadow-md ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       } transition-opacity ease-in-out duration-300`}
     >
-      <div className="flex flex-row items-center p-4 bg-white rounded-md shadow-md text-center">
-        <p className="text-sm md:text-md mb-2">
+      <div className="flex flex-col">
+        <p className="text-xs md:text-md mt-2 px-4">
           This website uses cookies to improve your experience.
         </p>
-        <div className="space-x-4">
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={acceptCookies}
-            className="focus:outline-none"
-          >
-            Accept
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={rejectCookies}
-            className="focus:outline-none"
-          >
-            Reject
-          </Button>
+        <div className="flex flex-row items-center justify-center p-2 text-center">
+          <div className="flex flex-row space-x-4">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={acceptCookies}
+              className="focus:outline-none"
+            >
+              Accept
+            </Button>
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={rejectCookies}
+              className="focus:outline-none"
+            >
+              Reject
+            </Button>
+          </div>
         </div>
       </div>
     </div>
