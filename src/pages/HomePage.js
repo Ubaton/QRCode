@@ -283,7 +283,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 </div>
               )}
             </div>
-            <div className="absolute inset-x-0 bottom-0">
+            <div className="absolute inset-x-0 bottom-0 w-full">
               {showCookieConsent && (
                 <CookieConsent
                   acceptCookies={acceptCookies}
