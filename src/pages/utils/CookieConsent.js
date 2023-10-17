@@ -15,7 +15,7 @@ const CookieConsent = ({ acceptCookies }) => {
 
   return (
     <div
-      className={`fixed bottom-4 p-2 bg-gray-200 text-gray-500 rounded-md ${
+      className={`fixed bottom-4 left-[50%] p-2 bg-gray-200 text-gray-500 rounded-md ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       } transition-opacity ease-in-out duration-300`}
     >
