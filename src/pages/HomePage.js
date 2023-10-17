@@ -283,14 +283,14 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 </div>
               )}
             </div>
-            <div className="w-full">
-              {showCookieConsent && (
-                <CookieConsent
-                  acceptCookies={acceptCookies}
-                  rejectCookies={rejectCookies}
-                />
-              )}
-            </div>
+          </div>
+          <div>
+            {showCookieConsent && (
+              <CookieConsent
+                acceptCookies={acceptCookies}
+                rejectCookies={rejectCookies}
+              />
+            )}
           </div>
         </div>
       </div>
