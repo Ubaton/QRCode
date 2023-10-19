@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/images/cmg.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -213,8 +213,8 @@ function SideBar({ darkMode }) {
 
         {/* Footer */}
         <div className="flex flex-col w-52 h-16 items-center justify-center fixed bottom-0 ml-4 mb-2 text-xs">
-          <a
-            href="https://www.facebook.com/CreativeMindsGraphic/"
+          <Link
+            to="https://www.facebook.com/CreativeMindsGraphic/"
             target="_blank"
             rel="noopener noreferrer"
             className="block mb-2 text-gray-500 hover:text--500"
@@ -222,7 +222,7 @@ function SideBar({ darkMode }) {
             <span className="flex text-center justify-center m-1">
               Powered By<br></br>Creative Minds Graphics (Pty) Ltd
             </span>
-          </a>
+          </Link>
           <div className="text-gray-500">{versionUpdate.version}</div>
         </div>
       </div>

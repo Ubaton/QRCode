@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const cardData = [
@@ -106,7 +106,17 @@ const AboutPage = ({ darkMode }) => {
             needs and deliver personalized solutions that exceed expectations.
             Cutting-Edge Technology: We stay up-to-date with the latest design
             trends and technologies to ensure that your projects are at the
-            forefront of innovation.
+            forefront of innovation.You can also visit us on our
+            <Link
+              to="https://creativemg.netlify.app/projects"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block mb-2 text-blue-500 hover:text-blue-700"
+            >
+              <span class="flex text-center justify-center m-1">
+                Portfolio.
+              </span>
+            </Link>
           </p>
         </div>
       </div>
