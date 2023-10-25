@@ -17,7 +17,7 @@ To create QR codes effortlessly, follow these straightforward steps:
 1. Open the web app in your preferred browser.
 2. Input a URL or text into the provided field.
 3. Click the "Generate QR Code" button.
-4. Voilà! The QR code will be instantly generated and displayed on your screen.
+4. The QR code will be instantly generated and displayed on your screen.
 
 ## Dependencies
 
