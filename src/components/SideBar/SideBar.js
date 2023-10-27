@@ -12,6 +12,7 @@ import AboutPage from "../../pages/AboutPage";
 import ContactPage from "../../pages/ContactPage";
 import ProPlanPopup from "../../pages/ProPlanPopup";
 import SocialsPage from "../Socials/SocialsPage";
+import UserCount from "../UserCount/UserCount";
 
 const settingsOptions = [
   { nameC: "File Convert", link: "/fileconvert", isNewC: true },
@@ -85,7 +86,7 @@ function SideBar({ darkMode }) {
         }`}
       >
         {/* Logo */}
-        <div className="flex items-center justify-center py-6">
+        <div className="flex flex-col items-center justify-center py-6">
           <NavLink to="/">
             <img
               src={Logo}
@@ -169,12 +170,15 @@ function SideBar({ darkMode }) {
 
         {/* Settings Icon */}
         <div className="fixed block bottom-20 left-4">
-          <button
-            onClick={toggleSettingsMenu}
-            className="text-gray-500 hover:text-gray-700 focus:outline-none"
-          >
-            <SettingsIcon />
-          </button>
+          <div className="flex flex-row items-center space-x-2">
+            <button
+              onClick={toggleSettingsMenu}
+              className="text-gray-500 hover:text-gray-700 focus:outline-none"
+            >
+              <SettingsIcon />
+            </button>
+            <UserCount />
+          </div>
           {showSettingsMenu && (
             <div
               className={`absolute h-38 bottom-8 text-gray-500 border border-gray-100 border-spacing-1 left-0 mt-2 w-48 p-2 rounded-md shadow-lg items-center justify-center ${
