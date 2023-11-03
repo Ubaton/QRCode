@@ -70,7 +70,7 @@ const ImageDescription = () => {
               header={item.header}
               showArrow={false}
             >
-              <p>{item.text}</p>
+              <span>{item.text}</span>
               <ul className=" p-2 pl-8">
                 {item.list.map((listItem, index) => (
                   <li className="list-disc" key={index}>
