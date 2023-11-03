@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { convertPdfToWord, convertWordToPdf } from "./Convert";
 import SideBar from "../../../components/SideBar/SideBar";
 import PDF from "../../../assets/icons/pdf-96.png";
 import WORD from "../../../assets/icons/word-96.png";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import FileDescription from "./FileDescription";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 function FileConvertPage({ darkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -15,14 +15,20 @@ function FileConvertPage({ darkMode }) {
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
-    setConvertedFile(null); // Reset converted file when a new file is chosen
+    setConvertedFile(null);
   };
 
   const handlePdfToWord = async () => {
     if (selectedFile && selectedFile.type === "application/pdf") {
+      const formData = new FormData();
+      formData.append("pdf_file", selectedFile);
+
       try {
-        const convertedBlob = await convertPdfToWord(selectedFile);
-        setConvertedFile(convertedBlob);
+        const response = await axios.post("/pdf-to-word", formData, {
+          responseType: "blob",
+        });
+
+        setConvertedFile(response.data);
         toast.success("PDF converted to Word successfully.");
       } catch (error) {
         toast.error("Failed to convert PDF to Word.");
@@ -38,9 +44,11 @@ function FileConvertPage({ darkMode }) {
       selectedFile.type ===
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ) {
+      const formData = new FormData();
+      formData.append("word_file", selectedFile);
+
       try {
-        const convertedBlob = await convertWordToPdf(selectedFile);
-        setConvertedFile(convertedBlob);
+        await axios.post("/word-to-pdf", formData);
         toast.success("Word converted to PDF successfully.");
       } catch (error) {
         toast.error("Failed to convert Word to PDF.");
@@ -50,18 +58,18 @@ function FileConvertPage({ darkMode }) {
     }
   };
 
-  // Function to handle downloading the converted file
   const handleDownloadConvertedFile = () => {
     if (convertedFile) {
       const fileExtension =
-        selectedFile.type === "application/pdf" ? "pdf" : "docx";
+        selectedFile.type === "application/pdf" ? "docx" : "pdf";
       const fileName = `converted_file.${fileExtension}`;
 
-      // Create a temporary anchor element to trigger the download
-      const tempAnchor = document.createElement("a");
-      tempAnchor.href = URL.createObjectURL(convertedFile);
-      tempAnchor.download = fileName;
-      tempAnchor.click();
+      const url = window.URL.createObjectURL(new Blob([convertedFile]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", fileName);
+      document.body.appendChild(link);
+      link.click();
     } else {
       toast.error("No converted file available for download.");
     }
@@ -134,7 +142,7 @@ function FileConvertPage({ darkMode }) {
                     width="100%"
                     height="100%"
                   >
-                    <p>Failed to load the converted file.</p>
+                    <span>Failed to load the converted file.</span>
                   </object>
                 </div>
               </div>

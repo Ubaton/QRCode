@@ -20,9 +20,7 @@ function UserCount() {
         userCollection.doc("total_users").set({ count: firestoreUserCount });
 
         setUserCount(totalUsers); // Set the user count state
-      } catch (error) {
-        console.error("Error fetching user count:", error);
-      }
+      } catch (error) {}
     };
 
     fetchUserCount();
