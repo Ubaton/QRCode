@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { auth } from "../data/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Logo from "../assets/images/cmg.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +11,7 @@ import Petten from "../assets/images/Petten.png";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -19,11 +21,13 @@ const Login = () => {
       // Sign in with email and password using Firebase
       await signInWithEmailAndPassword(auth, email, password);
 
-      // Redirect the user to the dashboard or another page on successful login
-      // Replace '/dashboard' with your desired route
       navigate("/");
     } catch (error) {
-      setError(error.message);
+      if (error.message === "Firebase: Error (auth/user-not-found).") {
+        toast.error("User not found. Please check your email and try again.");
+      } else {
+        toast.error(error.message);
+      }
     }
   };
 
@@ -84,10 +88,6 @@ const Login = () => {
               />
             </div>
           </div>
-
-          {error && (
-            <div className="text-red-600 text-center my-2">{error}</div>
-          )}
 
           <div>
             <button

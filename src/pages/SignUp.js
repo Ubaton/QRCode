@@ -37,7 +37,6 @@ const SignUp = () => {
       await createUserWithEmailAndPassword(auth, email, password).then(
         async (userCredential) => {
           const user = userCredential.user;
-          console.log("User created:", user);
 
           // Send email verification
           await sendEmailVerification(user);
@@ -157,7 +156,9 @@ const SignUp = () => {
           </div>
 
           {error && (
-            <div className="text-red-600 text-center my-2">{error}</div>
+            <div className="bg-red-200 text-red-600 text-center my-2 py-2 rounded-lg">
+              {error}
+            </div>
           )}
 
           <div>
