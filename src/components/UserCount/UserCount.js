@@ -19,7 +19,7 @@ function UserCount() {
         // Set the total user count in Firestore
         userCollection.doc("total_users").set({ count: firestoreUserCount });
 
-        setUserCount(totalUsers); // Set the user count state
+        setUserCount(totalUsers);
       } catch (error) {}
     };
 
