@@ -24,9 +24,13 @@ function FileConvertPage({ darkMode }) {
       formData.append("pdf_file", selectedFile);
 
       try {
-        const response = await axios.post("/pdf-to-word", formData, {
-          responseType: "blob",
-        });
+        const response = await axios.post(
+          "http://localhost:5000/pdf-to-word", // Update the URL
+          formData,
+          {
+            responseType: "blob",
+          }
+        );
 
         setConvertedFile(response.data);
         toast.success("PDF converted to Word successfully.");
@@ -48,7 +52,10 @@ function FileConvertPage({ darkMode }) {
       formData.append("word_file", selectedFile);
 
       try {
-        await axios.post("/word-to-pdf", formData);
+        await axios.post(
+          "http://localhost:5000/word-to-pdf", // Update the URL
+          formData
+        );
         toast.success("Word converted to PDF successfully.");
       } catch (error) {
         toast.error("Failed to convert Word to PDF.");

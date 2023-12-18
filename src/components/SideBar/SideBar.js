@@ -15,7 +15,7 @@ import SocialsPage from "../Socials/SocialsPage";
 import UserCount from "../UserCount/UserCount";
 
 const settingsOptions = [
-  { nameC: "File Convert", link: "/fileconvert", isNewC: true },
+  { nameC: "File Convert", link: "/fileconvert", isNewC: false },
   { name: "Compress Image", link: "/compressimage", isNew: false },
   { nameC: "Compress Video", link: "/compressvideo", isNewC: true },
 ];
@@ -33,7 +33,7 @@ function SideBar({ darkMode }) {
   // Function to handle navigation clicks and update the currentPage state
   const handleNavLinkClick = (page) => {
     setCurrentPage(page);
-    toggleMobileMenu(); // Close the mobile menu after clicking a link
+    toggleMobileMenu();
   };
 
   // Function to toggle the mobile menu

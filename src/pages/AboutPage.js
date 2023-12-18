@@ -56,7 +56,7 @@ const AboutPage = ({ darkMode }) => {
 
   return (
     <div
-      className={`flex min-h-screen items-center justify-center ${
+      className={`flex flex-col min-h-screen items-center justify-center ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-100"
       }`}
     >
@@ -119,6 +119,12 @@ const AboutPage = ({ darkMode }) => {
             </Link>
           </p>
         </div>
+      </div>
+      <div className="flex items-center justify-center p-8">
+        <p className="text-gray-500 text-xs">
+          Powered By Creative Mind Graphics (Pty) Ltd | Copyright © 2024, All
+          Rights Reserved
+        </p>
       </div>
     </div>
   );

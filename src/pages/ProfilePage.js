@@ -4,7 +4,7 @@ import AuthDetails from "../data/AuthDetails";
 const ProfilePage = ({ darkMode }) => {
   return (
     <div
-      className={`min-h-screen flex items-center justify-center p-4 ${
+      className={`min-h-screen flex flex-col items-center justify-center p-4 ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
