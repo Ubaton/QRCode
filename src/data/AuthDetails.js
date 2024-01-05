@@ -20,6 +20,14 @@ const plan = [
   },
 ];
 
+const priority = {
+  description: `At Creative Minds Graphics (Pty) Ltd, we prioritize transparency as
+  an essential element of our commitment to safeguarding your
+  information. Your security is of paramount importance to us, and we
+  take every measure to ensure the confidentiality and protection of
+  your data.`,
+};
+
 const AuthDetails = () => {
   const handleNavLinkClick = (page) => {};
   const [authUser, setAuthUser] = useState(null);
@@ -27,7 +35,7 @@ const AuthDetails = () => {
   const [isPlanOpen, setIsPlanOpen] = useState(false);
 
   const togglePlan = () => {
-    setIsPlanOpen(!isPlanOpen); // Toggle the open/close state
+    setIsPlanOpen(!isPlanOpen);
   };
 
   useEffect(() => {
@@ -106,13 +114,7 @@ const AuthDetails = () => {
         )}
 
         <div className="text-gray-600 mt-4">
-          <p className="text-center">
-            At Creative Minds Graphics (Pty) Ltd, we prioritize transparency as
-            an essential element of our commitment to safeguarding your
-            information. Your security is of paramount importance to us, and we
-            take every measure to ensure the confidentiality and protection of
-            your data.
-          </p>
+          <p className="text-center">{priority.description}</p>
           <p className="text-center">
             <NavLink
               to="/privacy-policy"

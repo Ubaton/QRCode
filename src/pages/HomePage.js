@@ -168,7 +168,6 @@ function HomePage({ darkMode, toggleDarkMode }) {
 
           <div className="p-4 pt-12">
             <div className="container flex flex-row mx-auto">
-              {/* The Card Component  */}
               <div
                 className={`container mr-1 shadow-lg  gap-2 mx-auto p-2 ${
                   darkMode ? "bg-DarkMode-cards dark" : "bg-slate-100"
@@ -216,7 +215,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                     </div>
                   </div>
                 </div>
-                {/* This is input field for URL and button to trigger QR code generation */}
+
                 <div className="grid grid-cols-2">
                   <input
                     name="Link_QRCode"
@@ -226,7 +225,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                     placeholder="Enter URL or text"
                     className="w-50% rounded-md p-2 m-2 border border-spacing-2 border-blue-500"
                   />
-                  {/* Conditionally render the QR code generation button */}
+
                   {authUser ? (
                     <button
                       onClick={generateQRCode}
@@ -259,7 +258,6 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   <StylesSettings />
                 </span>
               </div>
-              {/* The Card Component */}
             </div>
           </div>
 
