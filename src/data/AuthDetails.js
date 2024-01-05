@@ -28,7 +28,7 @@ const priority = {
   your data.`,
 };
 
-const AuthDetails = () => {
+const AuthDetails = ({ onProfilePictureUpdate }) => {
   const handleNavLinkClick = (page) => {};
   const [authUser, setAuthUser] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
@@ -38,13 +38,36 @@ const AuthDetails = () => {
     setIsPlanOpen(!isPlanOpen);
   };
 
+  const handleProfilePictureChange = async (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        const imageDataUrl = reader.result;
+        setProfilePictureUrl(imageDataUrl);
+
+        // Save the image data to local storage
+        localStorage.setItem("profilePicture", imageDataUrl);
+
+        // Pass the updated profilePictureUrl to HomePage
+        if (onProfilePictureUpdate) {
+          onProfilePictureUpdate(imageDataUrl);
+        }
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
+
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
-        setProfilePictureUrl(
-          `https://www.google.com/s2/photos/profile/${user.email}`
-        );
+
+        // Load profile picture from local storage
+        const storedProfilePicture = localStorage.getItem("profilePicture");
+        setProfilePictureUrl(storedProfilePicture || "");
       } else {
         setAuthUser(null);
         setProfilePictureUrl("");
@@ -55,7 +78,6 @@ const AuthDetails = () => {
       listen();
     };
   }, []);
-
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -91,17 +113,29 @@ const AuthDetails = () => {
           </svg>
         </button>
         {authUser ? (
-          <div className="flex flex-col items-center">
-            {profilePictureUrl ? (
-              <img
-                src={profilePictureUrl}
-                alt="Profile"
-                className="w-16 h-16 rounded-full m-4"
+          <div className="flex flex-col items-center p-4">
+            <label htmlFor="profilePicture" className="cursor-pointer">
+              {profilePictureUrl ? (
+                <img
+                  src={profilePictureUrl}
+                  alt="Profile"
+                  className="w-20 h-20 rounded-full m-2 border border-spacing-4 border-blue-500"
+                />
+              ) : (
+                <IoPersonCircleOutline className="text-4xl text-gray-800 m-4" />
+              )}
+              <input
+                type="file"
+                id="profilePicture"
+                accept="image/*"
+                onChange={handleProfilePictureChange}
+                style={{ display: "none" }}
               />
-            ) : (
-              <IoPersonCircleOutline className="text-4xl text-gray-800 m-4" />
-            )}
-            <p className="text-xl font-semibold">{`Signed In as ${authUser.email}`}</p>
+            </label>
+            <p className="text-xl text-center font-semibold">
+              Signed In as <br></br>{" "}
+              <span className="text-blue-500">{authUser.email}</span>
+            </p>
             <button
               onClick={handleSignOut}
               className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300"
