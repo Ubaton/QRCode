@@ -12,7 +12,6 @@ import AboutPage from "../../pages/AboutPage";
 import ContactPage from "../../pages/ContactPage";
 import ProPlanPopup from "../../pages/ProPlanPopup";
 import SocialsPage from "../Socials/SocialsPage";
-import UserCount from "../UserCount/UserCount";
 
 const settingsOptions = [
   { nameC: "File Convert", link: "/fileconvert", isNewC: false },
@@ -177,7 +176,6 @@ function SideBar({ darkMode }) {
             >
               <SettingsIcon />
             </button>
-            <UserCount />
           </div>
           {showSettingsMenu && (
             <div
