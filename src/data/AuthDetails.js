@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../data/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import { LuBrush } from "react-icons/lu";
+import { LuXCircle } from "react-icons/lu";
 import { Link, NavLink } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -113,14 +115,32 @@ const AuthDetails = ({ onProfilePictureUpdate }) => {
           </svg>
         </button>
         {authUser ? (
-          <div className="flex flex-col items-center p-4">
+          <div className="flex flex-col items-center p-4 relative">
             <label htmlFor="profilePicture" className="cursor-pointer">
               {profilePictureUrl ? (
-                <img
-                  src={profilePictureUrl}
-                  alt="Profile"
-                  className="w-20 h-20 rounded-full m-2 border border-spacing-4 border-blue-500"
-                />
+                <>
+                  <div className="flex flex-row items-center justify-center space-x-6 bg-gray-300 rounded-full p-1">
+                    <LuBrush
+                      className="text-green-500 cursor-pointer"
+                      onClick={() => {}}
+                    />
+                    <LuXCircle
+                      className="text-red-500 cursor-pointer"
+                      onClick={() => {
+                        setProfilePictureUrl("");
+                        localStorage.removeItem("profilePicture");
+                        if (onProfilePictureUpdate) {
+                          onProfilePictureUpdate("");
+                        }
+                      }}
+                    />
+                  </div>
+                  <img
+                    src={profilePictureUrl}
+                    alt="Profile"
+                    className="w-20 h-20 rounded-full m-2 border border-spacing-4 border-blue-500"
+                  />
+                </>
               ) : (
                 <IoPersonCircleOutline className="text-4xl text-gray-800 m-4" />
               )}
@@ -133,7 +153,7 @@ const AuthDetails = ({ onProfilePictureUpdate }) => {
               />
             </label>
             <p className="text-xl text-center font-semibold">
-              Signed In as <br></br>{" "}
+              <span className="text-xs">Signed In as</span> <br />
               <span className="text-blue-500">{authUser.email}</span>
             </p>
             <button
