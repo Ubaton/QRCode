@@ -30,7 +30,7 @@ const priority = {
   your data.`,
 };
 
-const AuthDetails = ({ onProfilePictureUpdate }) => {
+const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
   const handleNavLinkClick = (page) => {};
   const [authUser, setAuthUser] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
@@ -40,26 +40,23 @@ const AuthDetails = ({ onProfilePictureUpdate }) => {
     setIsPlanOpen(!isPlanOpen);
   };
 
-  const handleProfilePictureChange = async (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
+  const handleProfilePictureChange = (file) => {
+    const reader = new FileReader();
 
-      reader.onloadend = () => {
-        const imageDataUrl = reader.result;
-        setProfilePictureUrl(imageDataUrl);
+    reader.onloadend = () => {
+      const imageDataUrl = reader.result;
+      setProfilePictureUrl(imageDataUrl);
 
-        // Save the image data to local storage
-        localStorage.setItem("profilePicture", imageDataUrl);
+      // Save the image data to local storage
+      localStorage.setItem("profilePicture", imageDataUrl);
 
-        // Pass the updated profilePictureUrl to HomePage
-        if (onProfilePictureUpdate) {
-          onProfilePictureUpdate(imageDataUrl);
-        }
-      };
+      // Pass the updated profilePictureUrl to the parent component
+      if (onProfilePictureUpdate) {
+        onProfilePictureUpdate(imageDataUrl);
+      }
+    };
 
-      reader.readAsDataURL(file);
-    }
+    reader.readAsDataURL(file);
   };
 
   useEffect(() => {
@@ -67,7 +64,6 @@ const AuthDetails = ({ onProfilePictureUpdate }) => {
       if (user) {
         setAuthUser(user);
 
-        // Load profile picture from local storage
         const storedProfilePicture = localStorage.getItem("profilePicture");
         setProfilePictureUrl(storedProfilePicture || "");
       } else {
@@ -86,6 +82,14 @@ const AuthDetails = ({ onProfilePictureUpdate }) => {
         console.log("Sign out successful");
       })
       .catch((error) => console.log(error));
+  };
+
+  const handleRemoveProfilePicture = () => {
+    setProfilePictureUrl("");
+    localStorage.removeItem("profilePicture");
+    if (onProfilePictureUpdate) {
+      onProfilePictureUpdate("");
+    }
   };
 
   return (
@@ -116,25 +120,29 @@ const AuthDetails = ({ onProfilePictureUpdate }) => {
         </button>
         {authUser ? (
           <div className="flex flex-col items-center p-4 relative">
-            <label htmlFor="profilePicture" className="cursor-pointer">
+            <label htmlFor="profilePicture">
+              <div className="flex flex-row items-center justify-center space-x-6 bg-gray-300 rounded-full p-1">
+                <button>
+                  <LuBrush
+                    className="text-green-500 cursor-pointer"
+                    onClick={() => {
+                      const fileInput =
+                        document.getElementById("profilePicture");
+                      if (fileInput) {
+                        fileInput.click();
+                      }
+                    }}
+                  />
+                </button>
+                <button>
+                  <LuXCircle
+                    className="text-red-500 cursor-pointer"
+                    onClick={handleRemoveProfilePicture}
+                  />
+                </button>
+              </div>
               {profilePictureUrl ? (
                 <>
-                  <div className="flex flex-row items-center justify-center space-x-6 bg-gray-300 rounded-full p-1">
-                    <LuBrush
-                      className="text-green-500 cursor-pointer"
-                      onClick={() => {}}
-                    />
-                    <LuXCircle
-                      className="text-red-500 cursor-pointer"
-                      onClick={() => {
-                        setProfilePictureUrl("");
-                        localStorage.removeItem("profilePicture");
-                        if (onProfilePictureUpdate) {
-                          onProfilePictureUpdate("");
-                        }
-                      }}
-                    />
-                  </div>
                   <img
                     src={profilePictureUrl}
                     alt="Profile"
@@ -148,13 +156,15 @@ const AuthDetails = ({ onProfilePictureUpdate }) => {
                 type="file"
                 id="profilePicture"
                 accept="image/*"
-                onChange={handleProfilePictureChange}
+                onChange={(event) =>
+                  handleProfilePictureChange(event.target.files[0])
+                }
                 style={{ display: "none" }}
               />
             </label>
-            <p className="text-xl text-center font-semibold">
+            <p className="text-center font-semibold">
               <span className="text-xs">Signed In as</span> <br />
-              <span className="text-blue-500">{authUser.email}</span>
+              <span className="text-xl text-blue-500">{authUser.email}</span>
             </p>
             <button
               onClick={handleSignOut}
