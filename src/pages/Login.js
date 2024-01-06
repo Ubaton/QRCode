@@ -16,14 +16,13 @@ import { FcGoogle } from "react-icons/fc";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      // Sign in with email and password using Firebase
       await signInWithEmailAndPassword(auth, email, password);
 
       navigate("/");
@@ -41,12 +40,11 @@ const Login = () => {
 
     try {
       const result = await signInWithPopup(auth, provider);
-      // You can access user information from the result object
+
       console.log(result.user);
       navigate("/");
     } catch (error) {
       console.error(error);
-      // Handle Google login error
     }
   };
 
@@ -57,7 +55,6 @@ const Login = () => {
         style={{ backgroundImage: `url(${Petten})`, zIndex: -5 }}
       ></div>
       <div className="max-w-md bg-slate-100 rounded-md p-5 w-full space-y-8">
-        {/* Logo */}
         <div className="flex items-center justify-center py-6">
           <img
             src={Logo}
