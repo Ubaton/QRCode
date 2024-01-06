@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { auth } from "../data/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logo from "../assets/images/cmg.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Petten from "../assets/images/Petten.png";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,6 +36,20 @@ const Login = () => {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      // You can access user information from the result object
+      console.log(result.user);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      // Handle Google login error
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-transparent py-12 px-4 sm:px-6 lg:px-8">
       <div
@@ -47,6 +66,22 @@ const Login = () => {
             height="29"
             className=""
           />
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            type="button"
+            onClick={handleGoogleLogin}
+            className="flex justify-center items-center gap-2 py-2 px-4 border border-transparent  rounded-md  bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-cyan-500"
+          >
+            <span className="text-md font-bold text-white">Continue with</span>{" "}
+            <FcGoogle size={22} />
+          </button>
+        </div>
+        <div className="flex justify-center items-center">
+          <div className="border border-spacing-2 w-full border-b-gray-300" />
+          <p className="text-gray-500 text-lg font-semibold pr-2 pl-2">OR</p>
+          <div className="border border-spacing-2 w-full border-b-gray-300" />
         </div>
         <div>
           <h2 className="mt-6 text-center text-2xl font-bold text-gray-500">
