@@ -71,7 +71,7 @@ const Login = () => {
             onClick={handleGoogleLogin}
             className="flex justify-center items-center gap-2 py-2 px-4 border border-transparent  rounded-md  bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-cyan-500"
           >
-            <span className="text-md font-bold text-white">Continue with</span>{" "}
+            <span className="text-md text-white">Continue with</span>{" "}
             <FcGoogle size={22} />
           </button>
         </div>
@@ -125,7 +125,7 @@ const Login = () => {
             <button
               type="submit"
               onClick={handleLogin}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-md font-medium rounded-md text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
             >
               Log in
             </button>
