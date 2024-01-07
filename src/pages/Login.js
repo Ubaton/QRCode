@@ -25,7 +25,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
 
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       if (error.message === "Firebase: Error (auth/user-not-found).") {
         toast.error("User not found. Please check your email and try again.");
@@ -42,7 +42,7 @@ const Login = () => {
       const result = await signInWithPopup(auth, provider);
 
       console.log(result.user);
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.error(error);
     }

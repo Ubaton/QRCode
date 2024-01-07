@@ -17,6 +17,7 @@ import TermsOfUse from "./pages/utils/Use/TermsOfUse";
 import SocialsPage from "./components/Socials/SocialsPage";
 import API from "./components/API/Api";
 import { ToastContainer } from "react-toastify";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
@@ -61,11 +62,12 @@ function App() {
           }
         />
         <Route
-          path="/"
+          path="/home"
           element={
             <HomePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           }
         />
+        <Route path="/" element={<LandingPage />} />
         <Route
           path="/profilepage"
           element={

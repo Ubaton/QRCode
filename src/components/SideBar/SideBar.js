@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/cmg.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -24,35 +24,32 @@ function SideBar({ darkMode }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
   const [showSwitchSettingsMenu, setShowSwitchSettingsMenu] = useState(false);
+  const navigate = useNavigate();
 
   const versionUpdate = {
     version: "v1.2.2",
   };
 
-  // Function to handle navigation clicks and update the currentPage state
   const handleNavLinkClick = (page) => {
     setCurrentPage(page);
     toggleMobileMenu();
   };
 
-  // Function to toggle the mobile menu
   const toggleMobileMenu = () => {
     setShowMobileMenu((prev) => !prev);
   };
 
-  // Function to toggle the main settings menu
   const toggleSettingsMenu = () => {
     setShowSettingsMenu((prev) => !prev);
-    // Close switch settings menu when main settings menu is opened
+
     if (showSwitchSettingsMenu) {
       setShowSwitchSettingsMenu(false);
     }
   };
 
-  // Function to toggle the switch settings menu
   const toggleSwitchSettingsMenu = () => {
     setShowSwitchSettingsMenu((prev) => !prev);
-    // Close main settings menu when switch settings menu is opened
+
     if (showSettingsMenu) {
       setShowSettingsMenu(false);
     }
@@ -62,13 +59,13 @@ function SideBar({ darkMode }) {
     signOut(auth)
       .then(() => {
         console.log("Sign out successful");
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
 
   return (
     <div className="">
-      {/* Hamburger Menu */}
       <button
         onClick={toggleMobileMenu}
         className="md:hidden fixed top-0 m-0 left-0 p-2 z-10  rounded-md"
@@ -86,7 +83,7 @@ function SideBar({ darkMode }) {
       >
         {/* Logo */}
         <div className="flex flex-col items-center justify-center py-6">
-          <NavLink to="/">
+          <NavLink to="/home">
             <img
               src={Logo}
               alt="Creative Minds Graphics (PTy) Ltd"

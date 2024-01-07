@@ -4,7 +4,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { LuBrush } from "react-icons/lu";
 import { LuXCircle } from "react-icons/lu";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const plan = [
@@ -35,6 +35,7 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
   const [authUser, setAuthUser] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
   const [isPlanOpen, setIsPlanOpen] = useState(false);
+  const navigate = useNavigate();
 
   const togglePlan = () => {
     setIsPlanOpen(!isPlanOpen);
@@ -76,10 +77,12 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
       listen();
     };
   }, []);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
         console.log("Sign out successful");
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
