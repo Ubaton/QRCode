@@ -25,7 +25,7 @@ function FileConvertPage({ darkMode }) {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/pdf-to-word", // Update the URL
+          "http://localhost:5000/pdf-to-word", 
           formData,
           {
             responseType: "blob",
@@ -53,7 +53,7 @@ function FileConvertPage({ darkMode }) {
 
       try {
         await axios.post(
-          "http://localhost:5000/word-to-pdf", // Update the URL
+          "http://localhost:5000/word-to-pdf",
           formData
         );
         toast.success("Word converted to PDF successfully.");
