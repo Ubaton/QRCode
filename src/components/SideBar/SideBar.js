@@ -81,7 +81,6 @@ function SideBar({ darkMode }) {
           darkMode ? "bg-DarkMode-cards" : "bg-slate-100"
         }`}
       >
-        {/* Logo */}
         <div className="flex flex-col items-center justify-center py-6">
           <NavLink to="/home">
             <img
@@ -107,7 +106,7 @@ function SideBar({ darkMode }) {
           <nav className="flex flex-col space-y-2 p-1 text-center">
             <NavLink
               onClick={() => handleNavLinkClick("home")}
-              to="/"
+              to="/home"
               className="block px-20 py-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gradient-to-r from-gray-100 to-gray-200"
             >
               Home

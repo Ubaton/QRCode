@@ -27,12 +27,11 @@ function CompressImagePage({ darkMode }) {
           const canvas = document.createElement("canvas");
           const ctx = canvas.getContext("2d");
 
-          const maxWidth = 1920; // Maximum width after compression (adjust as needed)
-          const maxHeight = 1080; // Maximum height after compression (adjust as needed)
+          const maxWidth = 1920;
+          const maxHeight = 1080;
           const imageWidth = img.width;
           const imageHeight = img.height;
 
-          // Scale down the image to fit within the maximum dimensions
           let newWidth = imageWidth;
           let newHeight = imageHeight;
 
@@ -50,13 +49,12 @@ function CompressImagePage({ darkMode }) {
 
           ctx.drawImage(img, 0, 0, newWidth, newHeight);
 
-          // Convert the canvas to a Blob
           canvas.toBlob(
             (blob) => {
               resolve(blob);
             },
-            "image/jpeg", // Change to "image/png" for PNG format
-            0.7 // Image quality (adjust as needed, lowering the value means higher compression)
+            "image/png",
+            1.0
           );
         };
       };

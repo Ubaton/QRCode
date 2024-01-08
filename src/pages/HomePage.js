@@ -91,7 +91,6 @@ function HomePage({ darkMode, toggleDarkMode }) {
   const generateQRCode = async () => {
     const canvas = await html2canvas(qrCodeRef.current);
 
-    // Convert the canvas to an image file and save it
     canvas.toBlob((blob) => {
       saveAs(blob, "qr_code.png");
     });
