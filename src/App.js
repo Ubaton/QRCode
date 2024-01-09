@@ -67,7 +67,12 @@ function App() {
             <HomePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           }
         />
-        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/"
+          element={
+            <LandingPage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          }
+        />
         <Route
           path="/profilepage"
           element={
