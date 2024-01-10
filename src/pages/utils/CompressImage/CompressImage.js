@@ -8,11 +8,13 @@ import { Button } from "@mui/material";
 function CompressImagePage({ darkMode }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [compressedImage, setCompressedImage] = useState(null);
+  const [fileName, setFileName] = useState("");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setSelectedImage(file);
     setCompressedImage(null);
+    setFileName(file ? file.name : "");
   };
 
   const compressImage = async (imageFile) => {
@@ -105,11 +107,24 @@ function CompressImagePage({ darkMode }) {
             <h2 className="text-center text-2xl font-bold mb-4">
               Image Compression
             </h2>
-            <input
-              type="file"
-              onChange={handleImageChange}
-              className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
-            />
+            <label className="grid grid-cols-2 gap-4 mb-4 text-slate-50 rounded-md p-2 border border-spacing-2 border-gray-500">
+              <span className="flex items-center justify-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-10 py-2 text-center mr-2 rounded-md">
+                Choose file
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="hidden"
+                />
+              </span>
+              <span className="bg-none">
+                {fileName && (
+                  <p className="flex items-center justify-center text-gray-600">
+                    <span className="p-2">{fileName}</span>
+                  </p>
+                )}
+              </span>
+            </label>
 
             <Button
               onClick={handleCompressImage}
