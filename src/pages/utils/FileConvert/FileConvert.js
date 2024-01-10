@@ -13,6 +13,7 @@ function FileConvertPage({ darkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [convertedFile, setConvertedFile] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -23,6 +24,8 @@ function FileConvertPage({ darkMode }) {
 
   const handlePdfToWord = async () => {
     if (selectedFile && selectedFile.type === "application/pdf") {
+      setLoading(true);
+
       const formData = new FormData();
       formData.append("pdf_file", selectedFile);
 
@@ -39,6 +42,8 @@ function FileConvertPage({ darkMode }) {
         toast.success("PDF converted to Word successfully.");
       } catch (error) {
         toast.error("Failed to convert PDF to Word.");
+      } finally {
+        setLoading(false);
       }
     } else {
       toast.error("Please select a valid PDF file.");
@@ -51,6 +56,8 @@ function FileConvertPage({ darkMode }) {
       selectedFile.type ===
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ) {
+      setLoading(true);
+
       const formData = new FormData();
       formData.append("word_file", selectedFile);
 
@@ -59,6 +66,8 @@ function FileConvertPage({ darkMode }) {
         toast.success("Word converted to PDF successfully.");
       } catch (error) {
         toast.error("Failed to convert Word to PDF.");
+      } finally {
+        setLoading(false);
       }
     } else {
       toast.error("Please select a valid Word file.");
@@ -84,7 +93,7 @@ function FileConvertPage({ darkMode }) {
 
   return (
     <div
-      className={`flex overflow-auto items-center justify-center  ${
+      className={`flex overflow-auto items-center justify-center ${
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
@@ -122,7 +131,10 @@ function FileConvertPage({ darkMode }) {
               <div>
                 <Button
                   onClick={handlePdfToWord}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                  className={`bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2 ${
+                    loading ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
+                  disabled={loading}
                 >
                   <p className="text-gray-300">PDF to Word</p>
                 </Button>
@@ -135,7 +147,10 @@ function FileConvertPage({ darkMode }) {
               <div>
                 <Button
                   onClick={handleWordToPdf}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                  className={`bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2 ${
+                    loading ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
+                  disabled={loading}
                 >
                   <p className="text-gray-300">Word to PDF</p>
                 </Button>
@@ -172,7 +187,10 @@ function FileConvertPage({ darkMode }) {
               <Button
                 variant="contained"
                 onClick={handleDownloadConvertedFile}
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                className={`bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2 ${
+                  loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                disabled={loading}
               >
                 <p className="text-gray-300">Download Converted File</p>
               </Button>
