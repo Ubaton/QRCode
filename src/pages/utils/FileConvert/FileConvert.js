@@ -12,10 +12,13 @@ import axios from "axios";
 function FileConvertPage({ darkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [convertedFile, setConvertedFile] = useState(null);
+  const [fileName, setFileName] = useState("");
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
+    const file = e.target.files[0];
+    setSelectedFile(file);
     setConvertedFile(null);
+    setFileName(file ? file.name : "");
   };
 
   const handlePdfToWord = async () => {
@@ -25,7 +28,7 @@ function FileConvertPage({ darkMode }) {
 
       try {
         const response = await axios.post(
-          "http://localhost:5000/pdf-to-word", 
+          "http://localhost:5000/pdf-to-word",
           formData,
           {
             responseType: "blob",
@@ -52,10 +55,7 @@ function FileConvertPage({ darkMode }) {
       formData.append("word_file", selectedFile);
 
       try {
-        await axios.post(
-          "http://localhost:5000/word-to-pdf",
-          formData
-        );
+        await axios.post("http://localhost:5000/word-to-pdf", formData);
         toast.success("Word converted to PDF successfully.");
       } catch (error) {
         toast.error("Failed to convert Word to PDF.");
@@ -99,11 +99,24 @@ function FileConvertPage({ darkMode }) {
         >
           <div className="flex flex-col items-center justify-center p-4">
             <h2 className="text-2xl font-bold mb-4">File Converter</h2>
-            <input
-              type="file"
-              onChange={handleFileChange}
-              className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
-            />
+            <label className="grid grid-cols-2 gap-4 mb-4 text-slate-50 rounded-md p-2 border border-spacing-2 border-gray-500">
+              <span className="flex items-center justify-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-10 py-2 text-center mr-2 rounded-md">
+                Choose file
+                <input
+                  type="file"
+                  accept="file/*"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+              </span>
+              <span className="bg-none">
+                {fileName && (
+                  <p className="flex items-center justify-center text-gray-600">
+                    <span className="p-2">{fileName}</span>
+                  </p>
+                )}
+              </span>
+            </label>
 
             <div className="flex items-center justify-center gap-2">
               <div>
