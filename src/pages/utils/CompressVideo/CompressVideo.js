@@ -7,10 +7,13 @@ import { toast } from "react-toastify";
 function CompressVideoPage({ darkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [downloadLink, setDownloadLink] = useState(null);
+  const [fileName, setFileName] = useState("");
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
+    const file = e.target.files[0];
+    setSelectedFile(file);
     setDownloadLink(null);
+    setFileName(file ? file.name : "");
   };
 
   const handleUpload = async () => {
@@ -39,12 +42,11 @@ function CompressVideoPage({ darkMode }) {
     }
   };
 
-  // Declare handleDownload function before it is used
   const handleDownload = () => {
     if (downloadLink) {
       const downloadLinkElement = document.createElement("a");
       downloadLinkElement.href = downloadLink;
-      downloadLinkElement.download = "compressed_video.mp4"; // Set the filename
+      downloadLinkElement.download = "compressed_video.mp4";
       downloadLinkElement.click();
     }
   };
@@ -68,12 +70,25 @@ function CompressVideoPage({ darkMode }) {
             <h2 className="text-center text-2xl font-semibold mb-4">
               Video Compression
             </h2>
-            <input
-              type="file"
-              accept="video/*"
-              onChange={handleFileChange}
-              className="mb-4 appearance-none border border-gray-300 rounded-md p-2 w-full text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:bg-white"
-            />
+            <label className="grid grid-cols-2 gap-4 mb-4 text-slate-50 rounded-md p-2 border border-spacing-2 border-gray-500">
+              <span className="flex items-center justify-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-10 py-2 text-center mr-2 rounded-md">
+                Choose Video File
+                <input
+                  type="file"
+                  accept="video/*"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+              </span>
+              <span className="bg-none">
+                {fileName && (
+                  <p className="flex items-center justify-center text-gray-600">
+                    <span className="p-2">{fileName}</span>
+                  </p>
+                )}
+              </span>
+            </label>
+
             <Button
               onClick={handleUpload}
               className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-blod text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
