@@ -48,10 +48,8 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
       const imageDataUrl = reader.result;
       setProfilePictureUrl(imageDataUrl);
 
-      // Save the image data to local storage
       localStorage.setItem("profilePicture", imageDataUrl);
 
-      // Pass the updated profilePictureUrl to the parent component
       if (onProfilePictureUpdate) {
         onProfilePictureUpdate(imageDataUrl);
       }

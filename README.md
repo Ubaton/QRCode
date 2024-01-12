@@ -3,9 +3,11 @@
 ![Q Logo](https://github.com/Ubaton/QRCode/blob/master/src/assets/icons/Q.png)
 
 ## Light Mode
+
 ![QR Code Website Image](https://github.com/Ubaton/QRCode/blob/master/src/assets/images/CMG_QRcodeG.png)
 
 ## Dark Mode
+
 ![QR Code Website Image](https://github.com/Ubaton/QRCode/blob/master/src/assets/images/CMG_QRcodeG2.png)
 
 Welcome to the QR Code Generator web app, a versatile tool that simplifies the process of generating QR codes. Whether you need QR codes for websites, contact information, or any other purpose, our user-friendly application has you covered.
@@ -120,4 +122,4 @@ The **FileConvert** page relies on React and Material-UI to provide seamless and
 
 ## License
 
-This web app is licensed under the MIT License, ensuring that it remains open-source and accessible for all. Your contributions are greatly appreciated, and together, we can continue to improve and enhance this valuable tool for the community.
+This web app is licensed under the [MIT License](https://mit-license.org/), ensuring that it remains open-source and accessible for all. Your contributions are greatly appreciated, and together, we can continue to improve and enhance this valuable tool for the community.

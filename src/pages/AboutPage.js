@@ -54,6 +54,10 @@ const Card = ({ title, content }) => {
 const AboutPage = ({ darkMode }) => {
   const handleNavLinkClick = (page) => {};
 
+  function getCurrentYear() {
+    return new Date().getFullYear();
+  }
+
   return (
     <div
       className={`flex flex-col min-h-screen items-center justify-center ${
@@ -122,8 +126,8 @@ const AboutPage = ({ darkMode }) => {
       </div>
       <div className="flex items-center justify-center p-8">
         <p className="text-gray-500 text-xs">
-          Powered By Creative Mind Graphics (Pty) Ltd | Copyright © 2024, All
-          Rights Reserved
+          Powered By Creative Mind Graphics (Pty) Ltd | Copyright ©{" "}
+          {getCurrentYear()}, All Rights Reserved
         </p>
       </div>
     </div>
