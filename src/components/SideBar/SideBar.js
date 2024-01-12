@@ -14,7 +14,7 @@ import ProPlanPopup from "../../pages/ProPlanPopup";
 import SocialsPage from "../Socials/SocialsPage";
 
 const settingsOptions = [
-  { nameC: "File Convert", link: "/fileconvert", isNewC: false },
+  { nameC: "File Convert", link: "/fileconvert", isNewC: true },
   { name: "Compress Image", link: "/compressimage", isNew: false },
   { nameC: "Compress Video", link: "/compressvideo", isNewC: true },
 ];
@@ -153,7 +153,7 @@ function SideBar({ darkMode }) {
                     {option.nameC}
                     {option.isNewC && (
                       <span className="absolute top-0 right-0 inline-block whitespace-nowrap rounded-[0.27rem] bg-gradient-to-r from-cyan-500 to-blue-500 px-[0.35em] pb-[0.15em] pt-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none text-gray-50">
-                        <span>Building</span>
+                        <span>New</span>
                       </span>
                     )}
                   </NavLink>

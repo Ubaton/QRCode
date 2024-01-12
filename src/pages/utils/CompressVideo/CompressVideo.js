@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SideBar from "../../../components/SideBar/SideBar";
 import VideoDescription from "./VideoDescription";
-import { Button } from "@mui/material";
+import { Button, Box, CircularProgress } from "@mui/material";
 import { toast } from "react-toastify";
+
+function CircularIndeterminate(props) {
+  return (
+    <Box sx={{ display: "flex" }}>
+      <CircularProgress />
+    </Box>
+  );
+}
 
 function CompressVideoPage({ darkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [downloadLink, setDownloadLink] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prevProgress) => prevProgress);
+    });
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -22,13 +42,12 @@ function CompressVideoPage({ darkMode }) {
       formData.append("file", selectedFile);
 
       try {
-        const response = await fetch(
-          "http://your-actual-backend-url.com/compress_video",
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
+        setLoading(true);
+
+        const response = await fetch("http://localhost:5000/compress_video", {
+          method: "POST",
+          body: formData,
+        });
 
         if (response.ok) {
           const downloadUrl = await response.text();
@@ -38,6 +57,8 @@ function CompressVideoPage({ darkMode }) {
         }
       } catch (error) {
         toast.error("Network error:", error);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -107,6 +128,9 @@ function CompressVideoPage({ darkMode }) {
                 </Button>
               </div>
             )}
+            <span className="p-4">
+              {loading && <CircularIndeterminate value={progress} />}
+            </span>
           </div>
           <div className="flex items-center justify-center p-4">
             <VideoDescription />

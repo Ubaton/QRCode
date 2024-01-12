@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify, send_file
 from converter import Converter
+from flask_cors import CORS  
 
-app = Flask(__name)
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 @app.route('/compress_video', methods=['POST'])
 def compress_video():
