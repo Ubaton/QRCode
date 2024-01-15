@@ -312,7 +312,6 @@ const StylesSettings = () => {
                     <span className="flex items-center justify-center gap-4 mr-4 p-2 text-center  ">
                       <Link to="/api" target="_blank">
                         <button
-                          disabled
                           className="w-auto h-auto p-2 rounded-md transition ease-in-out delay-150 bg-blue-500 hover:bg-indigo-500 duration-300"
                           onClick={handleListItemClick}
                         >

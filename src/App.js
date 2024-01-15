@@ -15,9 +15,9 @@ import ProfilePage from "./pages/ProfilePage";
 import PrivacyPolicy from "./pages/utils/Use/PrivacyPolicy";
 import TermsOfUse from "./pages/utils/Use/TermsOfUse";
 import SocialsPage from "./components/Socials/SocialsPage";
-import API from "./components/API/Api";
 import { ToastContainer } from "react-toastify";
 import LandingPage from "./pages/LandingPage";
+import API from "./components/API/Api";
 
 function App() {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");

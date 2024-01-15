@@ -1,52 +1,141 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import qrcode from "qrcode";
 
-const Api = () => {
-  // Step 2: Create a state variable to store the API response data.
-  const [apiData, setApiData] = useState(null);
+const blockSize = 50;
 
-  // Step 3: Set up an input field to allow users to specify the API endpoint or URL.
-  const [apiUrl, setApiUrl] = useState("");
+function svg(size, children) {
+  return `<svg version="1.1"
+    width="${size}"
+    height="${size}"
+    xmlns="http://www.w3.org/2000/svg">
+      ${children.join("")}
+  </svg>`;
+}
 
-  // Step 4: Handle user input and make an API request when the user interacts with the playground.
-  const handleApiRequest = async () => {
-    try {
-      const response = await fetch(apiUrl);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+function parseColor(color) {
+  const colorRegex = /^#?[a-fA-F0-9]{6}$/;
+  if (!colorRegex.test(color)) {
+    throw new Error(
+      "Invalid 'color' parameter, must be a valid 6 digit hex code."
+    );
+  }
+
+  if (color[0] !== "#") {
+    color = `#${color}`;
+  }
+
+  return color;
+}
+
+function getPayload(query) {
+  let payload = { ...query };
+
+  if (!payload.data) {
+    throw new Error("Missing required parameter 'data'.");
+  }
+
+  if (payload.color) {
+    payload.color = parseColor(payload.color);
+  } else {
+    payload.color = "#000000";
+  }
+
+  return payload;
+}
+
+function renderQrCode(payload) {
+  const dataToEncode = payload.data;
+  const color = payload.color;
+
+  const encodedData = qrcode.create(dataToEncode);
+  const codeSize = encodedData.modules.size;
+  const codeData = encodedData.modules.data;
+
+  let blocks = [];
+  for (let i = 0; i < codeSize; i++) {
+    for (let j = 0; j < codeSize; j++) {
+      const rowOffset = i * codeSize;
+      const isDark = codeData[rowOffset + j];
+
+      if (isDark) {
+        const x = i * blockSize;
+        const y = j * blockSize;
+
+        let shape;
+        switch (payload.shape) {
+          case "circle":
+            shape = `<circle cx="${x + blockSize / 2}" cy="${
+              y + blockSize / 2
+            }" r="${blockSize / 2}" fill="${color}"></circle>`;
+            break;
+          case "diamond":
+            shape = `<polygon points="${x + blockSize / 2},${y} ${
+              x + blockSize
+            },${y + blockSize / 2} ${x + blockSize / 2},${y + blockSize} ${x},${
+              y + blockSize / 2
+            }" fill="${color}"></polygon>`;
+            break;
+          case "square":
+          default:
+            shape = `<rect x="${x}" y="${y}" width="${blockSize}" height="${blockSize}" fill="${color}"></rect>`;
+            break;
+        }
+
+        blocks.push(shape);
       }
-      const data = await response.json();
-      // Step 5: Update the state with the API response data.
-      setApiData(data);
-    } catch (error) {
-      console.error("Error fetching API data:", error);
     }
-  };
+  }
+
+  const svgSize = codeSize * blockSize;
+  const response = svg(svgSize, blocks);
+
+  return response;
+}
+
+function QrCodePage() {
+  const { search } = window.location;
+  const params = new URLSearchParams(search);
+  const query = {};
+  params.forEach((value, key) => {
+    query[key] = value;
+  });
+
+  let payload;
+  try {
+    payload = getPayload(query);
+  } catch (error) {
+    return (
+      <div>
+        <p>{error.message}</p>
+      </div>
+    );
+  }
+
+  const response = renderQrCode(payload);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div>
-        <h1>API Playground</h1>
-        {/* Step 3: Input field for the API URL */}
-        <input
-          type="text"
-          placeholder="Enter API URL"
-          value={apiUrl}
-          onChange={(e) => setApiUrl(e.target.value)}
-        />
-        {/* Step 4: Button to trigger API request */}
-        <button onClick={handleApiRequest}>Fetch Data</button>
-      </div>
-      <div>
-        {/* Step 5: Render the API response data */}
-        {apiData && (
-          <div>
-            <h2>API Response:</h2>
-            <pre>{JSON.stringify(apiData, null, 2)}</pre>
-          </div>
-        )}
-      </div>
+    <div>
+      <pre dangerouslySetInnerHTML={{ __html: response }} />
     </div>
   );
-};
+}
 
-export default Api;
+function NotFoundPage() {
+  return (
+    <div>
+      <p>404, not found!</p>
+    </div>
+  );
+}
+
+function API() {
+  return (
+    <Router>
+      <Route path="/api" exact component={QrCodePage} />
+      <Route component={NotFoundPage} />
+    </Router>
+  );
+}
+
+export default API;
