@@ -18,6 +18,7 @@ import SocialsPage from "./components/Socials/SocialsPage";
 import { ToastContainer } from "react-toastify";
 import LandingPage from "./pages/LandingPage";
 import API from "./components/API/Api";
+import QrCodePage from "./components/API/Api";
 
 function App() {
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
@@ -160,6 +161,7 @@ function App() {
           path="/api"
           element={<API darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
         />
+        <Route path="/api" exact component={QrCodePage} />
       </Routes>
       <ToastContainer />
     </PayPalScriptProvider>

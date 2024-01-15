@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import qrcode from "qrcode";
+import qrcode from "qrcode.react";
 
 const blockSize = 50;
 
@@ -121,21 +120,4 @@ function QrCodePage() {
   );
 }
 
-function NotFoundPage() {
-  return (
-    <div>
-      <p>404, not found!</p>
-    </div>
-  );
-}
-
-function API() {
-  return (
-    <Router>
-      <Route path="/api" exact component={QrCodePage} />
-      <Route component={NotFoundPage} />
-    </Router>
-  );
-}
-
-export default API;
+export default QrCodePage;
