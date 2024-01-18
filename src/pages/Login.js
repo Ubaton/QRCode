@@ -39,15 +39,13 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
 
     try {
-      const result = await signInWithPopup(auth, provider);
-
-      console.log(result.user);
+      await signInWithPopup(auth, provider);
       navigate("/home");
     } catch (error) {
       console.error(error);
+      toast.error("Google login failed. Please try again.");
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-transparent py-12 px-4 sm:px-6 lg:px-8">
       <div
