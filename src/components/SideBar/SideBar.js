@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
 import Logo from "../../assets/images/cmg.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -7,6 +8,9 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { Button } from "@mui/material";
 import { auth } from "../../data/firebase";
 import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 //Page imports
 import AboutPage from "../../pages/AboutPage";
 import ContactPage from "../../pages/ContactPage";
@@ -24,6 +28,7 @@ function SideBar({ darkMode }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
   const [showSwitchSettingsMenu, setShowSwitchSettingsMenu] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
   const navigate = useNavigate();
 
   const versionUpdate = {
@@ -58,11 +63,22 @@ function SideBar({ darkMode }) {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("Sign out successful");
-        navigate("/");
+        toast.success("You are signed out successfully");
+        navigate("/home");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        toast.error("Error signing out");
+        console.log(error);
+      });
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsSignedIn(!!user);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div className="">
@@ -190,6 +206,7 @@ function SideBar({ darkMode }) {
                 </NavLink>
                 <button
                   onClick={handleSignOut}
+                  disabled={!isSignedIn}
                   className="mt-2 px-3 py-1.5 bg-gradient-to-r from-red-400 to-red-600 text-white rounded-md hover:from-red-600 hover:to-red-400 focus:outline-none focus:ring focus:ring-red-300"
                 >
                   Sign Out

@@ -3,6 +3,7 @@ import SideBar from "../../../components/SideBar/SideBar";
 import VideoDescription from "./VideoDescription";
 import { Button, Box, CircularProgress } from "@mui/material";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CircularIndeterminate(props) {
   return (
@@ -68,7 +69,13 @@ function CompressVideoPage({ darkMode }) {
       const downloadLinkElement = document.createElement("a");
       downloadLinkElement.href = downloadLink;
       downloadLinkElement.download = "compressed_video.mp4";
-      downloadLinkElement.click();
+
+      try {
+        downloadLinkElement.click();
+        toast.success("Download successful");
+      } catch (error) {
+        toast.error("Error during download");
+      }
     }
   };
 
