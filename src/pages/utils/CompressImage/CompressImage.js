@@ -101,7 +101,7 @@ function CompressImagePage({ darkMode }) {
       </div>
       <div className="flex items-center justify-center text-gray-500 p-4 mt-44 md:mt-0 md:ml-12 z-10">
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 md:ml-44 md:mr-2 md:px-4 py-4 shadow-lg rounded-md${
+          className={`grid grid-cols-1 md:grid-cols-2 md:ml-44 md:mr-2 md:px-4 py-4 shadow-lg rounded-md z-10${
             darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
           }`}
         >
