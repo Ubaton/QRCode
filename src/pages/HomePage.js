@@ -132,7 +132,10 @@ function HomePage({ darkMode, toggleDarkMode }) {
                 <></>
               )}
               <NavLink to="/login" className="px-2">
-                <Button variant="outlined">
+                <Button
+                  variant="outlined"
+                  className="bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-[0.05]"
+                >
                   <p className="upper-case text-gray-500 ">Login</p>
                 </Button>
               </NavLink>
