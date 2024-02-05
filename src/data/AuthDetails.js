@@ -6,6 +6,7 @@ import { LuBrush } from "react-icons/lu";
 import { LuXCircle } from "react-icons/lu";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Logo from "../assets/images/cmg.svg";
 
 const plan = [
   {
@@ -195,6 +196,16 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
               Terms of Use
             </NavLink>
           </p>
+          <div className="flex flex-col items-center justify-center py-4">
+            <NavLink to="/home">
+              <img
+                src={Logo}
+                alt="Creative Minds Graphics (PTy) Ltd"
+                width="120"
+                height="29"
+              />
+            </NavLink>
+          </div>
         </div>
       </div>
       {isPlanOpen && (

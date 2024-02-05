@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import Logo from "../../assets/images/cmg.svg";
+import Logo from "../../assets/icons/Q.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -97,12 +97,12 @@ function SideBar({ darkMode }) {
           darkMode ? "bg-DarkMode-cards" : "bg-slate-100"
         }`}
       >
-        <div className="flex flex-col items-center justify-center py-6">
+        <div className="flex flex-col items-center justify-center py-4">
           <NavLink to="/home">
             <img
               src={Logo}
               alt="Creative Minds Graphics (PTy) Ltd"
-              width="157"
+              width="80"
               height="29"
             />
           </NavLink>
@@ -117,7 +117,7 @@ function SideBar({ darkMode }) {
         <div
           className={`${
             showMobileMenu ? "block" : "hidden md:block"
-          } md:block flex items-center justify-center mt-10`}
+          } md:block flex items-center justify-center`}
         >
           <nav className="flex flex-col space-y-2 p-1 text-center">
             <NavLink
