@@ -4,6 +4,7 @@ import VideoDescription from "./VideoDescription";
 import { Button, Box, CircularProgress } from "@mui/material";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BackgroundHexagon from "../../pattens/BackgroundHexagon";
 
 function CircularIndeterminate(props) {
   return (
@@ -85,12 +86,13 @@ function CompressVideoPage({ darkMode }) {
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
+      <BackgroundHexagon />
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
       <div className="flex items-center text-gray-500 justify-center p-4 h-screen grid-cols-2">
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 md:ml-60 rounded-md shadow-lg ${
+          className={`grid grid-cols-1 md:grid-cols-2 md:ml-60 rounded-md shadow-lg z-10 ${
             darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
           }`}
         >

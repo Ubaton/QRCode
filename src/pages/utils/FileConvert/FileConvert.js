@@ -8,6 +8,7 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import FileDescription from "./FileDescription";
 import { Button } from "@mui/material";
 import axios from "axios";
+import BackgroundHexagon from "../../pattens/BackgroundHexagon";
 
 function FileConvertPage({ darkMode }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -97,10 +98,11 @@ function FileConvertPage({ darkMode }) {
         darkMode ? "dark bg-DarkMode-background" : "bg-slate-50"
       }`}
     >
+      <BackgroundHexagon />
       <div className="fixed left-0">
         <SideBar darkMode={darkMode} />
       </div>
-      <div className="flex items-center text-gray-500 justify-center p-4 h-screen grid-cols-2">
+      <div className="flex items-center text-gray-500 justify-center p-4 h-screen grid-cols-2 z-10">
         <div
           className={`grid grid-cols-1 md:grid-cols-2 md:ml-60 rounded-md shadow-lg ${
             darkMode ? "dark bg-DarkMode-cards" : "bg-slate-100"
