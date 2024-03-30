@@ -9,7 +9,7 @@ const ProfilePage = ({ darkMode }) => {
       }`}
     >
       <div
-        className={`max-w-md mx-auto shadow-lg rounded-md p-8 ${
+        className={`max-w-md mx-auto shadow-lg rounded-md p-4 ${
           darkMode ? "dark bg-DarkMode-cards" : "bg-slate-50"
         }`}
       >
