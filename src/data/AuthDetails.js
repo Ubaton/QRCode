@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../data/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut, deleteUser } from "firebase/auth";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { LuBrush } from "react-icons/lu";
 import { LuXCircle } from "react-icons/lu";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Logo from "../assets/images/cmg.svg";
+import { toast } from "react-toastify";
 
 const plan = [
   {
@@ -32,9 +33,9 @@ const priority = {
 };
 
 const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
-  const handleNavLinkClick = (page) => {};
   const [authUser, setAuthUser] = useState(null);
   const [profilePictureUrl, setProfilePictureUrl] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
   const [isPlanOpen, setIsPlanOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -86,6 +87,25 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
       .catch((error) => console.log(error));
   };
 
+  const handleDeleteAccount = () => {
+    setIsDeleting(true);
+  };
+
+  const handleConfirmDelete = () => {
+    deleteUser(authUser)
+      .then(() => {
+        toast.log("User account deleted successfully");
+        navigate("/profilepage");
+      })
+      .catch((error) => {
+        toast.error("Error deleting user account:", error);
+      });
+  };
+
+  const handleCancelDelete = () => {
+    setIsDeleting(false);
+  };
+
   const handleRemoveProfilePicture = () => {
     setProfilePictureUrl("");
     localStorage.removeItem("profilePicture");
@@ -99,7 +119,6 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
       <div className="flex flex-col text-gray-500 items-center justify-center space-y-4">
         <button className="fixed left-4 top-4">
           <NavLink
-            onClick={() => handleNavLinkClick("home")}
             exact
             to="/home"
             activeClassName="bg-blue-500 text-white"
@@ -174,6 +193,12 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
             >
               Sign Out
             </button>
+            <button
+              onClick={handleDeleteAccount}
+              className="mt-4 px-4 py-2 bg-red-700 text-white rounded-md hover:bg-red-800 focus:outline-none focus:ring focus:ring-red-300"
+            >
+              Delete Account
+            </button>
           </div>
         ) : (
           <p className="text-center">Signed Out</p>
@@ -243,6 +268,33 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
               </div>
             </div>
           ))}
+        </div>
+      )}
+      {isDeleting && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+          <div className="bg-white p-8 rounded-md shadow-lg">
+            <h2 className="text-center text-xl font-semibold mb-4">
+              Confirm Account Deletion
+            </h2>
+            <p className="text-gray-700 mb-4">
+              Are you sure you want to delete your account? This action cannot
+              be undone.
+            </p>
+            <div className="flex justify-center">
+              <button
+                onClick={handleConfirmDelete}
+                className="bg-red-500 text-white px-4 py-2 rounded-md mr-4 hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300"
+              >
+                Yes, delete my account
+              </button>
+              <button
+                onClick={handleCancelDelete}
+                className="bg-gray-400 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring focus:ring-gray-300"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </>
