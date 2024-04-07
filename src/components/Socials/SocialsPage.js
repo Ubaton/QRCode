@@ -14,6 +14,7 @@ function SocialsPage() {
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center"
+          alt="qrcode"
         >
           <span className="text-sm text-gray-50 mr-2">
             <InstagramIcon className="gradient-animation rounded-md" />
@@ -25,6 +26,7 @@ function SocialsPage() {
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center"
+          alt="qrcode"
         >
           <span className="text-sm text-gray-50 mr-2">
             <FaXTwitter className="w-6 h-6 gradient-animation rounded-md" />
@@ -36,6 +38,7 @@ function SocialsPage() {
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center"
+          alt="qrcode"
         >
           <span className="text-sm text-gray-50 mr-2">
             <GitHubIcon className="gradient-animation rounded-md" />

@@ -101,7 +101,7 @@ function SideBar({ darkMode }) {
           <NavLink to="/home">
             <img
               src={Logo}
-              alt="Creative Minds Graphics (PTy) Ltd"
+              alt="qrcode Creative Minds Graphics (PTy) Ltd"
               width="80"
               height="29"
             />

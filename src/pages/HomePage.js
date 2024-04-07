@@ -121,7 +121,7 @@ function HomePage({ darkMode, toggleDarkMode }) {
                   {profilePictureUrl ? (
                     <img
                       src={profilePictureUrl}
-                      alt="Profile"
+                      alt="qrcode Profile"
                       className="w-8 h-8 rounded-full mr-2"
                     />
                   ) : (

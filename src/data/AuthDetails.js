@@ -82,7 +82,7 @@ const AuthDetails = ({ onProfilePictureUpdate, darkMode }) => {
     signOut(auth)
       .then(() => {
         console.log("Sign out successful");
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => console.log(error));
   };
