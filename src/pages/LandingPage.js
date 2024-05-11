@@ -1,9 +1,20 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PathIcon from "../assets/path.png";
 import SpinningGeometric from "./pattens/SpinningGeometric";
 
 const LandingPage = ({ darkMode }) => {
+  const [showLoader, setShowLoader] = useState(false);
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+      navigate("/home");
+    }, 1200);
+  };
+
   return (
     <div
       className={`flex flex-col  items-center justify-center min-h-screen ${
@@ -32,11 +43,13 @@ const LandingPage = ({ darkMode }) => {
         </div>
 
         <div className="flex flex-col items-center gap-4">
-          <NavLink to="/home">
-            <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-lg px-8 py-3 text-white rounded-md">
-              Get Started
-            </button>
-          </NavLink>
+          <button
+            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-lg px-8 py-3 text-white rounded-md"
+            onClick={handleGetStarted}
+          >
+            Get Started
+          </button>
+          {showLoader && <div className="loader"></div>}
         </div>
       </div>
     </div>
