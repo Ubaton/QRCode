@@ -5,17 +5,23 @@ import SideBar from "../../../components/SideBar/SideBar";
 import ImageDescription from "./ImageDescription";
 import { Button } from "@mui/material";
 import BackgroundHexagon from "../../pattens/BackgroundHexagon";
+import rederImageSizeInfo from "./ImageSIzeInfo";
 
 function CompressImagePage({ darkMode }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [compressedImage, setCompressedImage] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [initialImageSize, setInitialImageSize] = useState("");
+  const [compressedImageSize, setCompressedImageSize] = useState("");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setSelectedImage(file);
     setCompressedImage(null);
     setFileName(file ? file.name : "");
+    if (file) {
+      setInitialImageSize((file.size / (1024 * 1024)).toFixed(2) + "MB");
+    }
   };
 
   const compressImage = async (imageFile) => {
@@ -87,7 +93,15 @@ function CompressImagePage({ darkMode }) {
     }
 
     setCompressedImage(compressedFile);
+    setCompressedImageSize(
+      (compressedFile.size / (1024 * 1024)).toFixed(2) + "MB"
+    );
   };
+
+  const ImageSIzeInfo = rederImageSizeInfo(
+    initialImageSize,
+    compressedImageSize
+  );
 
   return (
     <div
@@ -109,19 +123,8 @@ function CompressImagePage({ darkMode }) {
             <h2 className="text-center text-2xl font-bold mb-4">
               Image Compression
             </h2>
-            <div className=" flex flex-row p-2 space-x-2">
-              {/* When the Image is Inseted/Uploaded to to the convection point e.g(Number of Current KB/MB of the Image) */}
-              <span className="flex justify-center items-center flex-col text-gray-50">
-                <p className="bg-sky-500 rounded-md p-1">6 MB</p>
-                <p>Initial</p>
-              </span>
+            {ImageSIzeInfo}
 
-              {/* The to size of the Image after it has been conveted e.g(Number of Current KB/MB of the Image) */}
-              <span className="flex justify-center items-center flex-col text-gray-50">
-                <p className="bg-sky-500 rounded-md p-1">1 MB</p>
-                <p>After</p>
-              </span>
-            </div>
             <label className="grid grid-cols-2 gap-4 mb-4 text-slate-50 rounded-md p-2 border border-spacing-2 border-gray-500">
               <span className="flex items-center justify-center cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium text-sm px-10 py-2 text-center mr-2 rounded-md">
                 Choose file
