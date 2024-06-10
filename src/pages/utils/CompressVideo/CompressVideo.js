@@ -52,8 +52,9 @@ function CompressVideoPage({ darkMode }) {
         });
 
         if (response.ok) {
-          const downloadUrl = await response.text();
-          setDownloadLink(downloadUrl);
+          const result = await response.json();
+          setDownloadLink(result.download_url);
+          toast.success("Video compressed successfully");
         } else {
           toast.error("Error compressing video");
         }
@@ -121,7 +122,8 @@ function CompressVideoPage({ darkMode }) {
 
             <Button
               onClick={handleUpload}
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-blod text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-bold text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+              disabled={loading}
             >
               <span className="text-gray-50">Compress Video</span>
             </Button>
@@ -129,7 +131,7 @@ function CompressVideoPage({ darkMode }) {
               <div className="flex items-center justify-center p-2">
                 <Button
                   onClick={handleDownload}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-blod text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-bold text-sm px-5 py-2.5 text-center mr-2 mb-2 text-white rounded-md p-2 m-2"
                 >
                   <span className="text-gray-50">
                     Download Compressed Video

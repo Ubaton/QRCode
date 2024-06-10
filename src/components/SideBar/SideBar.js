@@ -20,7 +20,7 @@ import SocialsPage from "../Socials/SocialsPage";
 const settingsOptions = [
   { nameC: "File Convert", link: "/fileconvert", isNewC: true },
   { name: "Compress Image", link: "/compressimage", isNew: false },
-  { nameC: "Compress Video", link: "/compressvideo", isNewC: true },
+  { nameC: "Compress Video", link: "/compressvideo", isNewC: false },
 ];
 
 function SideBar({ darkMode }) {

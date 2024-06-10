@@ -1,13 +1,18 @@
-from flask import Flask, request, send_file, jsonify # type: ignore
-from moviepy.editor import VideoFileClip # type: ignore
+from flask import Flask, request, send_from_directory, jsonify
+from moviepy.editor import VideoFileClip
 import os
-from werkzeug.utils import secure_filename # type: ignore
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+
 UPLOAD_FOLDER = 'uploads'
 COMPRESSED_FOLDER = 'compressed'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(COMPRESSED_FOLDER, exist_ok=True)
+
+@app.route('/')
+def index():
+    return "Video Compression Backend is Running"
 
 @app.route('/compress_video', methods=['POST'])
 def compress_video():
@@ -26,9 +31,13 @@ def compress_video():
     compressed_filename = f"compressed_{filename}"
     compressed_path = os.path.join(COMPRESSED_FOLDER, compressed_filename)
     clip = VideoFileClip(upload_path)
-    clip.write_videofile(compressed_path, bitrate="500k")
+    clip.write_videofile(compressed_path, bitrate="250k")
 
-    return send_file(compressed_path, as_attachment=True)
+    return jsonify({'download_url': f'/download/{compressed_filename}'})
+
+@app.route('/download/<filename>', methods=['GET'])
+def download_file(filename):
+    return send_from_directory(COMPRESSED_FOLDER, filename, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
