@@ -4,52 +4,67 @@ import { Collapse } from "antd";
 const itemData = [
   {
     key: "1",
-    header: <p className="text-gray-500">PDF to Word Conversion</p>,
+    header: <p className="text-gray-500">Video Compression Process</p>,
     text: (
-      <p className=" font-semibold ">
-        Our PDF to Word conversion tool lets you easily transform PDFs into
-        editable Word documents. Here's how it works:
+      <p className="font-semibold">
+        Our video compression tool helps you reduce the file size of your videos
+        while maintaining quality. Here's how it works:
       </p>
     ),
     list: [
-      "Upload PDF: Choose your PDF file.",
-      "Conversion: We'll convert it into a Word document.",
-      "Download: Get your Word file for editing.",
+      "Upload Video: Choose your video file to upload.",
+      "Compression: Our tool will compress your video to reduce its size.",
+      "Download: Get your compressed video ready for use.",
     ],
     text2:
-      "Now, you can edit PDFs just like Word documents. Simple and efficient.",
+      "Compressing your videos allows you to save storage space and make them easier to share.",
   },
   {
     key: "2",
-    header: <p className="text-gray-500">Word to PDF Conversion</p>,
+    header: <p className="text-gray-500">Supported Formats</p>,
     text: (
-      <p className=" font-semibold ">
-        Our Word to PDF conversion tool simplifies turning Word documents into
-        PDF files. Here's how it works:
+      <p className="font-semibold">
+        Our tool supports various video formats for compression:
       </p>
     ),
     list: [
-      "Upload Word Document: Choose your Word file.",
-      "Conversion: We'll transform it into a PDF file.",
-      "Download: Get your PDF document ready for use.",
+      "MP4: Widely used and compatible with most devices.",
+      "AVI: High-quality video format.",
+      "MOV: Common format for Apple devices.",
+      "WMV: Format used by Windows Media Player.",
     ],
-    text2: "Converting Word files to PDF is now quick and straightforward.",
+    text2: "You can upload videos in these formats for compression.",
   },
   {
     key: "3",
-    header: <p className="text-gray-500">File Size Limitation</p>,
+    header: <p className="text-gray-500">Benefits of Video Compression</p>,
     text: (
-      <p className=" font-semibold ">
-        File Size Limit" refers to the maximum allowable size for a file that
-        can be processed or uploaded. It represents the upper boundary beyond
-        which the file may not be accepted or processed by a system or
-        application. Here's how it works:
+      <p className="font-semibold">
+        Video compression offers several advantages:
       </p>
     ),
     list: [
-      "File Size Limit: Any file size is supported.",
-      "Conversion Limit: Only one file can be converted at a time.",
+      "Reduced File Size: Saves storage space.",
+      "Faster Upload/Download: Quicker transfer of video files.",
+      "Bandwidth Saving: Lower data usage when streaming or sharing.",
     ],
+    text2: "Optimize your videos for better storage and sharing.",
+  },
+  {
+    key: "4",
+    header: <p className="text-gray-500">Usage Tips</p>,
+    text: (
+      <p className="font-semibold">
+        Here are some tips to get the best results from our video compression
+        tool:
+      </p>
+    ),
+    list: [
+      "High-Quality Source: Start with a high-quality video for best compression results.",
+      "Choose Appropriate Format: Use the format that best suits your needs.",
+      "Check Compressed Quality: Ensure the quality is acceptable after compression.",
+    ],
+    text2: "Follow these tips to achieve optimal video compression.",
   },
 ];
 
@@ -68,7 +83,7 @@ const VideoDescription = () => {
               showArrow={false}
             >
               <span>{item.text}</span>
-              <ul className=" p-2 pl-8">
+              <ul className="p-2 pl-8">
                 {item.list.map((listItem, index) => (
                   <li className="list-disc" key={index}>
                     {listItem}
